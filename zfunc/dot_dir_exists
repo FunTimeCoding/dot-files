@@ -1,0 +1,14 @@
+if [ "${1}" = "" ]; then
+    dot_print_debug "error: {1} is empty"
+    return 1
+fi
+
+if [ -d "${1}" ]; then
+    return 0
+fi
+
+dot_print_debug "${1} is missing"
+
+return 1
+
+# vim: ft=zsh
