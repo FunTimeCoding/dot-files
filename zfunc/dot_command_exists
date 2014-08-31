@@ -1,0 +1,6 @@
+# Example:
+# dot_command_exists vim && echo "vim is available"
+
+type "${1}" &> /dev/null;
+
+# vim: ft=zsh

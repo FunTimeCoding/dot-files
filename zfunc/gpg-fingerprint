@@ -1,0 +1,5 @@
+# Print fingerprint of a gpg key.
+
+gpg --dry-run --import "${1}"
+
+# vim: ft=zsh

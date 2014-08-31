@@ -1,0 +1,12 @@
+# Grep files for a pattern and open all matches.
+
+local file
+local -a files
+
+while IFS= read -r -d '' file; do
+files+=("$file")
+done < <(grep --null -ril "$@")
+
+vim "${files[@]}"
+
+# vim: ft=zsh
