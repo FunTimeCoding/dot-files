@@ -1,6 +1,6 @@
-LOAD_START=$(perl -MTime::HiRes -e 'print int(1000 * Time::HiRes::gettimeofday),"\n"')
+#LOAD_START=$(perl -MTime::HiRes -e 'print int(1000 * Time::HiRes::gettimeofday),"\n"')
 
-export DOT_DEBUG=false
+export DOT_DEBUG=true
 export DOTFILES="${HOME}/.dotfiles"
 export FPATH="$HOME/.dotfiles/zfunc:$FPATH"
 export EDITOR=vim
@@ -96,5 +96,5 @@ ZSH_SYNTAX_HIGHLIGHT="${DOTFILES}/.local/zsh-syntax-highlighting/zsh-syntax-high
 # reapply dircolors for tab completion
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-LOAD_END=$(perl -MTime::HiRes -e 'print int(1000 * Time::HiRes::gettimeofday),"\n"')
-echo "Load: $(expr $LOAD_END - $LOAD_START)ms"
+#LOAD_END=$(perl -MTime::HiRes -e 'print int(1000 * Time::HiRes::gettimeofday),"\n"')
+#echo "Load: $(expr $LOAD_END - $LOAD_START)ms"
