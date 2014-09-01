@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 MAINTAINER Alexander Reitzel <funtimecoding@gmail.com>
 
 RUN apt-get update
-RUN apt-get install -yq zsh git vim curl tmux openssh-server pip
+RUN apt-get install -yq zsh git vim curl tmux openssh-server python-pip
 RUN useradd -m -g sudo -s /bin/zsh areitzel
 RUN echo "test\ntest" | passwd areitzel
 

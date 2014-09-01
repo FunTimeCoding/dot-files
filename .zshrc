@@ -81,8 +81,10 @@ case "${TERM}" in
         eval $(dircolors "${DOTFILES}/dircolors")
 
         if dot_command_exists powerline; then
-            POWERLINE="${DOTFILES}/.local/powerline/powerline/bindings/zsh/powerline.zsh"
-            [ -f "${POWERLINE}" ] && . "${POWERLINE}"
+            POWERLINE_LINUX="${HOME}/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
+            [ -f "${POWERLINE_LINUX}" ] && . "${POWERLINE_LINUX}"
+            POWERLINE_OSX="/usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
+            [ -f "${POWERLINE_OSX}" ] && . "${POWERLINE_OSX}"
         else
             echo "powerline is missing"
         fi
@@ -90,7 +92,7 @@ case "${TERM}" in
 esac
 
 # syntax highlight
-ZSH_SYNTAX_HIGHLIGHT="${DOTFILES}/.local/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+ZSH_SYNTAX_HIGHLIGHT="${HOME}/.local/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 [ -f "${ZSH_SYNTAX_HIGHLIGHT}" ] && source "${ZSH_SYNTAX_HIGHLIGHT}"
 
 # reapply dircolors for tab completion
