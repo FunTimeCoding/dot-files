@@ -81,8 +81,10 @@ case "${TERM}" in
         eval $(dircolors "${DOTFILES}/dircolors")
 
         if dot_command_exists powerline; then
-            POWERLINE_LINUX="${HOME}/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
-            [ -f "${POWERLINE_LINUX}" ] && . "${POWERLINE_LINUX}"
+            POWERLINE_LINUX_26="${HOME}/.local/lib/python2.6/site-packages/powerline/bindings/zsh/powerline.zsh"
+            [ -f "${POWERLINE_LINUX_26}" ] && . "${POWERLINE_LINUX_26}"
+            POWERLINE_LINUX_27="${HOME}/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
+            [ -f "${POWERLINE_LINUX_27}" ] && . "${POWERLINE_LINUX_27}"
             POWERLINE_OSX="/usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
             [ -f "${POWERLINE_OSX}" ] && . "${POWERLINE_OSX}"
         else
