@@ -12,7 +12,6 @@ RUN git clone git://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
 RUN git clone git://github.com/FunTimeCoding/dotfiles.git .dotfiles
 RUN git clone https://www.github.com/lokaltog/powerline.git .local/powerline
 RUN ./.dotfiles/setup.sh
-RUN git clone https://github.com/Shougo/neobundle.vim .vim/bundle/neobundle.vim
 
 USER root
 RUN mkdir /var/run/sshd
