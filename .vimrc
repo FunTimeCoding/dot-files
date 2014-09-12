@@ -11,6 +11,7 @@ NeoBundle 'tpope/vim-sensible'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'tejr/vim-nagios'
@@ -45,3 +46,23 @@ NeoBundleCheck
 
 set number
 syntax enable
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+cabbrev W w
+cabbrev Q q
+let mapleader=","
+
+set backupdir=~/.vim/backup
+set directory=~/.vim/swap
+
+if $TMUX == ''
+    set clipboard=unnamed
+endif
+
+for fpath in split(globpath('~/.vim/settings', '*.vim'), '\n')
+    exe 'source' fpath
+endfor
