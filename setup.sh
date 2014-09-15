@@ -51,3 +51,14 @@ if [ ! -d "${NEOBUNDLE_PATH}" ]; then
     echo "Downloading NeoBundle."
     git clone https://github.com/Shougo/neobundle.vim "${NEOBUNDLE_PATH}"
 fi
+
+LOCAL_BIN_DIR="${HOME}/.local/bin"
+if [ ! -d "${LOCAL_BIN_DIR}" ]; then
+    echo "Setting up ${LOCAL_BIN_DIR}."
+    mkdir -p "${LOCAL_BIN_DIR}"
+fi
+
+COMPOSER_FILE="${LOCAL_BIN_DIR}/composer"
+if [ ! -f "${COMPOSER_FILE}" ]; then
+    curl -sS https://getcomposer.org/installer | php -- --install-dir="${LOCAL_BIN_DIR}" --filename=composer
+fi
