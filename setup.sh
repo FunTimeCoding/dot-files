@@ -44,6 +44,7 @@ ln -snf "${WORK_DIR}/.zshenv" "${HOME}/.zshenv"
 ln -snf "${WORK_DIR}/.tmux.conf" "${HOME}/.tmux.conf"
 ln -snf "${WORK_DIR}/.tmuxinator" "${HOME}/.tmuxinator"
 ln -snf "${WORK_DIR}/.muttrc" "${HOME}/.muttrc"
+ln -snf "${WORK_DIR}/.hushlogin" "${HOME}/.hushlogin"
 
 NEOBUNDLE_PATH="${HOME}/.vim/bundle/neobundle.vim"
 if [ ! -d "${NEOBUNDLE_PATH}" ]; then
