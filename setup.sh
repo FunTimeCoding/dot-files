@@ -39,5 +39,7 @@ ln -snf "${WORK_DIR}/.zlogin" "${HOME}/.zlogin"
 ln -snf "${WORK_DIR}/.zlogout" "${HOME}/.zlogout"
 ln -snf "${WORK_DIR}/.zshenv" "${HOME}/.zshenv"
 
+ln -snf "${WORK_DIR}/.tmux.conf" "${HOME}/.tmux.conf"
+
 echo "downloading neobundle"
 git clone https://github.com/Shougo/neobundle.vim .vim/bundle/neobundle.vim
