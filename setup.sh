@@ -58,7 +58,20 @@ if [ ! -d "${LOCAL_BIN_DIR}" ]; then
     mkdir -p "${LOCAL_BIN_DIR}"
 fi
 
-COMPOSER_FILE="${LOCAL_BIN_DIR}/composer"
-if [ ! -f "${COMPOSER_FILE}" ]; then
+COMPOSER_BIN="${LOCAL_BIN_DIR}/composer"
+if [ ! -f "${COMPOSER_BIN}" ]; then
+    echo "Downloading composer."
     curl -sS https://getcomposer.org/installer | php -- --install-dir="${LOCAL_BIN_DIR}" --filename=composer
+fi
+
+PHP_TOOLS_DIR="${HOME}/.local/php/"
+if [ ! -d "${PHP_TOOLS_DIR}" ]; then
+    echo "Creating php tools directory."
+    mkdir -p "${PHP_TOOLS_DIR}"
+fi
+
+PHP_TOOLS_CONFIG="${HOME}/.local/php/composer.json"
+if [ ! -f "${PHP_TOOLS_CONFIG}" ]; then
+    echo "Creating symlink for composer.json."
+    ln -snf "${WORK_DIR}/composer.json" "${PHP_TOOLS_CONFIG}"
 fi

@@ -1,0 +1,43 @@
+{
+    "name": "shiin/phptools",
+    "license": "MIT",
+    "type": "project",
+    "description": "php tools",
+    "config": {
+        "bin-dir": "bin"
+    },
+    "require-dev": {
+        "h4cc/phpqatools": "*",
+        "facebook/arcanist": "*"
+    },
+    "repositories": [
+    {
+        "type": "package",
+        "package": {
+            "name": "facebook/arcanist", 
+            "version": "1.0.0",
+            "source": {
+                "url": "https://github.com/facebook/arcanist.git",
+                "type": "git",
+                "reference": "origin/master"
+            },
+            "bin": ["bin/arc"],
+            "require": {
+                "facebook/libphutil": "*"
+            }
+        }
+    },
+    {
+        "type": "package",
+        "package": {
+            "name": "facebook/libphutil",
+            "version": "1.0.0",
+            "source": {
+                "url": "https://github.com/facebook/libphutil.git", 
+                "type": "git",
+                "reference": "origin/master"
+            }
+        }
+    }
+    ]
+}

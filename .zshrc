@@ -23,8 +23,7 @@ PATHS=(
 "/Applications/Xcode.app/Contents/Developer/usr/subversion-1.6/bin"
 "${HOME}/.rvm/bin"
 "${HOME}/.local/bin"
-"${HOME}/.local/php/vendor/bin"
-"${HOME}/.local/arcanist/bin"
+"${HOME}/.local/php/bin"
 "${DOTFILES}/bin"
 )
 for ELEMENT in "${PATHS[@]}"; do
