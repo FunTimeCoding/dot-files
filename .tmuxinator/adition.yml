@@ -1,0 +1,12 @@
+name: adition
+root: ~/
+windows:
+  - shells:
+      layout: tiled
+      panes:
+        - ssh ci.adition
+        - ssh ci2.adition
+        - ssh muffineer.adition
+        - ssh mona.adition
+        - ssh developer.adition
+        - ssh tankstelle.adition

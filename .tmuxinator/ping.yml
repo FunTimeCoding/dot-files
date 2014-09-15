@@ -1,0 +1,19 @@
+name: ping
+root: ~/
+windows:
+  - shells:
+      layout: tiled
+      panes:
+        - ssh ping.sanity.de
+        - ssh dragon.ping.lan
+        - ssh puppy.ping.lan
+        - ssh mused.ping.lan
+        - ssh pulse.ping.lan
+        - ssh steve.ping.lan
+        - ssh glados.ping.lan
+        - ssh xenon.ping.lan
+        - ssh tiger.ping.lan
+        - ssh osiris.ping.lan
+        - ssh echelon.ping.lan
+        - ssh jasx.ping.lan
+        - ssh raven.ping.lan

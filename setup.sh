@@ -1,29 +1,31 @@
-#!/bin/sh
+#!/bin/sh -ex
+# e: fail hard
+# x: verbose
 
 WORK_DIR="${HOME}/.dotfiles"
 
-[ ! -d "${WORK_DIR}" ] && echo "dotfiles directory must be ${WORK_DIR}" && exit 1
+[ ! -d "${WORK_DIR}" ] && echo "Dotfiles directory must be ${WORK_DIR}." && exit 1
 
 cd "${WORK_DIR}"
 
 SSH_DIR="${HOME}/.ssh"
 
 if [ -d "${SSH_DIR}" ]; then
-	echo "${SSH_DIR} already exists, delete?"
+    echo "Directory ${SSH_DIR} already exists. Replace it? This will rm -rf ${SSH_DIR}."
 	select RESULT in "Yes" "No"; do
 		case ${RESULT} in
 			Yes ) 
-				echo "deleting ${SSH_DIR}"
+				echo "Deleting ${SSH_DIR}."
 				rm -rf "${SSH_DIR}"
 				break;;
 			No ) 
-				echo "exiting"
+				echo "Setup canceled."
 				exit 0;;
 		esac
 	done
 fi
 
-echo "creating and updating symlinks"
+echo "Creating and updating symlinks."
 
 ln -snf "${WORK_DIR}/.ssh" "${HOME}/.ssh"
 
@@ -40,6 +42,11 @@ ln -snf "${WORK_DIR}/.zlogout" "${HOME}/.zlogout"
 ln -snf "${WORK_DIR}/.zshenv" "${HOME}/.zshenv"
 
 ln -snf "${WORK_DIR}/.tmux.conf" "${HOME}/.tmux.conf"
+ln -snf "${WORK_DIR}/.tmuxinator" "${HOME}/.tmuxinator"
+ln -snf "${WORK_DIR}/.muttrc" "${HOME}/.muttrc"
 
-echo "downloading neobundle"
-git clone https://github.com/Shougo/neobundle.vim .vim/bundle/neobundle.vim
+NEOBUNDLE_PATH="${HOME}/.vim/bundle/neobundle.vim"
+if [ ! -d "${NEOBUNDLE_PATH}" ]; then
+    echo "Downloading NeoBundle."
+    git clone https://github.com/Shougo/neobundle.vim "${NEOBUNDLE_PATH}"
+fi
