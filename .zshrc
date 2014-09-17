@@ -49,7 +49,7 @@ if dot_command_exists gls; then
     alias ll='gls -lh --color'
     alias la='gls -Alh --color'
 fi
-dot_command_exists nvim && alias vim='nvim'
+# dot_command_exists nvim && alias vim='nvim'
 dot_command_exists gdircolors && alias dircolors='gdircolors'
 alias vimrc='vim ~/.vimrc'
 alias svn_log='svn log -r HEAD:1 -v -l 3 | less'
