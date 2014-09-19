@@ -20,7 +20,6 @@ PATHS=(
 "/sbin"
 "/usr/sbin"
 "/usr/local/sbin"
-"/Applications/Xcode.app/Contents/Developer/usr/subversion-1.6/bin"
 "${HOME}/.rvm/bin"
 "${HOME}/.local/bin"
 "${HOME}/.local/php/bin"
