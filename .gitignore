@@ -1,4 +1,5 @@
 .vim/bundle
+.vim/.netrwhist
 .ssh/known_hosts
 .ssh/id_*
 .ssh/master-*

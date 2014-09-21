@@ -11,18 +11,23 @@ cd "${WORK_DIR}"
 SSH_DIR="${HOME}/.ssh"
 
 if [ -d "${SSH_DIR}" ]; then
-    echo "Directory ${SSH_DIR} already exists. Replace it? This will rm -rf ${SSH_DIR}."
-	select RESULT in "Yes" "No"; do
-		case ${RESULT} in
-			Yes ) 
-				echo "Deleting ${SSH_DIR}."
-				rm -rf "${SSH_DIR}"
-				break;;
-			No ) 
-				echo "Setup canceled."
-				exit 0;;
-		esac
-	done
+    echo "Directory ${SSH_DIR} already exists. Replace it? (y/n) This will rm -rf ${SSH_DIR}."
+    read OPT
+    case ${OPT} in
+        y ) 
+            echo "Deleting ${SSH_DIR}."
+            rm -rf "${SSH_DIR}"
+            break
+            ;;
+        n ) 
+            echo "Setup canceled."
+            exit 0
+            ;;
+        * )
+            echo "Invalid choice."
+            exit 0
+            ;;
+    esac
 fi
 
 echo "Creating and updating symlinks."
