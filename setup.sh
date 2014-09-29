@@ -63,6 +63,12 @@ if [ ! -d "${LOCAL_BIN_DIR}" ]; then
     mkdir -p "${LOCAL_BIN_DIR}"
 fi
 
+OH_MY_ZSH_DIR="${HOME}/.oh-my-zsh"
+if [ ! -d "${OH_MY_ZSH_DIR}" ]; then
+    echo "Setting up ${OH_MY_ZSH_DIR}."
+    git clone git://github.com/robbyrussell/oh-my-zsh.git "${OH_MY_ZSH_DIR}"
+fi
+
 COMPOSER_BIN="${LOCAL_BIN_DIR}/composer"
 if [ ! -f "${COMPOSER_BIN}" ]; then
     echo "Downloading composer."
@@ -79,4 +85,10 @@ PHP_TOOLS_CONFIG="${HOME}/.local/php/composer.json"
 if [ ! -f "${PHP_TOOLS_CONFIG}" ]; then
     echo "Creating symlink for composer.json."
     ln -snf "${WORK_DIR}/composer.json" "${PHP_TOOLS_CONFIG}"
+fi
+
+PHP_TOOLS_COMPOSER_LOCK="${HOME}/.local/php/composer.lock"
+if [ ! -f "${PHP_TOOLS_COMPOSER_LOCK}" ]; then
+    echo "Installing php tools using composer"
+    ${COMPOSER_BIN} install
 fi
