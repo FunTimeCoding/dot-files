@@ -90,5 +90,6 @@ fi
 PHP_TOOLS_COMPOSER_LOCK="${HOME}/.local/php/composer.lock"
 if [ ! -f "${PHP_TOOLS_COMPOSER_LOCK}" ]; then
     echo "Installing php tools using composer"
+    cd "${PHP_TOOLS_DIR}"
     ${COMPOSER_BIN} install
 fi
