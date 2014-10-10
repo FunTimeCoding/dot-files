@@ -17,3 +17,4 @@ windows:
         - ssh echelon.ping.lan
         - ssh jasx.ping.lan
         - ssh raven.ping.lan
+        - ssh gitlab.ping.lan
