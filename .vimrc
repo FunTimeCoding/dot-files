@@ -15,6 +15,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'tejr/vim-nagios'
+NeoBundle 'saltstack/salt-vim'
 NeoBundleLazy 'docker/docker', {'rtp': 'contrib/syntax/vim/', 'autoload': {'filetypes' : ['dockerfile']}}
 NeoBundleLazy 'mfukar/robotframework-vim', {'autoload': {'filetypes' : ['robot']}}
 
