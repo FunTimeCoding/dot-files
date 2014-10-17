@@ -6,6 +6,8 @@ windows:
       panes:
         - ssh ci.adition
         - ssh ci2.adition
+        - ssh ci3.adition
+        - ssh ci4.adition
         - ssh muffineer.adition
         - ssh mona.adition
         - ssh developer.adition
