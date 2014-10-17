@@ -37,6 +37,9 @@ export PATH
 # oh-my-zsh
 ZSH="${HOME}/.oh-my-zsh"
 if [ -d "${ZSH}" ]; then
+    if ! dot_command_exists powerline; then
+        export ZSH_THEME="steeef"
+    fi
     export DISABLE_AUTO_TITLE=true
     export DISABLE_UPDATE_PROMPT=true
     plugins=(git osx svn brew)
@@ -88,8 +91,6 @@ if dot_command_exists dircolors; then
                 [ -f "${POWERLINE_LINUX_27}" ] && . "${POWERLINE_LINUX_27}"
                 POWERLINE_OSX="/usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
                 [ -f "${POWERLINE_OSX}" ] && . "${POWERLINE_OSX}"
-            else
-                echo "powerline is missing"
             fi
             ;;
     esac
