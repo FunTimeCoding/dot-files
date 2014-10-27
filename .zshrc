@@ -1,6 +1,6 @@
 #LOAD_START=$(perl -MTime::HiRes -e 'print int(1000 * Time::HiRes::gettimeofday),"\n"')
 
-export DOT_DEBUG=true
+export DOT_DEBUG=false
 export DOTFILES="${HOME}/.dotfiles"
 export FPATH="$HOME/.dotfiles/zfunc:$FPATH"
 export EDITOR=vim
