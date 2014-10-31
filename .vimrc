@@ -53,6 +53,9 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+"set noerrorbells
+set vb t_vb=
+
 cabbrev W w
 cabbrev Q q
 let mapleader=","

@@ -75,6 +75,7 @@ HISTSIZE=1000
 setopt incappendhistory
 setopt histignoredups
 setopt INTERACTIVE_COMMENTS # enable # comments in commands
+setopt nobeep
 unsetopt NOMATCH # disable "zsh: no matches found" errors caused by **
 bindkey -v # vi-mode
 bindkey '^r' history-incremental-search-backward
