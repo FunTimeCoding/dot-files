@@ -26,6 +26,8 @@ PATHS=(
 "${HOME}/.local/bin"
 "${HOME}/.local/php/bin"
 "${DOTFILES}/bin"
+"$(brew --prefix homebrew/php/php56)/bin"
+"$(brew --prefix ruby)/bin"
 #"${POWERLINE_PATH}/bin"
 )
 for ELEMENT in "${PATHS[@]}"; do
