@@ -26,10 +26,14 @@ PATHS=(
 "${HOME}/.local/bin"
 "${HOME}/.local/php/bin"
 "${DOTFILES}/bin"
-"$(brew --prefix homebrew/php/php56)/bin"
-"$(brew --prefix ruby)/bin"
 #"${POWERLINE_PATH}/bin"
 )
+if dot_command_exists brew; then
+    PATHS+=(
+    "$(brew --prefix homebrew/php/php56)/bin"
+    "$(brew --prefix ruby)/bin"
+    )
+fi
 for ELEMENT in "${PATHS[@]}"; do
     if [ ! "${ELEMENT}" = "" ]; then
         if dot_dir_exists "${ELEMENT}"; then
