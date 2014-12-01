@@ -18,6 +18,7 @@ NeoBundle 'tejr/vim-nagios'
 NeoBundle 'saltstack/salt-vim'
 NeoBundleLazy 'docker/docker', {'rtp': 'contrib/syntax/vim/', 'autoload': {'filetypes' : ['dockerfile']}}
 NeoBundleLazy 'mfukar/robotframework-vim', {'autoload': {'filetypes' : ['robot']}}
+NeoBundleLazy 'pangloss/vim-javascript', {'autoload': {'filetypes' : ['javascript']}}
 
 let s:php_plugins = ['StanAngeloff/php.vim', 'joonty/vim-phpqa', '2072/PHP-Indenting-for-VIm']
 for g:plugin in s:php_plugins
