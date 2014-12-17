@@ -55,6 +55,12 @@ if [ -d "${ZSH}" ]; then
     source "${ZSH}/oh-my-zsh.sh"
 fi
 
+# groovy
+GROOVY_DIR="/usr/local/opt/groovy/libexec"
+if [ -d "${GROOVY_DIR}" ]; then
+    export "GROOVY_HOME=${GROOVY_DIR}"
+fi
+
 # aliases
 if dot_command_exists gls; then
     alias ls='gls -F --color'
