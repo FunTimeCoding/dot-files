@@ -39,6 +39,12 @@ for g:plugin in s:python_plugins
 endfor
 unlet s:python_plugins
 
+let s:erlang_plugins = ['edkolev/erlang-motions.vim', 'jimenezrick/vimerl']
+for g:plugin in s:erlang_plugins
+    NeoBundleLazy g:plugin, {'autoload' : { 'filetypes' : ['erlang'] }}
+endfor
+unlet s:erlang_plugins
+
 unlet g:plugin
 " end of bundles list
 

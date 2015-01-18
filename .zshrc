@@ -12,7 +12,7 @@ compinit
 # functions
 autoload -Uz ~/.dotfiles/zfunc/*(:t)
 
-#POWERLINE_PATH="$(find /usr/local/lib/python2.7/site-packages -type d -name 'powerline*' -maxdepth 1 | head -n 1)"
+POWERLINE_PATH="$(find /usr/local/lib/python2.7/site-packages -type d -name 'powerline*' -maxdepth 1 | head -n 1)"
 
 # path
 PATHS=(
@@ -26,7 +26,7 @@ PATHS=(
 "${HOME}/.local/bin"
 "${HOME}/.local/php/bin"
 "${DOTFILES}/bin"
-#"${POWERLINE_PATH}/bin"
+"${POWERLINE_PATH}/bin"
 )
 if dot_command_exists brew; then
     PATHS+=(
@@ -105,8 +105,8 @@ if dot_command_exists dircolors; then
                 [ -f "${POWERLINE_LINUX_26}" ] && . "${POWERLINE_LINUX_26}"
                 POWERLINE_LINUX_27="${HOME}/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
                 [ -f "${POWERLINE_LINUX_27}" ] && . "${POWERLINE_LINUX_27}"
-                #POWERLINE_OSX="${POWERLINE_PATH}/bindings/zsh/powerline.zsh"
-                #[ -f "${POWERLINE_OSX}" ] && . "${POWERLINE_OSX}"
+                POWERLINE_OSX="${POWERLINE_PATH}/bindings/zsh/powerline.zsh"
+                [ -f "${POWERLINE_OSX}" ] && . "${POWERLINE_OSX}"
             fi
             ;;
     esac
