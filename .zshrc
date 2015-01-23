@@ -18,7 +18,6 @@ if [ "${OS}" = "Linux" ]; then
 elif [ "${OS}" = "Darwin" ]; then
     SITE_PACKAGES="/usr/local/lib/python2.7/site-packages"
 fi
-POWERLINE_PATH="$(find ${SITE_PACKAGES} -type d -name 'powerline*' | head -n 1)"
 
 # path
 PATHS=(
@@ -32,7 +31,7 @@ PATHS=(
 "${HOME}/.local/bin"
 "${HOME}/.local/php/bin"
 "${DOTFILES}/bin"
-"${POWERLINE_PATH}/bin"
+"${SITE_PACKAGES}/powerline/bin"
 )
 
 if dot_command_exists brew; then
@@ -108,7 +107,7 @@ if dot_command_exists dircolors; then
             eval $(dircolors "${DOTFILES}/dircolors")
 
             if dot_command_exists powerline; then
-                POWERLINE_ZSH="${POWERLINE_PATH}/bindings/zsh/powerline.zsh"
+                POWERLINE_ZSH="${SITE_PACKAGES}/powerline/bindings/zsh/powerline.zsh"
                 [ -f "${POWERLINE_ZSH}" ] && . "${POWERLINE_ZSH}"
             fi
             ;;
