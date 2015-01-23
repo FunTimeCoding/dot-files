@@ -12,7 +12,13 @@ compinit
 # functions
 autoload -Uz ~/.dotfiles/zfunc/*(:t)
 
-POWERLINE_PATH="$(find /usr/local/lib/python2.7/site-packages -type d -name 'powerline*' -maxdepth 1 | head -n 1)"
+OS=$(uname)
+if [ "${OS}" = "linux" ]; then
+    SITE_PACKAGES=$(python -m site --user-site)
+elif [ "${OS}" = "darwin" ]; then
+    SITE_PACKAGES="/usr/local/lib/python2.7/site-packages"
+fi
+POWERLINE_PATH="$(find ${SITE_PACKAGES} -type d -name 'powerline*' | head -n 1)"
 
 # path
 PATHS=(
@@ -28,6 +34,7 @@ PATHS=(
 "${DOTFILES}/bin"
 "${POWERLINE_PATH}/bin"
 )
+
 if dot_command_exists brew; then
     PATHS+=(
     "$(brew --prefix homebrew/php/php56)/bin"
@@ -101,12 +108,8 @@ if dot_command_exists dircolors; then
             eval $(dircolors "${DOTFILES}/dircolors")
 
             if dot_command_exists powerline; then
-                POWERLINE_LINUX_26="${HOME}/.local/lib/python2.6/site-packages/powerline/bindings/zsh/powerline.zsh"
-                [ -f "${POWERLINE_LINUX_26}" ] && . "${POWERLINE_LINUX_26}"
-                POWERLINE_LINUX_27="${HOME}/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
-                [ -f "${POWERLINE_LINUX_27}" ] && . "${POWERLINE_LINUX_27}"
-                POWERLINE_OSX="${POWERLINE_PATH}/bindings/zsh/powerline.zsh"
-                [ -f "${POWERLINE_OSX}" ] && . "${POWERLINE_OSX}"
+                POWERLINE_ZSH="${POWERLINE_PATH}/bindings/zsh/powerline.zsh"
+                [ -f "${POWERLINE_ZSH}" ] && . "${POWERLINE_ZSH}"
             fi
             ;;
     esac
