@@ -11,4 +11,4 @@ windows:
         - ssh muffineer.adition
         - ssh mona.adition
         - ssh developer.adition
-        - ssh tankstelle.adition
+        - ssh salt.adition
