@@ -15,7 +15,7 @@ autoload -Uz ~/.dotfiles/zfunc/*(:t)
 OS=$(uname)
 if [ "${OS}" = "linux" ]; then
     SITE_PACKAGES=$(python -m site --user-site)
-elif [ "${OS}" = "darwin" ]; then
+elif [ "${OS}" = "Darwin" ]; then
     SITE_PACKAGES="/usr/local/lib/python2.7/site-packages"
 fi
 POWERLINE_PATH="$(find ${SITE_PACKAGES} -type d -name 'powerline*' | head -n 1)"
