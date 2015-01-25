@@ -53,6 +53,9 @@ ln -snf "${WORK_DIR}/.hushlogin" "${HOME}/.hushlogin"
 ln -snf "${WORK_DIR}/.grcat" "${HOME}/.grcat"
 ln -snf "${WORK_DIR}/.my.cnf" "${HOME}/.my.cnf"
 
+mkdir -p "${HOME}/.config"
+ln -snf "${WORK_DIR}/powerline" "${HOME}/.config/powerline"
+
 NEOBUNDLE_PATH="${HOME}/.vim/bundle/neobundle.vim"
 if [ ! -d "${NEOBUNDLE_PATH}" ]; then
     echo "Downloading NeoBundle."

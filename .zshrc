@@ -19,6 +19,8 @@ elif [ "${OS}" = "Darwin" ]; then
     SITE_PACKAGES="/usr/local/lib/python2.7/site-packages"
 fi
 
+export POWERLINE_DIR="${SITE_PACKAGES}/powerline"
+
 # path
 PATHS=(
 "/bin"
@@ -31,7 +33,7 @@ PATHS=(
 "${HOME}/.local/bin"
 "${HOME}/.local/php/bin"
 "${DOTFILES}/bin"
-"${SITE_PACKAGES}/powerline/bin"
+"${POWERLINE_DIR}/bin"
 )
 
 if dot_command_exists brew; then
@@ -107,7 +109,7 @@ if dot_command_exists dircolors; then
             eval $(dircolors "${DOTFILES}/dircolors")
 
             if dot_command_exists powerline; then
-                POWERLINE_ZSH="${SITE_PACKAGES}/powerline/bindings/zsh/powerline.zsh"
+                POWERLINE_ZSH="${POWERLINE_DIR}/bindings/zsh/powerline.zsh"
                 [ -f "${POWERLINE_ZSH}" ] && . "${POWERLINE_ZSH}"
             fi
             ;;
