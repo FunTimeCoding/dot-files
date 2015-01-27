@@ -55,6 +55,16 @@ ln -snf "${WORK_DIR}/.my.cnf" "${HOME}/.my.cnf"
 
 mkdir -p "${HOME}/.config"
 ln -snf "${WORK_DIR}/powerline" "${HOME}/.config/powerline"
+if type pip > /dev/null; then
+    OS=$(uname)
+    if [ "${OS}" = "Linux" ]; then
+        pip install --user -U powerline-status
+    elif [ "${OS}" = "Darwin" ]; then
+        pip install -U powerline-status
+    fi
+else
+    echo "pip is not installed, not installing powerline-status"
+fi
 
 NEOBUNDLE_PATH="${HOME}/.vim/bundle/neobundle.vim"
 if [ ! -d "${NEOBUNDLE_PATH}" ]; then
