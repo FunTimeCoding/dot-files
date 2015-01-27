@@ -12,3 +12,5 @@ windows:
         - ssh mona.adition
         - ssh developer.adition
         - ssh salt.adition
+        - ssh devboxy.adition
+        - ssh selenium-test.adition
