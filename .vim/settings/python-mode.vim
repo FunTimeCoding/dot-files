@@ -13,3 +13,4 @@ let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
 let g:pymode_folding = 0
 let g:pymode_trim_whitespaces = 0
+let g:pymode_rope_lookup_project = 0
