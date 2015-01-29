@@ -59,7 +59,11 @@ if [ -d "${ZSH}" ]; then
     fi
     export DISABLE_AUTO_TITLE=true
     export DISABLE_UPDATE_PROMPT=true
-    plugins=(git osx svn brew)
+    if [ "${OS}" = "Linux" ]; then
+        plugins=(git svn zsh-syntax-highlighting)
+    elif [ "${OS}" = "Darwin" ]; then
+        plugins=(git osx svn brew zsh-syntax-highlighting)
+    fi
     source "${ZSH}/oh-my-zsh.sh"
 fi
 
@@ -115,10 +119,6 @@ if dot_command_exists dircolors; then
             ;;
     esac
 fi
-
-# syntax highlight
-ZSH_SYNTAX_HIGHLIGHT="${HOME}/.local/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-[ -f "${ZSH_SYNTAX_HIGHLIGHT}" ] && source "${ZSH_SYNTAX_HIGHLIGHT}"
 
 # reapply dircolors for tab completion
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
