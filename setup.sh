@@ -84,6 +84,12 @@ if [ ! -d "${OH_MY_ZSH_DIR}" ]; then
     git clone git://github.com/robbyrussell/oh-my-zsh.git "${OH_MY_ZSH_DIR}"
 fi
 
+ZSH_SYNTAX_HIGHLIGHTING="${HOME}/.local/zsh-syntax-highlighting/"
+if [ ! -d "${ZSH_SYNTAX_HIGHLIGHTING}" ]; then
+    echo "downloading zsh-syntax-highlighting"
+    git clone git@github.com:zsh-users/zsh-syntax-highlighting.git "${ZSH_SYNTAX_HIGHLIGHTING}"
+fi
+
 if ! type php > /dev/null; then
     echo "php is not installed, not installing composer"
     exit 0
