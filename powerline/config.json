@@ -8,7 +8,7 @@
 			"theme": "default"
 		},
 		"tmux": {
-			"colorscheme": "solarized",
+			"colorscheme": "default",
 			"theme": "shiin"
 		}
 	}
