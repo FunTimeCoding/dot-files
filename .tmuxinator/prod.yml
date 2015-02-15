@@ -1,0 +1,8 @@
+name: prod
+root: ~/
+windows:
+  - shells:
+      layout: tiled
+      panes:
+        - ssh ops.rz.adition
+        - ssh customer-wiki.rz.adition
