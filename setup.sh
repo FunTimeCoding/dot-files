@@ -50,7 +50,7 @@ ln -snf "${WORK_DIR}/.tmux.conf" "${HOME}/.tmux.conf"
 ln -snf "${WORK_DIR}/.tmuxinator" "${HOME}/.tmuxinator"
 ln -snf "${WORK_DIR}/.muttrc" "${HOME}/.muttrc"
 ln -snf "${WORK_DIR}/.hushlogin" "${HOME}/.hushlogin"
-ln -snf "${WORK_DIR}/.grcat" "${HOME}/.grcat"
+ln -snf "${WORK_DIR}/.grc" "${HOME}/.grc"
 ln -snf "${WORK_DIR}/.psqlrc" "${HOME}/.psqlrc"
 ln -snf "${WORK_DIR}/.my.cnf" "${HOME}/.my.cnf"
 

@@ -1,0 +1,52 @@
+# modified
+regexp=modified:
+colours=bold green
+count=more
+-
+
+# renamed
+regexp=renamed:
+colours=bold green
+count=more
+-
+
+# new file
+regexp=new file:
+colours=bold green
+count=more
+-
+
+# deleted
+regexp=deleted
+colours=bold red
+count=more
+-
+
+# hash
+regexp=#
+colours=yellow
+count=more
+-
+
+# on branch
+regexp=On branch master
+colours=white
+count=more
+-
+
+# not staged
+regexp=Changes not staged for commit:
+colours=underline
+count=more
+-
+
+# untracked
+regexp=Untracked files:
+colours=underline
+count=more
+-
+
+# changes
+regexp=Changes to be committed:
+colours=underline
+count=more

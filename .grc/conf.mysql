@@ -9,7 +9,7 @@ regexp=[+\-]+[+\-]|[|]
 colours=red
 -
 
-# data in ( ) and ' '
+# data in () and ''
 regexp=\([\w\d,']+\)
 colours=white
 -

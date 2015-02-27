@@ -1,0 +1,75 @@
+# delta compression
+regexp=Delta.*
+colours=white
+count=more
+skip=yes
+-
+
+# total
+regexp=Total.*
+colours=white
+count=more
+skip=yes
+-
+
+# URL
+regexp=http.*
+colours=underline
+count=more
+-
+
+# branches
+regexp=\S*\s->\s\S*
+colours=bold
+count=more
+-
+
+# arrow
+regexp=->
+colours=cyan
+count=more
+-
+
+# done
+regexp=done\.
+colours=bold
+count=more
+-
+
+# tasks
+regexp=^.*objects:
+colours=underline
+count=more
+skip=yes
+-
+
+# deleted
+regexp=deleted
+colours=red
+count=more
+-
+
+# hints
+regexp=hint:*
+colours=yellow
+count=more
+skip=yes
+-
+
+# error
+regexp=error:*
+colours=yellow
+count=more
+skip=yes
+-
+
+# rejected1
+regexp=\[|\]
+colours=yellow
+count=more
+-
+
+# rejected2
+regexp=rejected
+colours=bold red
+count=more

@@ -91,6 +91,7 @@ alias crontab="VIM_CRONTAB=true crontab"
 alias apt-search='apt-cache search'
 alias apt-version='dpkg -s'
 alias ccat='pygmentize -O style=monokai -f console256 -g'
+alias gst='git status | grcat conf.gitstatus'
 
 # zsh settings
 CASE_SENSITIVE="true"
