@@ -1,29 +1,28 @@
-#!/bin/sh -ex
-# e: fail hard
-# x: verbose
+#!/bin/sh -e
 
+SCRIPT_DIR="$(cd $(dirname ${0}); pwd)"
 WORK_DIR="${HOME}/.dotfiles"
 
-[ ! -d "${WORK_DIR}" ] && echo "Dotfiles directory must be ${WORK_DIR}." && exit 1
-
-cd "${WORK_DIR}"
+if [ ! "${WORK_DIR}" = "${SCRIPT_DIR}" ]; then
+    echo "Dotfiles directory must be ${WORK_DIR}."
+    exit 1
+fi
 
 SSH_DIR="${HOME}/.ssh"
-
 if [ -d "${SSH_DIR}" ]; then
     echo "Directory ${SSH_DIR} already exists. Replace it? (y/n) This will rm -rf ${SSH_DIR}."
     read OPT
     case ${OPT} in
-        y ) 
+        y)
             echo "Deleting ${SSH_DIR}."
             rm -rf "${SSH_DIR}"
             break
             ;;
-        n ) 
+        n)
             echo "Setup canceled."
             exit 0
             ;;
-        * )
+        *)
             echo "Invalid choice."
             exit 0
             ;;
@@ -32,27 +31,11 @@ fi
 
 echo "Creating and updating symlinks."
 
-ln -snf "${WORK_DIR}/.ssh" "${HOME}/.ssh"
+FILES=$(find "${SCRIPT_DIR}" -name '.*' -depth 1 | awk -F/ '{print $NF}')
 
-ln -snf "${WORK_DIR}/.vim" "${HOME}/.vim"
-ln -snf "${WORK_DIR}/.vimrc" "${HOME}/.vimrc"
-ln -snf "${WORK_DIR}/.vimrc" "${HOME}/.nvimrc"
-
-ln -snf "${WORK_DIR}/.gitconfig" "${HOME}/.gitconfig"
-ln -snf "${WORK_DIR}/.gitignore_global" "${HOME}/.gitignore_global"
-
-ln -snf "${WORK_DIR}/.zshrc" "${HOME}/.zshrc"
-ln -snf "${WORK_DIR}/.zlogin" "${HOME}/.zlogin"
-ln -snf "${WORK_DIR}/.zlogout" "${HOME}/.zlogout"
-ln -snf "${WORK_DIR}/.zshenv" "${HOME}/.zshenv"
-
-ln -snf "${WORK_DIR}/.tmux.conf" "${HOME}/.tmux.conf"
-ln -snf "${WORK_DIR}/.tmuxinator" "${HOME}/.tmuxinator"
-ln -snf "${WORK_DIR}/.muttrc" "${HOME}/.muttrc"
-ln -snf "${WORK_DIR}/.hushlogin" "${HOME}/.hushlogin"
-ln -snf "${WORK_DIR}/.grc" "${HOME}/.grc"
-ln -snf "${WORK_DIR}/.psqlrc" "${HOME}/.psqlrc"
-ln -snf "${WORK_DIR}/.my.cnf" "${HOME}/.my.cnf"
+for FILE in ${FILES}; do
+    ln -snf "${WORK_DIR}/${FILE}" "${HOME}"
+done
 
 mkdir -p "${HOME}/.config"
 ln -snf "${WORK_DIR}/powerline" "${HOME}/.config/powerline"
