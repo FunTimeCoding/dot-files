@@ -31,7 +31,7 @@ fi
 
 echo "Creating and updating symlinks."
 
-FILES=$(find "${SCRIPT_DIR}" -name '.*' -depth 1 | awk -F/ '{print $NF}')
+FILEs=$(find "${SCRIPT_DIR}" -name '.*' -not -path '*.git' -depth 1 | awk -F/ '{print $NF}')
 
 for FILE in ${FILES}; do
     ln -snf "${WORK_DIR}/${FILE}" "${HOME}"
