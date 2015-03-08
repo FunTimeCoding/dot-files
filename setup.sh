@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh -ex
 
 SCRIPT_DIR="$(cd $(dirname ${0}); pwd)"
 WORK_DIR="${HOME}/.dotfiles"
@@ -31,10 +31,10 @@ fi
 
 echo "Creating and updating symlinks."
 
-FILEs=$(find "${SCRIPT_DIR}" -name '.*' -not -path '*.git' -depth 1 | awk -F/ '{print $NF}')
+FILES=$(find "${SCRIPT_DIR}" -name '.*' -not -path '*.git' -depth 1 | awk -F/ '{print $NF}')
 
 for FILE in ${FILES}; do
-    ln -snf "${WORK_DIR}/${FILE}" "${HOME}"
+    ln -snf "${WORK_DIR}/${FILE}" "${HOME}/${FILE}"
 done
 
 mkdir -p "${HOME}/.config"
