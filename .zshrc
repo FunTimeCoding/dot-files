@@ -32,6 +32,7 @@ PATHS=(
 "${HOME}/.rvm/bin"
 "${HOME}/.local/bin"
 "${HOME}/.local/php/bin"
+"${HOME}/.local/dev-tools/bin"
 "${DOTFILES}/bin"
 "${POWERLINE_DIR}/bin"
 )
