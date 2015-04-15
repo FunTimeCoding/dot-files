@@ -39,7 +39,7 @@ PATHS=(
 
 if dot_command_exists brew; then
     PATHS+=(
-    "$(brew --prefix homebrew/php/php56)/bin"
+    "$(brew --prefix homebrew/php/php53)/bin"
     "$(brew --prefix ruby)/bin"
     )
 fi
@@ -51,6 +51,11 @@ for ELEMENT in "${PATHS[@]}"; do
     fi
 done
 export PATH
+export MANPATH="${MANPATH}:/usr/local/man"
+
+# perlbrew
+PERLBREW="${HOME}/perl5/perlbrew/etc/bashrc"
+[[ -f "${PERLBREW}" ]] && source "${PERLBREW}"
 
 # oh-my-zsh
 ZSH="${HOME}/.oh-my-zsh"
