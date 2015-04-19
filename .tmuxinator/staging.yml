@@ -1,9 +1,0 @@
-name: staging
-root: ~/
-windows:
-  - shells:
-      layout: tiled
-      panes:
-        - ssh ops2.st.adition
-        - ssh ci.rz.adition
-        - ssh ci1.rz.adition
