@@ -1,5 +1,5 @@
 .DS_Store
 .idea
 .ropeproject
-/vendor
+vendor
 atlassian-ide-plugin.xml
