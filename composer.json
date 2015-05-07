@@ -1,13 +1,13 @@
 {
-    "name": "shiin/phptools",
+    "name": "FunTimeCoding/php-tools",
     "license": "MIT",
     "type": "project",
-    "description": "php tools",
+    "description": "PHP tools.",
     "config": {
         "bin-dir": "bin"
     },
     "require-dev": {
-        "h4cc/phpqatools": "*",
+        "phpunit/phpunit": "4.*",
         "facebook/arcanist": "*"
     },
     "repositories": [
