@@ -1,5 +1,6 @@
 #LOAD_START=$(perl -MTime::HiRes -e 'print int(1000 * Time::HiRes::gettimeofday),"\n"')
 
+# env
 export DOT_DEBUG=false
 export DOTFILES="${HOME}/.dotfiles"
 export FPATH="$HOME/.dotfiles/zfunc:$FPATH"
@@ -12,7 +13,9 @@ compinit
 # functions
 autoload -Uz ~/.dotfiles/zfunc/*(:t)
 
+# powerline
 OS=$(uname)
+
 if [ "${OS}" = "Linux" ]; then
     SITE_PACKAGES=$(python -m site --user-site)
 elif [ "${OS}" = "Darwin" ]; then
@@ -43,6 +46,7 @@ if dot_command_exists brew; then
     "$(brew --prefix ruby)/bin"
     )
 fi
+
 for ELEMENT in "${PATHS[@]}"; do
     if [ ! "${ELEMENT}" = "" ]; then
         if dot_dir_exists "${ELEMENT}"; then
@@ -50,6 +54,7 @@ for ELEMENT in "${PATHS[@]}"; do
         fi
     fi
 done
+
 export PATH
 export MANPATH="${MANPATH}:/usr/local/man"
 
@@ -59,6 +64,7 @@ PERLBREW="${HOME}/perl5/perlbrew/etc/bashrc"
 
 # oh-my-zsh
 ZSH="${HOME}/.oh-my-zsh"
+
 if [ -d "${ZSH}" ]; then
     if ! dot_command_exists powerline; then
         export ZSH_THEME="steeef"
@@ -75,9 +81,7 @@ fi
 
 # groovy
 GROOVY_DIR="/usr/local/opt/groovy/libexec"
-if [ -d "${GROOVY_DIR}" ]; then
-    export "GROOVY_HOME=${GROOVY_DIR}"
-fi
+[[ -d "${GROOVY_DIR}" ]] && export GROOVY_HOME="${GROOVY_DIR}"
 
 # aliases
 if dot_command_exists gls; then
@@ -86,6 +90,7 @@ if dot_command_exists gls; then
     alias ll='gls -lh --color'
     alias la='gls -Alh --color'
 fi
+
 # dot_command_exists nvim && alias vim='nvim'
 dot_command_exists gdircolors && alias dircolors='gdircolors'
 alias vimrc='vim ~/.vimrc'
@@ -98,11 +103,19 @@ alias crontab="VIM_CRONTAB=true crontab"
 alias apt-search='apt-cache search'
 alias apt-version='dpkg -s'
 alias ccat='pygmentize -O style=monokai -f console256 -g'
+alias irssi='screenify irssi'
+alias i='irssi'
+alias iotop='sudo iotop'
+alias svn_diff_branch='svn diff -r $(svn log --stop-on-copy | grep -o "^r\d*" | tail -1):HEAD | view -'
+
 if dot_command_exists grcat; then
     alias gst='git status | grcat conf.gitstatus'
 else
     alias gst='git status'
 fi
+
+ADITION_CONF="${HOME}/.adition.conf.sh"
+[[ -f "${ADITION_CONF}" ]] && source "${ADITION_CONF}"
 
 # zsh settings
 CASE_SENSITIVE="true"
@@ -119,7 +132,7 @@ bindkey '^r' history-incremental-search-backward
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
-# dircolors & powerline
+# dircolors, powerline
 if dot_command_exists dircolors; then
     case "${TERM}" in
         xterm* | screen*)
