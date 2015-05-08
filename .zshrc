@@ -114,7 +114,7 @@ else
     alias gst='git status'
 fi
 
-ADITION_CONF="${HOME}/.adition.conf.sh"
+ADITION_CONF="${HOME}/.adition.conf"
 [[ -f "${ADITION_CONF}" ]] && source "${ADITION_CONF}"
 
 # zsh settings
