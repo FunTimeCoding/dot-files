@@ -1,12 +1,5 @@
 {
-    "name": "FunTimeCoding/php-tools",
-    "license": "MIT",
-    "type": "project",
-    "description": "PHP tools.",
-    "config": {
-        "bin-dir": "bin"
-    },
-    "require-dev": {
+    "require": {
         "phpunit/phpunit": "4.*",
         "facebook/arcanist": "*"
     },

@@ -33,7 +33,7 @@ if [ -d "${SSH_DIR}" ]; then
     esac
 fi
 
-echo "Creating and updating symlinks."
+echo "Updating symlinks."
 FILES=$(find "${SCRIPT_DIR}" -maxdepth 1 -name '.*' -not -path '*.git' -and -not -path "${WORK_DIR}" | awk -F/ '{print $NF}')
 
 for FILE in ${FILES}; do
@@ -83,7 +83,7 @@ if [ ! -d "${ZSH_SYNTAX_HIGHLIGHTING}" ]; then
 fi
 
 if ! type php > /dev/null; then
-    echo "php is not installed, not installing composer"
+    echo "PHP is not installed, not installing Composer."
 
     exit 0
 fi
@@ -91,28 +91,28 @@ fi
 COMPOSER_BIN="${LOCAL_BIN_DIR}/composer"
 
 if [ ! -f "${COMPOSER_BIN}" ]; then
-    echo "Downloading composer."
+    echo "Downloading Composer."
     curl -sS https://getcomposer.org/installer | php -- --install-dir="${LOCAL_BIN_DIR}" --filename=composer
 fi
 
-PHP_TOOLS_DIR="${HOME}/.local/php/"
+COMPOSER_DIR="${HOME}/.composer"
 
-if [ ! -d "${PHP_TOOLS_DIR}" ]; then
-    echo "Creating php tools directory."
-    mkdir -p "${PHP_TOOLS_DIR}"
+if [ ! -d "${COMPOSER_DIR}" ]; then
+    echo "Creating Composer directory."
+    mkdir -p "${COMPOSER_DIR}"
 fi
 
-PHP_TOOLS_CONFIG="${HOME}/.local/php/composer.json"
+COMPOSER_CONFIG="${HOME}/.composer/composer.json"
 
-if [ ! -f "${PHP_TOOLS_CONFIG}" ]; then
-    echo "Creating symlink for composer.json."
-    ln -snf "${WORK_DIR}/composer.json" "${PHP_TOOLS_CONFIG}"
+if [ ! -f "${COMPOSER_CONFIG}" ] || [ ! -L "${COMPOSER_CONFIG}" ]; then
+    echo "Symlinking composer.json."
+    ln -snf "${WORK_DIR}/composer.json" "${COMPOSER_CONFIG}"
 fi
 
-PHP_TOOLS_COMPOSER_LOCK="${HOME}/.local/php/composer.lock"
+COMPOSER_LOCK="${HOME}/.local/php/composer.lock"
 
-if [ ! -f "${PHP_TOOLS_COMPOSER_LOCK}" ]; then
-    echo "Installing php tools using composer"
-    cd "${PHP_TOOLS_DIR}"
+if [ ! -f "${COMPOSER_LOCK}" ]; then
+    echo "Installing Composer packages."
+    cd "${COMPOSER_DIR}"
     ${COMPOSER_BIN} install
 fi

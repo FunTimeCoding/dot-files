@@ -34,7 +34,7 @@ PATHS=(
 "/usr/local/sbin"
 "${HOME}/.rvm/bin"
 "${HOME}/.local/bin"
-"${HOME}/.local/php/bin"
+"${HOME}/.composer/vendor/bin"
 "${HOME}/.local/dev-tools/bin"
 "${DOTFILES}/bin"
 "${POWERLINE_DIR}/bin"
