@@ -1,7 +1,7 @@
 {
     "require": {
-        "phpunit/phpunit": "4.*",
-        "facebook/arcanist": "*"
+        "facebook/arcanist": "*",
+        "fabpot/php-cs-fixer": "*"
     },
     "repositories": [
         {
