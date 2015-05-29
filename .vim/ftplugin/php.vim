@@ -12,3 +12,5 @@ setlocal expandtab
 " for php.vim to wrap methods
 setlocal foldlevel=99
 
+" run currently open test
+map ,t :w\|:silent !echo "vendor/bin/phpunit %" > test-commands<cr>:redraw!<cr>
