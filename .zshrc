@@ -18,11 +18,16 @@ OS=$(uname)
 
 if [ "${OS}" = "Linux" ]; then
     SITE_PACKAGES=$(python -m site --user-site)
+    DEBIAN_VERSION=$(cat /etc/debian_version)
 elif [ "${OS}" = "Darwin" ]; then
     SITE_PACKAGES="/usr/local/lib/python2.7/site-packages"
 fi
 
-export POWERLINE_DIR="${SITE_PACKAGES}/powerline"
+if [ "${DEBIAN_VERSION}" = "8.0" ]; then
+    export POWERLINE_DIR=/usr/share/powerline
+else
+    export POWERLINE_DIR="${SITE_PACKAGES}/powerline"
+fi
 
 # path
 PATHS=(
