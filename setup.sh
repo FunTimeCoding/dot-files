@@ -109,10 +109,11 @@ if [ ! -f "${COMPOSER_CONFIG}" ] || [ ! -L "${COMPOSER_CONFIG}" ]; then
     ln -snf "${WORK_DIR}/composer.json" "${COMPOSER_CONFIG}"
 fi
 
-COMPOSER_LOCK="${HOME}/.local/php/composer.lock"
+COMPOSER_LOCK="${HOME}/.composer/composer.lock"
 
 if [ ! -f "${COMPOSER_LOCK}" ]; then
     echo "Installing Composer packages."
     cd "${COMPOSER_DIR}"
+    ${COMPOSER_BIN} self-update
     ${COMPOSER_BIN} install
 fi
