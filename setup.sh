@@ -2,6 +2,7 @@
 
 SCRIPT_DIR=$(cd "$(dirname "${0}")"; pwd)
 WORK_DIR="${HOME}/.dotfiles"
+CURL=$(which curl)
 
 if [ ! "${WORK_DIR}" = "${SCRIPT_DIR}" ]; then
     echo "Dotfiles directory must be ${WORK_DIR}."
@@ -92,7 +93,7 @@ COMPOSER_BIN="${LOCAL_BIN_DIR}/composer"
 
 if [ ! -f "${COMPOSER_BIN}" ]; then
     echo "Downloading Composer."
-    curl -sS https://getcomposer.org/installer | php -- --install-dir="${LOCAL_BIN_DIR}" --filename=composer
+    ${CURL} -sS https://getcomposer.org/installer | php -- --install-dir="${LOCAL_BIN_DIR}" --filename=composer
 fi
 
 COMPOSER_DIR="${HOME}/.composer"

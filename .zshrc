@@ -23,7 +23,7 @@ elif [ "${OS}" = "Darwin" ]; then
     SITE_PACKAGES="/usr/local/lib/python2.7/site-packages"
 fi
 
-if [ "${DEBIAN_VERSION}" = "8.0" ]; then
+if [ "${DEBIAN_VERSION}" = "8.1" ]; then
     export POWERLINE_DIR=/usr/share/powerline
 else
     export POWERLINE_DIR="${SITE_PACKAGES}/powerline"

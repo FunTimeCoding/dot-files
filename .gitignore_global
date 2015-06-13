@@ -3,3 +3,4 @@
 .ropeproject
 vendor
 atlassian-ide-plugin.xml
+*.iml
