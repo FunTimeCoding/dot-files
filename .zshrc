@@ -20,7 +20,7 @@ if [ "${OS}" = "Linux" ]; then
     SITE_PACKAGES=$(python -m site --user-site)
     DEBIAN_VERSION=$(cat /etc/debian_version)
 elif [ "${OS}" = "Darwin" ]; then
-    SITE_PACKAGES="/usr/local/lib/python2.7/site-packages"
+    SITE_PACKAGES="/usr/local/lib/python3.4/site-packages"
 fi
 
 if [ "${DEBIAN_VERSION}" = "8.1" ]; then

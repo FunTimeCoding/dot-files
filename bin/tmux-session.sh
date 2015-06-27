@@ -5,7 +5,7 @@
 
 has_session()
 {
-    tmux has-session -t $1 2>/dev/null
+    tmux has-session -t "${1}" 2>/dev/null
 }
 
 TMUX_CMD="tmux -2"

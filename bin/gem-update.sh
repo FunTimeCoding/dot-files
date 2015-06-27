@@ -1,11 +1,10 @@
 #!/bin/sh -e
 
-brew update
-brew outdated
+gem outdated
 echo "Update packages and cleanup? [y/n]"
 read READ
 
 if [ "${READ}" = "y" ]; then
-    brew upgrade --all
-    brew cleanup -s
+    gem update
+    gem cleanup
 fi
