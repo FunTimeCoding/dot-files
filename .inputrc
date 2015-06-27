@@ -1,0 +1,3 @@
+$if Psql
+set bell-style none
+$endif

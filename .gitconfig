@@ -5,6 +5,7 @@
 	excludesfile = ~/.gitignore_global
 	editor = vim
 	quotepath = false
+    pager = less -Q
 [color]
 	status = auto
 	branch = auto

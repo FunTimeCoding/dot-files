@@ -42,7 +42,6 @@ PATHS=(
 "${HOME}/.composer/vendor/bin"
 "${HOME}/.local/dev-tools/bin"
 "${DOTFILES}/bin"
-"${POWERLINE_DIR}/bin"
 )
 
 if dot_command_exists brew; then
