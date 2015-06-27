@@ -1,1 +1,3 @@
-pygmentize -f terminal "$1" | less -RQ
+pygmentize -f terminal "${1}" | less -RQ
+
+# vim: ft=zsh

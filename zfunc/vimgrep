@@ -4,7 +4,7 @@ local file
 local -a files
 
 while IFS= read -r -d '' file; do
-files+=("$file")
+    files+=("$file")
 done < <(grep --null -ril "$@")
 
 vim "${files[@]}"

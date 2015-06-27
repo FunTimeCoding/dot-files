@@ -1,3 +1,3 @@
-[ "${1}" ] && HOST="${1}" || return 1; until ping -c1 -W2 ${HOST} >/dev/null 2>&1; do sleep 5s; done; say "${HOST} is up" >/dev/null 2>&1;
+[ "${1}" ] && HOST="${1}" || return 1; until ping -c1 -W2 "${HOST}" >/dev/null 2>&1; do sleep 5s; done; say "${HOST} is up" >/dev/null 2>&1;
 
 # vim: ft=zsh

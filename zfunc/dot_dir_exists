@@ -1,5 +1,6 @@
 if [ "${1}" = "" ]; then
     dot_print_debug "error: {1} is empty"
+
     return 1
 fi
 

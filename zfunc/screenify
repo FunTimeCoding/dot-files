@@ -1,2 +1,3 @@
-screen -dmSADRU ${1} ${1}
+screen -dmSADRU "${1}" "${1}"
+
 # vim: ft=zsh
