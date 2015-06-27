@@ -98,6 +98,7 @@ fi
 # dot_command_exists nvim && alias vim='nvim'
 dot_command_exists gdircolors && alias dircolors='gdircolors'
 alias vimrc='vim ~/.vimrc'
+alias less='less -Q'
 alias svn_log='svn log -r HEAD:1 -v -l 3 | less'
 alias svn_up_dry='svn merge --dry-run -r BASE:HEAD .'
 alias svn_diff='svn diff | view -'
