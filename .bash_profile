@@ -1,2 +1,5 @@
-export LC_ALL=en_US.UTF-8  
-export LANG=en_US.UTF-8
+export BASH_CONFIG="${HOME}/.bashrc"
+
+if [ -f "${BASH_CONFIG}" ]; then
+    . "${BASH_CONFIG}"
+fi
