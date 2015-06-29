@@ -1,3 +1,6 @@
 $if Psql
 set bell-style none
 $endif
+$if Bash
+set bell-style none
+$endif
