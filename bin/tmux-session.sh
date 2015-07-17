@@ -1,7 +1,8 @@
-#!/bin/bash
+#!/bin/sh -e
 
-
-[ "${TMUX}" = "" ] || exit 0
+if [ ! "${TMUX}" = "" ]; then
+    exit 0
+fi
 
 has_session()
 {
@@ -15,20 +16,20 @@ if ! has_session "${DEFAULT_NAME}"; then
     ${TMUX_CMD} new-session -s "${DEFAULT_NAME}" -d
 fi
 
-PS3="Select session: "
-OPTIONS=($(tmux list-sessions -F "#S") "NEW")
+OPTIONS=$(tmux list-sessions -F "#S" | tr '\n' ' ')
+OPTIONS="${OPTIONS} NEW"
+echo "Select session from: ${OPTIONS}"
+read OPTION
 
-select OPTION in "${OPTIONS[@]}"
-do
-    case ${OPTION} in
-        "NEW")
-            read -p "Enter new session name: " SESSION_NAME
-            ${TMUX_CMD} new-session -s "${SESSION_NAME}"
-            break
-            ;;
-        *)
-            ${TMUX_CMD} attach-session -t "${OPTION}"
-            break
-            ;;
-    esac
-done
+case ${OPTION} in
+    "NEW")
+        echo "Enter new session name:"
+        read SESSION_NAME
+        ${TMUX_CMD} new-session -s "${SESSION_NAME}"
+        break
+        ;;
+    *)
+        ${TMUX_CMD} attach-session -t "${OPTION}"
+        break
+        ;;
+esac
