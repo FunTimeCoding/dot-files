@@ -1,14 +1,24 @@
 #!/bin/sh -e
 
 echo "pip2"
-pip2 list --outdated
+PIP2_PACKAGES=$(pip2 list --outdated 2> /dev/null | awk '{ print $1 }')
+echo ${PIP2_PACKAGES}
 echo "pip3"
-pip3 list --outdated
+PIP3_PACKAGES=$(pip3 list --outdated 2> /dev/null | awk '{ print $1 }')
+echo ${PIP3_PACKAGES}
 echo "Update packages and cleanup? [y/n]"
 read READ
 
 if [ "${READ}" = "y" ]; then
     pip2 install -U pip setuptools
+
+    for PACKAGE in ${PIP2_PACKAGES}; do
+        pip2 install -U ${PACKAGE}
+    done
+
     pip3 install -U pip setuptools
-    echo "You should manually update what you need."
+
+    for PACKAGE in ${PIP3_PACKAGES}; do
+        pip3 install -U ${PACKAGE}
+    done
 fi
