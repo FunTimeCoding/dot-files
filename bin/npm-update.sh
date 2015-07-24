@@ -1,5 +1,6 @@
 #!/bin/sh -e
 
+npm outdated -g
 echo "Update packages and cleanup? [y/n]"
 read READ
 
