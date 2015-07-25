@@ -1,7 +1,7 @@
 #!/bin/sh -e
 
-echo "Check for npm updates."
-OUTPUT=$(npm outdated -g)
+echo "Check for pip3 updates."
+OUTPUT=$(pip3 list --outdated 2> /dev/null | awk '{ print $1 }')
 
 if [ "${OUTPUT}" = "" ]; then
     echo "Nothing to update."
@@ -16,6 +16,9 @@ echo "Update packages and cleanup? [y/n]"
 read READ
 
 if [ "${READ}" = "y" ]; then
-    npm install -g npm
-    npm up -g
+    pip3 install -U pip setuptools
+
+    for PACKAGE in ${OUTPUT}; do
+        pip3 install -U ${PACKAGE}
+    done
 fi

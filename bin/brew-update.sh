@@ -1,7 +1,18 @@
 #!/bin/sh -e
 
+echo "Check for brew updates."
 brew update
-brew outdated
+OUTPUT=$(brew outdated)
+
+if [ "${OUTPUT}" = "" ]; then
+    echo "Nothing to update."
+
+    exit 0
+else
+    echo "Available updates:"
+    echo "${OUTPUT}"
+fi
+
 echo "Update packages and cleanup? [y/n]"
 read READ
 
