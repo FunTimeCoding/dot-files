@@ -113,10 +113,13 @@ alias irssi_screen='screenify irssi'
 alias iotop='sudo iotop'
 alias svn_diff_branch='svn diff -r $(svn log --stop-on-copy | grep -o "^r\d*" | tail -1):HEAD | view -'
 
-if dot_command_exists grcat; then
-    alias ping='grc ping'
-    alias netstat='grc netstat'
-    alias traceroute='grc traceroute'
+if dot_command_exists grc; then
+    GRC_CONF="/usr/local/etc/grc.bashrc"
+
+    if [ -f "${GRC_CONF}" ]; then
+        . ${GRC_CONF}
+    fi
+
     alias gst='git status | grcat conf.gitstatus'
 else
     alias gst='git status'
