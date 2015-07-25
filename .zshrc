@@ -114,6 +114,9 @@ alias iotop='sudo iotop'
 alias svn_diff_branch='svn diff -r $(svn log --stop-on-copy | grep -o "^r\d*" | tail -1):HEAD | view -'
 
 if dot_command_exists grcat; then
+    alias ping='grc ping'
+    alias netstat='grc netstat'
+    alias traceroute='grc traceroute'
     alias gst='git status | grcat conf.gitstatus'
 else
     alias gst='git status'
