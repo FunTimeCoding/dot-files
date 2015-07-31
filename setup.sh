@@ -43,16 +43,26 @@ done
 
 mkdir -p "${HOME}/.config"
 ln -snf "${WORK_DIR}/powerline" "${HOME}/.config/powerline"
+OS=$(uname)
 
 if type pip3 > /dev/null; then
-    OS=$(uname)
     if [ "${OS}" = "Linux" ]; then
         pip3 install --user -U powerline-status
     elif [ "${OS}" = "Darwin" ]; then
         pip3 install -U powerline-status
     fi
 else
-    echo "pip3 is not installed, not installing powerline-status"
+    echo "pip3 is not installed, falling back to pip2"
+
+    if type pip2 > /dev/null; then
+        if [ "${OS}" = "Linux" ]; then
+            pip2 install --user -U powerline-status
+        elif [ "${OS}" = "Darwin" ]; then
+            pip2 install -U powerline-status
+        fi
+    else
+        echo "pip2 is not installed, not installing powerline"
+    fi
 fi
 
 NEOBUNDLE_PATH="${HOME}/.vim/bundle/neobundle.vim"
