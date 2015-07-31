@@ -41,6 +41,7 @@ PATHS=(
 "${HOME}/.local/bin"
 "${HOME}/.composer/vendor/bin"
 "${HOME}/.local/dev-tools/bin"
+"${HOME}/Library/Python/3.4/bin"
 "${DOTFILES}/bin"
 )
 
