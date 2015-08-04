@@ -161,16 +161,14 @@ cs_re:red:PAM session setup failed\[[0-9]*\]:.*
 cs_re_s:yellow,,bold:Failed ([^ ]*) for ([^ ]*) from ([^ ]*) port ([0-9]*).*
 cs_re:yellow:Failed [^ ]* for [^ ]* from [^ ]* port [0-9]* .*
 cs_re:red:Disconnecting: Too many authentication failures for.*
-#
-# PowerDNS
-colorscheme:powerdns:www.powerdns.com
+
+colorscheme:powerdns
 cs_re_s:green:Remote\ (.*)\ wants
 cs_re:blue:'.*'
 cs_re:red:MISS
 cs_re:green,,bold:HIT
-#
-# UUCP
-colorscheme:uucp:UUCP Log files
+
+colorscheme:uucp
 cs_re:yellow:uucico
 cs_re:cyan:uuxqt
 cs_re:magenta:Receiving
@@ -182,8 +180,7 @@ cs_re:green:Login successful
 cs_re:green:Handshake successful
 cs_re:green:Call complete
 cs_re:red:ERROR:.*
-#
-# ADB logcat
+
 colorscheme:logcat
 cs_re_s:blue,,bold:^./(dalvikvm)\(
 cs_re_s:blue,,bold:^./(Process)\(
@@ -206,8 +203,7 @@ cs_re_s:yellow:^(W).[^:]*: (.*)$
 #cs_re_s:green:^(I).[^:]*: (.*)$
 cs_re_s:green:^(V)/[^:]*: (.*)$
 cs_re_s:black,,bold:^(D)/[^:]*: (.*)$
-#
-# linux iptables firewall
+
 colorscheme:liniptfw:Linux IPtables (2.6.x kernel)
 cs_re:cyan::
 cs_re:blue|blue,,bold:^... .. ..:..:..
@@ -215,9 +211,8 @@ cs_re_s:red:kernel: .*(DPT=[0-9]*)
 cs_re_s:yellow:kernel: (IN=[^ ]*)
 cs_re_s:cyan:kernel: .*(SRC=[^ ]*) *(DST=[^ ]*)
 cs_re_s:green:kernel: .*(PROTO=[^ ]*)
-#
-# postfix log
-colorscheme:postfix:www.postfix.org
+
+colorscheme:postfix
 cs_re:cyan::
 cs_re:yellow:status=sent
 cs_re:magenta:queue.active
@@ -226,42 +221,43 @@ cs_re:red:to=.*>
 cs_re:blue|blue,,bold:^... .. ..:..:..
 cs_re:green:\[
 cs_re:green:\]
-#
-# apache
-colorscheme:apache:default Apache logging (webserver)
-cs_re:red: 404 
+
+colorscheme:apache
 cs_re:cyan::
 cs_re:green:\[
 cs_re:green:\]
-# ip-adresses in the format x.x.x.x
+# status code
+cs_re:green: 20.? 
+cs_re:cyan: 30.? 
+cs_re:yellow: 40.? 
+cs_re:red: 50.? 
+cs_re:red: 404 
+# ip address
 cs_re:yellow:^[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}
-# hostnames
+# hostname
 cs_re:yellow:^[^ ]*
-### Apache errorlog
-colorscheme:apache_error:default Apache error logging
+
+colorscheme:apache_error
 cs_re:yellow:\[client .*\]
 cs_re:red: [^ ]*$
 cs_re:blue:^\[... ... .. ..:..:.. ....\]
-#
-# rsstail (http://www.vanheusden.com/rsstail/)
-colorscheme:rsstail:RSSTail output (RSS feed reader)
+
+colorscheme:rsstail
 cs_re:cyan::
 cs_re:cyan:/
 cs_re:blue:^.......... ..:..:..  
 cs_re:green:Title:.*
 cs_re:red:^Link:.*
 cs_re:yellow:^Description:
-#
-# acctail (http://www.vanheusden.com/acctail/)
-colorscheme:acctail:(BSD-) process accounting reader
+
+colorscheme:acctail
 cs_re:green:^................
 cs_re_s:red:^.................(....)
 cs_re_s:cyan:^......................(........)
 cs_re_s:yellow:^...............................(........)
 cs_re:blue:\.
-#
-# wtmptail (http://www.vanheusden.com/wtmptail/)
-colorscheme:wtmptail:www.vanheusden.com/wtmptail/
+
+colorscheme:wtmptail
 cs_re:blue:\.
 cs_re:blue::
 cs_re:yellow:^USER.*
@@ -270,16 +266,14 @@ cs_re:cyan:[0-9]*:[0-9]*[ap]m
 cs_re:red:^..................................
 cs_re:black,red,blink:BOOT
 cs_re:black,yellow:DEAD
-#
-# squid
-colorscheme:squid:http proxy server
+
+colorscheme:squid
 cs_re:blue:^[^ ]*
 cs_re_s:yellow:^[^ ]* *[0-9]* *([^ ]*)
 cs_re_s:green:^[^ ]* *[0-9]* *[^ ]* ([^ ]*)
 cs_re_s:cyan:^[^ ]* *[0-9]* *[^ ]* [^ ]* *[0-9]* *[^ ]* *([^ ]*)
-#
-# asterisk
-colorscheme:asterisk:software PBX
+
+colorscheme:asterisk
 cs_re:blue::
 cs_re:cyan:^...............
 cs_re:red:ERROR
@@ -288,8 +282,7 @@ cs_re:green:NOTICE
 cs_re:magenta:DEBUG
 cs_re:magenta:VERBOSE
 cs_re:red,black,underline:Unable to.*
-#
-# sendmail
+
 colorscheme:sendmail
 cs_re:blue|blue,,bold:^...............
 cs_re:cyan:to=<[^>]*>
@@ -299,9 +292,8 @@ cs_re:green:stat=Sent.*
 cs_re:magenta:relay=[^ ]*
 cs_re:cyan::
 cs_re:red:verify=FAIL
-#
-# MailScanner
-colorscheme:mailscanner:wrapper around sendmail/clamav/spamassassin
+
+colorscheme:mailscanner
 cs_re:red:Detected HTML-specific exploits in.*
 cs_re:magenta:Delivered [0-9]* warnings to virus senders
 cs_re:yellow:Spam Checks: Found [0-9]* spam messages
@@ -311,8 +303,7 @@ cs_re:red:Infected message [^ ]* came from.*
 cs_re:yellow:Saved infected "[^"]*" to.*
 cs_re:blue|blue,,bold:^...............
 cs_re:cyan::
-#
-# SpamAssassin
+
 colorscheme:spamassassin
 cs_re:magenta::
 cs_re:blue|blue,,bold:^... .. ..:..:..
@@ -322,9 +313,8 @@ cs_re_s:yellow,,bold:identified spam ([^ ]*) for ([^ ]*) in ([^ ]*) seconds, ([^
 cs_re:yellow:identified spam [^ ]* for [^ ]* in [^ ]* seconds, [^ ]* bytes.
 cs_re_s:green,,bold:server successfully spawned child process, pid (.*)
 cs_re:green:server successfully spawned child process, pid
-#
-# ClamAV
-colorscheme:clamav:clamd logging
+
+colorscheme:clamav
 cs_re:magenta::
 cs_re:blue:^... ... [0-9]* ..:..:.. ....
 cs_re_s:red,,bold:ERROR:(.*)
@@ -335,8 +325,7 @@ cs_re:red,black,inverse:Exiting.*
 cs_re_s:yellow,,bold:^(.*): Unable to open file or directory ERROR
 cs_re:yellow:^.*: Unable to open file or directory ERROR
 cs_re:red,black,inverse:LOGGING DISABLED.*
-#
-# samba
+
 colorscheme:samba
 cs_re_s:blue:^.([0-9]*/[0-9]*/[0-9]* [0-9]*:[0-9]*:[0-9]*, [0-9]*)
 cs_re:blue:\.
@@ -352,8 +341,7 @@ cs_re:green:Samba name server.*is now a local master browser for workgroup.*on s
 cs_re:yellow:Attempting to become domain master browser on workgroup.*, subnet.*
 cs_re:green:Samba is now a logon server for workgroup.*on subnet.*
 cs_re:yellow,,bold:Server.*at IP.*is announcing itself as a local master browser for workgroup.*and we think we are master. Forcing election.
-#
-# audit.log
+
 colorscheme:audit
 cs_re:cyan::
 cs_re:blue|blue,,bold:^... .. ..:..:..
@@ -361,8 +349,7 @@ cs_re:red:Illegal user.*
 cs_re:green:session opened for user.*
 cs_re:green:Accepted publickey for
 cs_re:yellow:Did not receive identification string from.*
-#
-# exim
+
 colorscheme:exim
 cs_re:cyan::
 cs_re:blue|blue,,bold:^....-..-.. ..:..:..
@@ -377,9 +364,8 @@ cs_re:red:verify failed for SMTP recipient.*
 cs_re:red: *[^ ]* \[[0-9\.:]*\]: Connection refused
 cs_re:red:SMTP.*timeout.*
 cs_re:yellow:Spool file is locked (another process is handling this message)
-#
-# httping
-colorscheme:httping:ping for HTTP
+
+colorscheme:httping
 cs_re:green:^PING .*:
 cs_re:magenta:time=[0-9\.]* ms
 cs_re:yellow:seq=[0-9]*
@@ -389,9 +375,8 @@ cs_re_s:green:^round-trip.*= ([0-9\.]*)/([0-9\.]*)/([0-9\.]*)
 cs_re:red:404 Not Found
 cs_re:blue:[0-9]*KB/s
 cs_re:red:could not connect
-#
-# netstat (use for example with multitail -R 1 -l "netstat")
-colorscheme:netstat:see www.vanheusden.com/multitail/examples.html
+
+colorscheme:netstat
 cs_re:green:ESTABLISHED
 cs_re:yellow:SYN_SENT
 cs_re:magenta:CLOSE_WAIT
@@ -399,8 +384,7 @@ cs_re:blue:FIN_WAIT1
 cs_re:blue,,underline:FIN_WAIT2
 cs_re_s:red::([^ ]*)
 cs_re:cyan:^[^ ]*
-#
-# tcpdump
+
 colorscheme:tcpdump
 cs_re:blue:^[^ ]*
 cs_re:magenta::
@@ -409,9 +393,7 @@ cs_re_s:green:^[^ ]* [^ ]* *[^ ]*\.([^ ]*) > [^ ]*\.([^:]*):
 cs_re:magenta:\.
 cs_re_s:yellow|yellow,,bold: IP (.*) > .*:
 cs_re_s:yellow,,bold|yellow: IP [^ ]* > ([^:]*):
-#17:44:07.363010 IP muur.intranet.vanheusden.com.49584 > keetweej.intranet.vanheusden.com.ssh:
-#
-# dhcpd
+
 colorscheme:dhcpd
 cs_re:magenta::
 cs_re:blue|blue,,bold:^... .. ..:..:..
@@ -422,8 +404,7 @@ cs_re:red:DHCPINFORM from.*via.*not authoritative for subnet.*
 cs_re_s:yellow,,bold:DHCPDECLINE of ([^ ]*) from ([^ ]*) via
 cs_re:yellow:DHCPDECLINE of.*from.*via.*
 cs_re:cyan:DHCPNAK
-#
-# bind
+
 colorscheme:bind
 cs_re:magenta::
 cs_re:blue|blue,,bold:^... .. ..:..:..
@@ -443,13 +424,11 @@ cs_re:red:logging channel [^ ]* file [^:]*: permission denied
 cs_re:red:isc_log_open [^ ]* failed: permission denied
 cs_re:red:zone [^:]*: loading master file [^:]*: file not found
 cs_re:green,,bold:named reload succeeded
-#
-# smartd
+
 colorscheme:smartd
 cs_re_s:red,,bold:Device: [^,]*, SMART Usage Attribute: [0-9]* ([^ ]*) changed from [0-9]* to (.*)
 cs_re:red:Device: [^,]*, SMART Usage Attribute: [0-9]* [^ ]* changed from [0-9]* to.*
-#
-# kerberos
+
 colorscheme:kerberos
 cs_re:magenta::
 cs_re:blue:^... [0-9]* ..:..:..
@@ -464,15 +443,12 @@ cs_re:green:commencing operation
 cs_re_s:,,bold:AS_REQ [^}]*}, ([^ ]*) for (.*)
 cs_re:magenta:Ticket expired
 cs_re:red:Client not found in Kerberos database
-#
-# Oracle
+
 colorscheme:oracle
 cs_re:red,,bold:^ORA-0*600.*
 cs_re:red,,bold:^ORA-0*7445.*
-# ORA-07745:?
 cs_re_s:yellow:^ORA-([^:]*):
-#
-# ntpd
+
 colorscheme:ntpd
 cs_re:magenta::
 cs_re:blue:^... .. ..:..:..
@@ -483,8 +459,7 @@ cs_re:green,,bold:ntpd\[.*\]: ntpd [^e].*
 cs_re_s:green,,bold:synchronized to ([^,]*)
 cs_re:green:synchronized to.*
 cs_re:red:check receiver configuration / cableling
-#
-# nagtail
+
 colorscheme:nagtail:www.nagios.org status viewer
 cs_re:magenta::
 cs_re:magenta:/
@@ -495,9 +470,8 @@ cs_re_s:green:^................ ( OK )
 cs_re_s:white,,bold:^................ ( \?\? )
 cs_re_s:green:^..../../.. ..:.. ..... *([^ ]*)
 cs_re_s:yellow:^..../../.. ..:.. ..... *[^ ]* *(.*)
-#
-# WebSphere errorlog
-colorscheme:websphere:WebSphere error-log
+
+colorscheme:websphere
 cs_re:magenta::
 cs_re:magenta:/
 cs_re:blue,,bold:\.
@@ -526,8 +500,7 @@ cs_re:yellow:Socket connection attempt refused
 cs_re:yellow:Other data:
 cs_re:yellow:Exception data follows:
 cs_re:green:Target name: .*
-#
-# NNTPcache
+
 colorscheme:nntpcache
 cs_re:magenta::
 cs_re:magenta:/
@@ -539,9 +512,8 @@ cs_re:red:Connection timed out: could.*t connect to [^ ]* as
 cs_re:yellow:^.*dropped connection during rebuild of.*$
 cs_re:red,,bold:'501.*
 cs_re:red,,bold:'480.*
-#
-# Veritas Netbackup restore log
-colorscheme:vnetbr:Veritas Netbackup backup/restore logs
+
+colorscheme:vnetbr
 cs_re:magenta::
 cs_re:magenta:\(
 cs_re:magenta:\)
