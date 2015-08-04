@@ -937,6 +937,10 @@ scheme:squid:/var/log/squid/
 scheme:apache:/var/log/apache2/access_log
 scheme:apache_error:/var/log/apache2/error_log
 
+# 2015-08-05 shiin: Include apache2 logs on Debian.
+scheme:apache:/var/log/apache2/access.log
+scheme:apache_error:/var/log/apache2/error.log
+
 scheme:syslog,ssh:/var/log/
 scheme:vnetbr:bplog.rest
 scheme:procmail:procmail.log
@@ -1232,7 +1236,8 @@ scrollback_no_colors:no
 # when you search in the scrollback: open new window with found strings (= on)
 # or jump to the next found (= off)
 scrollback_search_new_window:yes
-#
+
+# 2015-08-05 shiin: Commented out since it doesn't work on Debian.
 # set to (yes) to map delete key as backspace key.
 # this is useful if you are using mac
-map_delete_as_backspace:no
+#map_delete_as_backspace:no
