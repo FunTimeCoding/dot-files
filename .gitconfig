@@ -16,7 +16,7 @@
 	pushNonFastForward = false
 	statusHints = false
 [push]
-	default = matching
+	default = current
 [diff]
 	tool = Kaleidoscope
 [difftool]
