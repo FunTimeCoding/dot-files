@@ -1,7 +1,8 @@
 {
     "require": {
         "facebook/arcanist": "*",
-        "fabpot/php-cs-fixer": "*"
+        "fabpot/php-cs-fixer": "*",
+        "phploc/phploc": "*"
     },
     "repositories": [
         {
