@@ -19,4 +19,5 @@ read READ
 if [ "${READ}" = "y" ]; then
     brew upgrade --all
     brew cleanup -s
+    brew cask cleanup
 fi
