@@ -19,6 +19,6 @@ if [ "${READ}" = "y" ]; then
     pip3 install -U pip setuptools
 
     for PACKAGE in ${OUTPUT}; do
-        pip3 install -U ${PACKAGE}
+        pip3 install -U "${PACKAGE}"
     done
 fi

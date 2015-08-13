@@ -19,6 +19,6 @@ if [ "${READ}" = "y" ]; then
     pip2 install -U pip setuptools
 
     for PACKAGE in ${OUTPUT}; do
-        pip2 install -U ${PACKAGE}
+        pip2 install -U "${PACKAGE}"
     done
 fi

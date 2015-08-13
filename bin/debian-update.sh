@@ -3,7 +3,7 @@
 echo "Check for Debian updates."
 sudo apt-get update -qq
 OUTPUT=$(sudo apt-get upgrade -s)
-GREP=$(echo "${OUTPUT}" | grep 'The following packages will be upgraded:')
+GREP=$(echo "${OUTPUT}" | grep 'The following packages will be upgraded:') || GREP=""
 
 if [ "${GREP}" = "" ]; then
     echo "Nothing to update."

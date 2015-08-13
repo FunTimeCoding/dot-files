@@ -2,7 +2,7 @@
 
 echo "Check for OS X updates."
 OUTPUT=$(softwareupdate --list 2>&1)
-GREP=$(echo "${OUTPUT}" | grep 'No new software available.')
+GREP=$(echo "${OUTPUT}" | grep 'No new software available.') || GREP=""
 
 if [ "${GREP}" = "" ]; then
     echo "Available updates:"
