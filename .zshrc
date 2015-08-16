@@ -5,6 +5,7 @@ export DOT_DEBUG=false
 export DOTFILES="${HOME}/.dotfiles"
 export FPATH="$HOME/.dotfiles/zfunc:$FPATH"
 export EDITOR=vim
+export LESSHISTFILE=/dev/null
 
 # completion
 autoload -Uz compinit
