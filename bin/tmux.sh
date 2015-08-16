@@ -10,7 +10,7 @@ has_session()
 }
 
 TMUX_CMD="tmux -2"
-DEFAULT_NAME="_default"
+DEFAULT_NAME="1"
 
 if ! has_session "${DEFAULT_NAME}"; then
     ${TMUX_CMD} new-session -s "${DEFAULT_NAME}" -d
