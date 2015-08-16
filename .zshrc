@@ -6,6 +6,7 @@ export DOTFILES="${HOME}/.dotfiles"
 export FPATH="$HOME/.dotfiles/zfunc:$FPATH"
 export EDITOR=vim
 export LESSHISTFILE=/dev/null
+export MYSQL_HISTFILE=/dev/null
 
 # completion
 autoload -Uz compinit
