@@ -5,9 +5,12 @@ export LANG=en_US.UTF-8
 # env
 export DOTFILES="${HOME}/.dotfiles"
 
-# aliases
-alias bashrc='vim ~/.bashrc'
+# osx commmand forks
 type gdircolors &> /dev/null && DIRCOLORS_COMMAND='gdircolors' || DIRCOLORS_COMMAND="dircolors"
+type gls &> /dev/null && LS_COMMAND='gls' || LS_COMMAND="ls"
+
+# aliases
+. "${HOME}/.aliases"
 
 # dircolors
 case "${TERM}" in
@@ -18,10 +21,3 @@ esac
 
 # bash configuration
 unset HISTFILE
-
-if type gls &> /dev/null; then
-    alias ls='gls -F --color'
-    alias l='ls'
-    alias ll='gls -lh --color'
-    alias la='gls -Alh --color'
-fi

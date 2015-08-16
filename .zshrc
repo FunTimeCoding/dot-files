@@ -47,7 +47,7 @@ PATHS=(
 "${DOTFILES}/bin"
 )
 
-if dot_command_exists brew; then
+if type brew &> /dev/null; then
     PATHS+=(
     "$(brew --prefix homebrew/php/php53)/bin"
     "$(brew --prefix ruby)/bin"
@@ -73,16 +73,19 @@ PERLBREW="${HOME}/perl5/perlbrew/etc/bashrc"
 ZSH="${HOME}/.oh-my-zsh"
 
 if [ -d "${ZSH}" ]; then
-    if ! dot_command_exists powerline; then
+    if ! type powerline &> /dev/null; then
         export ZSH_THEME="steeef"
     fi
+
     export DISABLE_AUTO_TITLE=true
     export DISABLE_UPDATE_PROMPT=true
-    if [ "${OS}" = "Linux" ]; then
+
+    if [ "${OS}" = "Darwin" ]; then
+        plugins=(git svn zsh-syntax-highlighting osx brew)
+    else
         plugins=(git svn zsh-syntax-highlighting)
-    elif [ "${OS}" = "Darwin" ]; then
-        plugins=(git osx svn brew zsh-syntax-highlighting)
     fi
+
     source "${ZSH}/oh-my-zsh.sh"
 fi
 
@@ -90,33 +93,14 @@ fi
 GROOVY_DIR="/usr/local/opt/groovy/libexec"
 [[ -d "${GROOVY_DIR}" ]] && export GROOVY_HOME="${GROOVY_DIR}"
 
+# osx commmand forks
+type gdircolors &> /dev/null && DIRCOLORS_COMMAND='gdircolors' || DIRCOLORS_COMMAND="dircolors"
+type gls &> /dev/null && LS_COMMAND='gls' || LS_COMMAND="ls"
+
 # aliases
-if dot_command_exists gls; then
-    alias ls='gls -F --color'
-    alias l='ls'
-    alias ll='gls -lh --color'
-    alias la='gls -Alh --color'
-fi
+. "${HOME}/.aliases"
 
-# dot_command_exists nvim && alias vim='nvim'
-dot_command_exists gdircolors && alias dircolors='gdircolors'
-alias vimrc='vim ~/.vimrc'
-alias less='less -Q'
-alias svn_log='svn log -r HEAD:1 -v -l 3 | less'
-alias svn_up_dry='svn merge --dry-run -r BASE:HEAD .'
-alias svn_diff='svn diff | view -'
-alias zshrc='vim ~/.zshrc'
-alias tmux='tmux -2'
-alias saidar='saidar -c'
-alias crontab="VIM_CRONTAB=true crontab"
-alias apt-search='apt-cache search'
-alias apt-version='dpkg -s'
-alias ccat='pygmentize -O style=monokai -f console256 -g'
-alias irssi_screen='screenify irssi'
-alias iotop='sudo iotop'
-alias svn_diff_branch='svn diff -r $(svn log --stop-on-copy | grep -o "^r\d*" | tail -1):HEAD | view -'
-
-if dot_command_exists grc; then
+if type grc &> /dev/null; then
     GRC_CONF="/usr/local/etc/grc.bashrc"
 
     if [ -f "${GRC_CONF}" ]; then
@@ -147,18 +131,16 @@ bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
 # dircolors, powerline
-if dot_command_exists dircolors; then
-    case "${TERM}" in
-        xterm* | screen*)
-            eval $(dircolors "${DOTFILES}/dircolors")
+case "${TERM}" in
+    xterm* | screen*)
+        eval $(${DIRCOLORS_COMMAND} "${DOTFILES}/dircolors")
 
-            if dot_command_exists powerline; then
-                POWERLINE_ZSH="${POWERLINE_DIR}/bindings/zsh/powerline.zsh"
-                [ -f "${POWERLINE_ZSH}" ] && . "${POWERLINE_ZSH}"
-            fi
-            ;;
-    esac
-fi
+        if type powerline &> /dev/null; then
+            POWERLINE_ZSH="${POWERLINE_DIR}/bindings/zsh/powerline.zsh"
+            [ -f "${POWERLINE_ZSH}" ] && . "${POWERLINE_ZSH}"
+        fi
+        ;;
+esac
 
 # reapply dircolors for tab completion
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
