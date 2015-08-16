@@ -17,19 +17,17 @@ if ! has_session "${DEFAULT_NAME}"; then
 fi
 
 OPTIONS=$(tmux list-sessions -F "#S" | tr '\n' ' ')
-OPTIONS="${OPTIONS} NEW"
+OPTIONS="${OPTIONS} new"
 echo "Select session from: ${OPTIONS}"
 read OPTION
 
 case ${OPTION} in
-    "NEW")
+    "new")
         echo "Enter new session name:"
         read SESSION_NAME
         ${TMUX_CMD} new-session -s "${SESSION_NAME}"
-        break
         ;;
     *)
         ${TMUX_CMD} attach-session -t "${OPTION}"
-        break
         ;;
 esac

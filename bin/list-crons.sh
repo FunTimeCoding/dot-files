@@ -1,16 +1,16 @@
 #!/bin/sh -e
 
-for USER in $(cut -f1 -d: /etc/passwd); do
-    echo "User: ${USER}"
-    OUTPUT=$(sudo crontab -u "${USER}" -l)
+LIST=$(grep -v '^#' < /etc/passwd | awk 'BEGIN { FS = ":" }; {print $1}')
 
-    while read -r LINE; do
-        FIRST_CHARACTER="${LINE:0:1}"
+for ELEMENT in ${LIST}; do
+    if [ ! "${ELEMENT}" = "" ]; then
+        echo "User: ${ELEMENT}"
+        INNER_LIST=$(sudo crontab -u "${ELEMENT}" -l | grep -v '^#' )
 
-        if [ ! "${LINE}" = "" ] && [ ! "${FIRST_CHARACTER}" = "#" ]; then
-            echo "${LINE}"
-        fi
-    done <<< "${OUTPUT}"
+        for INNER_ELEMENT in ${INNER_LIST}; do
+            echo "${INNER_ELEMENT}"
+        done
 
-    echo
+        echo
+    fi
 done
