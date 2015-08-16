@@ -5,15 +5,19 @@ export LANG=en_US.UTF-8
 # env
 export DOTFILES="${HOME}/.dotfiles"
 
+# aliases
+alias bashrc='vim ~/.bashrc'
+type gdircolors &> /dev/null && DIRCOLORS_COMMAND='gdircolors' || DIRCOLORS_COMMAND="dircolors"
+
 # dircolors
 case "${TERM}" in
     xterm* | screen*)
-        eval $(/usr/local/bin/gdircolors "${DOTFILES}/dircolors")
+        eval $(${DIRCOLORS_COMMAND} "${DOTFILES}/dircolors")
         ;;
 esac
 
-# aliases
-alias bashrc='vim ~/.bashrc'
+# bash configuration
+unset HISTFILE
 
 if type gls &> /dev/null; then
     alias ls='gls -F --color'
