@@ -1,6 +1,6 @@
 alias bashrc='vim ~/.bashrc'
 alias ls="${LS_COMMAND} -F --color"
-alias l="${LS_COMMAND}"
+alias l="ls"
 alias ll="${LS_COMMAND} -lh --color"
 alias la="${LS_COMMAND} -Alh --color"
 alias vimrc='vim ~/.vimrc'
