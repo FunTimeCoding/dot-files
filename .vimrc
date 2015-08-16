@@ -73,6 +73,7 @@ let mapleader=","
 
 set backupdir=~/.vim/backup
 set directory=~/.vim/swap
+set viminfo="NONE"
 
 if $TMUX == ''
     set clipboard=unnamed
