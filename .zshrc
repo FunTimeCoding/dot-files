@@ -107,9 +107,9 @@ if type grc &> /dev/null; then
         . ${GRC_CONF}
     fi
 
-    alias gst='git status | grcat conf.gitstatus'
+    alias gs='git status | grcat conf.gitstatus'
 else
-    alias gst='git status'
+    alias gs='git status'
 fi
 
 ADITION_CONF="${HOME}/.adition.conf"
