@@ -22,3 +22,6 @@ esac
 
 # bash configuration
 unset HISTFILE
+
+# The following string is to prevent modifications by the provisioning system.
+# protected
