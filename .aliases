@@ -18,6 +18,8 @@ alias apt-version='dpkg -s'
 alias ccat='pygmentize -O style=monokai -f console256 -g'
 alias irssi_screen='screenify irssi'
 alias iotop='sudo iotop'
+alias gh='git history'
+alias v='vim'
 unalias gst > /dev/null 2>&1
 
 # vim: ft=sh
