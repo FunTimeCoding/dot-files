@@ -1,4 +1,4 @@
-#!/bin/sh -ex
+#!/bin/sh -e
 
 SCRIPT_DIR=$(cd "$(dirname "${0}")"; pwd)
 WORK_DIR="${HOME}/.dotfiles"
@@ -45,7 +45,7 @@ mkdir -p "${HOME}/.config"
 ln -snf "${WORK_DIR}/powerline" "${HOME}/.config/powerline"
 OS=$(uname)
 
-if command -v pip3 >/dev/null 2>&1; then
+if command -v pip3 > /dev/null 2>&1; then
     if [ "${OS}" = "Linux" ]; then
         pip3 install --user -U powerline-status
     elif [ "${OS}" = "Darwin" ]; then
@@ -54,7 +54,7 @@ if command -v pip3 >/dev/null 2>&1; then
 else
     echo "pip3 is not installed, fall back to pip2."
 
-    if command -v pip2 >/dev/null 2>&1; then
+    if command -v pip2 > /dev/null 2>&1; then
         if [ "${OS}" = "Linux" ]; then
             pip2 install --user -U powerline-status
         elif [ "${OS}" = "Darwin" ]; then
@@ -93,7 +93,7 @@ if [ ! -d "${ZSH_SYNTAX_HIGHLIGHTING}" ]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting "${ZSH_SYNTAX_HIGHLIGHTING}"
 fi
 
-if command -v php >/dev/null 2>&1; then
+if ! command -v php > /dev/null 2>&1; then
     echo "PHP is not installed, Composer not installed."
 
     exit 0
