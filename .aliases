@@ -19,6 +19,10 @@ alias ccat='pygmentize -O style=monokai -f console256 -g'
 alias irssi_screen='screenify irssi'
 alias iotop='sudo iotop'
 alias gh='git history'
+alias gs='git status'
+alias gd='git diff'
+alias gc='git commit -v'
+alias g='git'
 alias v='vim'
 unalias gst > /dev/null 2>&1
 
