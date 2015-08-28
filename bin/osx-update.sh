@@ -4,18 +4,21 @@ echo "Check for OS X updates."
 OUTPUT=$(softwareupdate --list 2>&1)
 GREP=$(echo "${OUTPUT}" | grep 'No new software available.') || GREP=""
 
-if [ "${GREP}" = "" ]; then
-    echo "Available updates:"
-    echo "${OUTPUT}"
-else
+if [ ! "${GREP}" = "" ]; then
     echo "Nothing to update."
 
     exit 0
 fi
 
-echo "Update packages and cleanup? [y/n]"
-read READ
+if [ ! "${1}" = "--yes" ]; then
+    echo "Available updates:"
+    echo "${OUTPUT}"
+    echo "Update? [y/n]"
+    read READ
 
-if [ "${READ}" = "y" ]; then
-    softwareupdate --install --all
+    if [ ! "${READ}" = "y" ]; then
+        exit 0
+    fi
 fi
+
+softwareupdate --install --all

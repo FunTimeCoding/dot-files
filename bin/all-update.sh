@@ -1,15 +1,17 @@
 #!/bin/sh -e
 
 echo "Run all updates."
-brew-update.sh
-gem-update.sh
-npm-update.sh
-pip2-update.sh
-pip3-update.sh
 OS=$(uname)
 
+brew-update.sh "${1}"
+gem-update.sh "${1}"
+npm-update.sh "${1}"
+pip2-update.sh "${1}"
+pip3-update.sh "${1}"
+atom-update.sh "${1}"
+
 if [ "${OS}" = "Darwin" ]; then
-    osx-update.sh
+    osx-update.sh "${1}"
 elif [ "${OS}" = "Linux" ]; then
-    debian-update.sh
+    debian-update.sh "${1}"
 fi

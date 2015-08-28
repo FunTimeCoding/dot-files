@@ -7,18 +7,21 @@ if [ "${OUTPUT}" = "" ]; then
     echo "Nothing to update."
 
     exit 0
-else
+fi
+
+if [ ! "${1}" = "--yes" ]; then
     echo "Available updates:"
     echo "${OUTPUT}"
+    echo "Update? [y/n]"
+    read READ
+
+    if [ ! "${READ}" = "y" ]; then
+        exit 0
+    fi
 fi
 
-echo "Update packages and cleanup? [y/n]"
-read READ
+pip2 install -U pip setuptools
 
-if [ "${READ}" = "y" ]; then
-    pip2 install -U pip setuptools
-
-    for PACKAGE in ${OUTPUT}; do
-        pip2 install -U "${PACKAGE}"
-    done
-fi
+for PACKAGE in ${OUTPUT}; do
+    pip2 install -U "${PACKAGE}"
+done

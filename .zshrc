@@ -39,6 +39,7 @@ PATHS=(
 "/sbin"
 "/usr/sbin"
 "/usr/local/sbin"
+"${HOME}/.cabal/bin"
 "${HOME}/.rvm/bin"
 "${HOME}/.local/bin"
 "${HOME}/.composer/vendor/bin"

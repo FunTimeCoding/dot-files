@@ -8,16 +8,19 @@ if [ "${OUTPUT}" = "" ]; then
     echo "Nothing to update."
 
     exit 0
-else
+fi
+
+if [ ! "${1}" = "--yes" ]; then
     echo "Available updates:"
     echo "${OUTPUT}"
+    echo "Update? [y/n]"
+    read READ
+
+    if [ ! "${READ}" = "y" ]; then
+        exit 0
+    fi
 fi
 
-echo "Update packages and cleanup? [y/n]"
-read READ
-
-if [ "${READ}" = "y" ]; then
-    brew upgrade --all
-    brew cleanup -s
-    brew cask cleanup
-fi
+brew upgrade --all
+brew cleanup -s
+brew cask cleanup
