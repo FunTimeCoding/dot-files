@@ -14,7 +14,8 @@ fi
 if [ ! "${1}" = "--yes" ]; then
     echo "Available updates:"
     echo "${OUTPUT}"
-    echo "Update? [y/n]"
+    HOST_NAME=$(hostname)
+    echo "Update ${HOST_NAME}? [y/n]"
     read READ
 
     if [ ! "${READ}" = "y" ]; then
