@@ -20,4 +20,4 @@ if [ ! "${1}" = "--yes" ]; then
     fi
 fi
 
-OUTPUT=$(find . -type d -depth -empty -delete)
+find . -type d -depth -empty -delete
