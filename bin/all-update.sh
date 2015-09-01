@@ -2,7 +2,6 @@
 
 echo "Run all updates."
 OS=$(uname)
-
 brew-update.sh "${1}"
 gem-update.sh "${1}"
 npm-update.sh "${1}"

@@ -1,7 +1,6 @@
 #!/bin/sh -e
 
 echo "Check for broken symlinks."
-
 OUTPUT=$(find . -type l)
 
 if [ "${OUTPUT}" = "" ]; then
