@@ -8,6 +8,8 @@ npm-update.sh "${1}"
 pip2-update.sh "${1}"
 pip3-update.sh "${1}"
 atom-update.sh "${1}"
+vim-update.sh
+cabal-update.sh
 
 if [ "${OS}" = "Darwin" ]; then
     osx-update.sh "${1}"
