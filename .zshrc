@@ -114,7 +114,7 @@ else
 fi
 
 ADITION_CONF="${HOME}/.adition.conf"
-[[ -f "${ADITION_CONF}" ]] && source "${ADITION_CONF}"
+[[ -f "${ADITION_CONF}" ]] && . "${ADITION_CONF}"
 
 # zsh settings
 CASE_SENSITIVE="true"
@@ -145,6 +145,11 @@ esac
 
 # reapply dircolors for tab completion
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+# lunchy
+LUNCHY_DIRECTORY=$(dirname `gem which lunchy`)/../extras
+LUNCHY_ZSH="${LUNCHY_DIRECTORY}/lunchy-completion.zsh"
+[[ -f "${LUNCHY_ZSH}" ]] && . "${LUNCHY_ZSH}"
 
 #LOAD_END=$(perl -MTime::HiRes -e 'print int(1000 * Time::HiRes::gettimeofday),"\n"')
 #echo "Load: $(expr $LOAD_END - $LOAD_START)ms"
