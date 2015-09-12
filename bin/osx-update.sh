@@ -22,3 +22,6 @@ if [ ! "${1}" = "--yes" ]; then
 fi
 
 softwareupdate --install --all
+
+# TODO: Capture output and make this message more apparent.
+#GREP=$(echo ${OUTPUT} | grep 'Please restart immediately.') || GREP=""
