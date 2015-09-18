@@ -147,9 +147,9 @@ esac
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # lunchy
-LUNCHY_DIRECTORY=$(dirname `gem which lunchy`)/../extras
-LUNCHY_ZSH="${LUNCHY_DIRECTORY}/lunchy-completion.zsh"
-[[ -f "${LUNCHY_ZSH}" ]] && . "${LUNCHY_ZSH}"
+#LUNCHY_DIRECTORY=$(dirname `gem which lunchy`)/../extras
+#LUNCHY_ZSH="${LUNCHY_DIRECTORY}/lunchy-completion.zsh"
+#[[ -f "${LUNCHY_ZSH}" ]] && . "${LUNCHY_ZSH}"
 
 #LOAD_END=$(perl -MTime::HiRes -e 'print int(1000 * Time::HiRes::gettimeofday),"\n"')
 #echo "Load: $(expr $LOAD_END - $LOAD_START)ms"
