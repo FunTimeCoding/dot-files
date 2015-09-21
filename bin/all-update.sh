@@ -16,3 +16,6 @@ if [ "${OS}" = "Darwin" ]; then
 elif [ "${OS}" = "Linux" ]; then
     debian-update.sh "${1}"
 fi
+
+cd "${HOME}/Code"
+repo-update.rb -d 2
