@@ -45,6 +45,7 @@ PATHS=(
 "${HOME}/.composer/vendor/bin"
 "${HOME}/.local/dev-tools/bin"
 "${HOME}/Library/Python/3.4/bin"
+"${HOME}/Library/Android/sdk/platform-tools"
 "${DOTFILES}/bin"
 )
 
