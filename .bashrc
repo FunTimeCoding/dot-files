@@ -21,7 +21,7 @@ case "${TERM}" in
 esac
 
 # bash configuration
-unset HISTFILE
+#unset HISTFILE
 
 # The following string is to prevent modifications by the provisioning system.
 # protected

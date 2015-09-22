@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-if [ ! -x "$(command -v shellcheck)" ]; then
+if [ "$(command -v shellcheck || true)" = "" ]; then
     echo "Command not found: shellcheck"
 
     exit 1
