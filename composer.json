@@ -2,7 +2,9 @@
     "require": {
         "facebook/arcanist": "*",
         "fabpot/php-cs-fixer": "*",
-        "phploc/phploc": "*"
+        "phploc/phploc": "*",
+        "squizlabs/php_codesniffer": "*",
+        "phpmd/phpmd": "*"
     },
     "repositories": [
         {
