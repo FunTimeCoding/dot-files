@@ -13,7 +13,7 @@ if [ ! "${1}" = "--yes" ]; then
     echo "Empty directories found:"
     echo "${OUTPUT}"
     echo "Delete? [y/n]"
-    read READ
+    read -r READ
 
     if [ ! "${READ}" = "y" ]; then
         exit 0

@@ -13,7 +13,7 @@ if [ ! "${1}" = "--yes" ]; then
     echo "Available updates:"
     echo "${OUTPUT}"
     echo "Update? [y/n]"
-    read READ
+    read -r READ
 
     if [ ! "${READ}" = "y" ]; then
         exit 0

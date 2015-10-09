@@ -15,22 +15,6 @@ compinit
 # functions
 autoload -Uz ~/.dotfiles/zfunc/*(:t)
 
-# powerline
-OS=$(uname)
-
-if [ "${OS}" = "Linux" ]; then
-    SITE_PACKAGES=$(python -m site --user-site)
-    DEBIAN_VERSION=$(cut -c 1-1 < /etc/debian_version)
-elif [ "${OS}" = "Darwin" ]; then
-    SITE_PACKAGES="/usr/local/lib/python3.4/site-packages"
-fi
-
-if [ "${DEBIAN_VERSION}" = "8" ]; then
-    export POWERLINE_DIR=/usr/share/powerline
-else
-    export POWERLINE_DIR="${SITE_PACKAGES}/powerline"
-fi
-
 # path
 PATHS=(
 "/bin"
@@ -44,7 +28,7 @@ PATHS=(
 "${HOME}/.local/bin"
 "${HOME}/.composer/vendor/bin"
 "${HOME}/.local/dev-tools/bin"
-"${HOME}/Library/Python/3.4/bin"
+"${HOME}/Library/Python/3.5/bin"
 "${HOME}/Library/Android/sdk/platform-tools"
 "${DOTFILES}/bin"
 )
@@ -66,6 +50,19 @@ done
 
 export PATH
 export MANPATH="${MANPATH}:/usr/local/man"
+
+# powerline
+OS=$(uname)
+SITE_PACKAGES=$(python3 -m site --user-site)
+export POWERLINE_DIR="${SITE_PACKAGES}/powerline"
+
+if [ "${OS}" = "Linux" ]; then
+    DEBIAN_VERSION=$(cut -c 1-1 < /etc/debian_version)
+
+    if [ "${DEBIAN_VERSION}" = "8" ]; then
+        export POWERLINE_DIR=/usr/share/powerline
+    fi
+fi
 
 # perlbrew
 PERLBREW="${HOME}/perl5/perlbrew/etc/bashrc"

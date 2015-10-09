@@ -4,7 +4,7 @@ DIRS=$(find . -type d -maxdepth 2 -mindepth 2)
 
 for DIR in ${DIRS}; do
     if [ -d "${DIR}/.git" ]; then
-        cd "${DIR}"
+        cd "${DIR}" || exit 1
         OUTPUT=$(git remote -v)
 
         if [ "${OUTPUT}" = "" ]; then

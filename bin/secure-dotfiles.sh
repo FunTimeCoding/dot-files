@@ -11,7 +11,7 @@ for FILE in ${FILES}; do
 done
 
 echo "Apply chmod 600? [y/n]"
-read READ
+read -r READ
 
 if [ ! "${READ}" = "y" ]; then
     exit 0

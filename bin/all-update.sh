@@ -17,5 +17,5 @@ elif [ "${OS}" = "Linux" ]; then
     debian-update.sh "${1}"
 fi
 
-cd "${HOME}/Code"
+cd "${HOME}/Code" || exit 1
 repo-update.rb -d 2

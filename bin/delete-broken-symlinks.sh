@@ -4,7 +4,7 @@ echo "Check for broken symlinks."
 OUTPUT=$(find . -type l)
 FOUND=false
 
-echo "${OUTPUT}" | while read FILE; do
+echo "${OUTPUT}" | while read -r FILE; do
     if [ ! -e "${FILE}" ]; then
         FOUND=true
     fi
@@ -18,20 +18,22 @@ fi
 
 if [ ! "${1}" = "--yes" ]; then
     echo "Broken symlinks found:"
-    echo "${OUTPUT}" | while read FILE; do
+
+    echo "${OUTPUT}" | while read -r FILE; do
         if [ ! -e "${FILE}" ]; then
             ls -l "$FILE"
         fi
     done
+
     echo "Delete? [y/n]"
-    read READ
+    read -r READ
 
     if [ ! "${READ}" = "y" ]; then
         exit 0
     fi
 fi
 
-echo "${OUTPUT}" | while read FILE; do
+echo "${OUTPUT}" | while read -r FILE; do
     if [ ! -e "${FILE}" ]; then
         rm "$FILE"
     fi

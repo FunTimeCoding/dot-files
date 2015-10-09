@@ -13,7 +13,7 @@ else
         echo "${OUTPUT}"
         HOST_NAME=$(hostname)
         echo "Update ${HOST_NAME}? [y/n]"
-        read READ
+        read -r READ
 
         if [ ! "${READ}" = "y" ]; then
             exit 0
@@ -39,7 +39,7 @@ if [ ! "${1}" = "--yes" ]; then
     echo "${OUTPUT}"
     HOST_NAME=$(hostname)
     echo "Update ${HOST_NAME}? [y/n]"
-    read READ
+    read -r READ
 
     if [ ! "${READ}" = "y" ]; then
         exit 0

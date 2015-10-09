@@ -19,12 +19,12 @@ fi
 OPTIONS=$(tmux list-sessions -F "#S" | tr '\n' ' ')
 OPTIONS="${OPTIONS} new"
 echo "Select session from: ${OPTIONS}"
-read OPTION
+read -r OPTION
 
 case ${OPTION} in
-    "new")
+    new)
         echo "Enter new session name:"
-        read SESSION_NAME
+        read -r SESSION_NAME
         ${TMUX_CMD} new-session -s "${SESSION_NAME}"
         ;;
     *)

@@ -1,6 +1,7 @@
 #!/bin/sh -e
 
-SCRIPT_DIR=$(cd "$(dirname "${0}")"; pwd)
+DIR=$(dirname "${0}")
+SCRIPT_DIR=$(cd "${DIR}" || exit 1; pwd)
 WORK_DIR="${HOME}/.dotfiles"
 CURL=$(which curl)
 
@@ -14,7 +15,7 @@ SSH_DIR="${HOME}/.ssh"
 
 if [ -d "${SSH_DIR}" ]; then
     echo "Directory ${SSH_DIR} already exists. Replace it? (y/n) This will rm -rf ${SSH_DIR}."
-    read OPT
+    read -r OPT
 
     case ${OPT} in
         y)
@@ -43,23 +44,14 @@ done
 
 mkdir -p "${HOME}/.config"
 ln -snf "${WORK_DIR}/powerline" "${HOME}/.config/powerline"
-OS=$(uname)
 
 if command -v pip3 > /dev/null 2>&1; then
-    if [ "${OS}" = "Linux" ]; then
-        pip3 install --user -U powerline-status
-    elif [ "${OS}" = "Darwin" ]; then
-        pip3 install -U powerline-status
-    fi
+    pip3 install --upgrade --user powerline-status
 else
     echo "pip3 is not installed, fall back to pip2."
 
     if command -v pip2 > /dev/null 2>&1; then
-        if [ "${OS}" = "Linux" ]; then
-            pip2 install --user -U powerline-status
-        elif [ "${OS}" = "Darwin" ]; then
-            pip2 install -U powerline-status
-        fi
+        pip2 install --upgrade --user powerline-status
     else
         echo "pip2 is not installed, powerline not installed."
     fi
@@ -124,7 +116,7 @@ COMPOSER_LOCK="${HOME}/.composer/composer.lock"
 
 if [ ! -f "${COMPOSER_LOCK}" ]; then
     echo "Install Composer packages."
-    cd "${COMPOSER_DIR}"
+    cd "${COMPOSER_DIR}" || exit 1
     ${COMPOSER_BIN} self-update
     ${COMPOSER_BIN} install
 fi
