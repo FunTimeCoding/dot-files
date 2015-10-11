@@ -55,12 +55,15 @@ export MANPATH="${MANPATH}:/usr/local/man"
 OS=$(uname)
 SITE_PACKAGES=$(python3 -m site --user-site)
 export POWERLINE_DIR="${SITE_PACKAGES}/powerline"
+DEBIAN_VERSION_FILE="/etc/debian_version"
 
-if [ "${OS}" = "Linux" ]; then
-    DEBIAN_VERSION=$(cut -c 1-1 < /etc/debian_version)
+if [ -f "${DEBIAN_VERSION_FILE}" ]; then
+    if [ "${OS}" = "Linux" ]; then
+        DEBIAN_VERSION=$(cut -c 1-1 < "${DEBIAN_VERSION_FILE}")
 
-    if [ "${DEBIAN_VERSION}" = "8" ]; then
-        export POWERLINE_DIR=/usr/share/powerline
+        if [ "${DEBIAN_VERSION}" = "8" ]; then
+            export POWERLINE_DIR=/usr/share/powerline
+        fi
     fi
 fi
 
