@@ -4,6 +4,7 @@ DIR=$(dirname "${0}")
 SCRIPT_DIR=$(cd "${DIR}" || exit 1; pwd)
 WORK_DIR="${HOME}/.dotfiles"
 CURL=$(which curl)
+NON_INTERACTIVE=false
 
 if [ ! "${WORK_DIR}" = "${SCRIPT_DIR}" ]; then
     echo "Dotfiles directory must be ${WORK_DIR}."
@@ -11,11 +12,19 @@ if [ ! "${WORK_DIR}" = "${SCRIPT_DIR}" ]; then
     exit 1
 fi
 
+if [ "${1}" = "--non-interactive" ]; then
+    NON_INTERACTIVE=true
+fi
+
 SSH_DIR="${HOME}/.ssh"
 
 if [ -d "${SSH_DIR}" ]; then
-    echo "Directory ${SSH_DIR} already exists. Replace it? (y/n) This will rm -rf ${SSH_DIR}."
-    read -r OPT
+    if [ "${NON_INTERACTIVE}" = true ]; then
+        OPT="y"
+    else
+        echo "Directory ${SSH_DIR} already exists. Replace it? (y/n) This will rm -rf ${SSH_DIR}."
+        read -r OPT
+    fi
 
     case ${OPT} in
         y)

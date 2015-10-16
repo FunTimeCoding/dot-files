@@ -4,7 +4,7 @@ export LANG=en_US.UTF-8
 
 # env
 export DOTFILES="${HOME}/.dotfiles"
-export PATH="${HOME}/.local/bin:/usr/local/opt/python-3.4.3/bin:/usr/local/opt/python-2.7.10/bin:${PATH}"
+export PATH="${HOME}/.local/bin:/usr/local/opt/python-3.5.0/bin:/usr/local/opt/python-2.7.10/bin:${PATH}"
 
 # osx commmand forks
 type gdircolors &> /dev/null && DIRCOLORS_COMMAND='gdircolors' || DIRCOLORS_COMMAND="dircolors"

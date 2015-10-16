@@ -31,6 +31,8 @@ PATHS=(
 "${HOME}/Library/Python/3.5/bin"
 "${HOME}/Library/Android/sdk/platform-tools"
 "${DOTFILES}/bin"
+"/usr/local/opt/python-3.5.0/bin"
+"/usr/local/opt/python-2.7.10/bin"
 )
 
 if type brew &> /dev/null; then
@@ -55,17 +57,6 @@ export MANPATH="${MANPATH}:/usr/local/man"
 OS=$(uname)
 SITE_PACKAGES=$(python3 -m site --user-site)
 export POWERLINE_DIR="${SITE_PACKAGES}/powerline"
-DEBIAN_VERSION_FILE="/etc/debian_version"
-
-if [ -f "${DEBIAN_VERSION_FILE}" ]; then
-    if [ "${OS}" = "Linux" ]; then
-        DEBIAN_VERSION=$(cut -c 1-1 < "${DEBIAN_VERSION_FILE}")
-
-        if [ "${DEBIAN_VERSION}" = "8" ]; then
-            export POWERLINE_DIR=/usr/share/powerline
-        fi
-    fi
-fi
 
 # perlbrew
 PERLBREW="${HOME}/perl5/perlbrew/etc/bashrc"
