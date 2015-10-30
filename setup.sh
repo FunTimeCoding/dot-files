@@ -1,4 +1,5 @@
 #!/bin/sh -e
+# How to debug: sh -ex setup.sh
 
 DIR=$(dirname "${0}")
 SCRIPT_DIR=$(cd "${DIR}" || exit 1; pwd)
