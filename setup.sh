@@ -95,6 +95,8 @@ if [ ! -d "${ZSH_SYNTAX_HIGHLIGHTING}" ]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting "${ZSH_SYNTAX_HIGHLIGHTING}"
 fi
 
+ln -snf "${WORK_DIR}/.vim" "${HOME}/.config/nvim"
+
 if ! command -v php > /dev/null 2>&1; then
     echo "PHP is not installed, Composer not installed."
 
