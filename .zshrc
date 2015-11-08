@@ -143,5 +143,13 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 #LUNCHY_ZSH="${LUNCHY_DIRECTORY}/lunchy-completion.zsh"
 #[[ -f "${LUNCHY_ZSH}" ]] && . "${LUNCHY_ZSH}"
 
+if [ "${OS}" = "Linux" ]; then
+    if [ ! "$(pgrep kwalletd5)" = "" ]; then
+        if [ "$(ssh-add -l)" = "The agent has no identities." ]; then
+            ssh-add < /dev/null
+        fi
+    fi
+fi
+
 #LOAD_END=$(perl -MTime::HiRes -e 'print int(1000 * Time::HiRes::gettimeofday),"\n"')
 #echo "Load: $(expr $LOAD_END - $LOAD_START)ms"
