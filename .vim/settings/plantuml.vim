@@ -1,1 +1,1 @@
-let g:plantuml_executable_script='puml'
+let g:plantuml_executable_script = 'puml'
