@@ -25,6 +25,7 @@ alias gdc='git diff --cached'
 alias gc='git commit -v'
 alias g='git'
 alias v='vim'
+alias egrep='egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 unalias gst > /dev/null 2>&1
 
 # vim: ft=sh
