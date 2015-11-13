@@ -25,6 +25,8 @@ PATHS=(
 "${DOTFILES}/bin"
 "/usr/local/opt/python-3.5.0/bin"
 "/usr/local/opt/python-2.7.10/bin"
+"/usr/local/opt/ruby-2.2.3/bin"
+"${HOME}/.gem/ruby/2.2.0/bin"
 )
 
 if type brew &> /dev/null; then
