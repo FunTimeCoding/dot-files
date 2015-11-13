@@ -21,6 +21,7 @@ else
     fi
 
     sudo apt-get -qq upgrade
+    echo "Run autoremove and clean."
     sudo apt-get -qq autoremove
     sudo apt-get -qq clean
 fi
@@ -47,5 +48,6 @@ if [ ! "${1}" = "--yes" ]; then
 fi
 
 sudo apt-get -qq dist-upgrade
+echo "Run autoremove and clean."
 sudo apt-get -qq autoremove
 sudo apt-get -qq clean
