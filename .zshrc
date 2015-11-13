@@ -1,6 +1,6 @@
 #LOAD_START=$(perl -MTime::HiRes -e 'print int(1000 * Time::HiRes::gettimeofday),"\n"')
 
-# env
+# Environment
 export DOT_DEBUG=false
 export DOTFILES="${HOME}/.dotfiles"
 export FPATH="$HOME/.dotfiles/zfunc:$FPATH"
@@ -8,14 +8,6 @@ export EDITOR=vim
 export LESSHISTFILE=/dev/null
 export MYSQL_HISTFILE=/dev/null
 
-# completion
-autoload -Uz compinit
-compinit
-
-# functions
-autoload -Uz ~/.dotfiles/zfunc/*(:t)
-
-# path
 PATHS=(
 "/bin"
 "/usr/bin"
@@ -44,7 +36,7 @@ fi
 
 for ELEMENT in "${PATHS[@]}"; do
     if [ ! "${ELEMENT}" = "" ]; then
-        if dot_dir_exists "${ELEMENT}"; then
+        if [ -d "${ELEMENT}" ]; then
             PATH="${ELEMENT}:${PATH}"
         fi
     fi
@@ -53,16 +45,29 @@ done
 export PATH
 export MANPATH="${MANPATH}:/usr/local/man"
 
-# powerline
 OS=$(uname)
-SITE_PACKAGES=$(python3 -m site --user-site)
-export POWERLINE_DIR="${SITE_PACKAGES}/powerline"
 
-# perlbrew
+if type python3 &> /dev/null; then
+    SITE_PACKAGES=$(python3 -m site --user-site)
+else
+    # Fallback for systems without python in /usr/local/opt/python-3.5.0.
+    SITE_PACKAGES=$(python -m site --user-site)
+fi
+
+export POWERLINE_DIRECTORY="${SITE_PACKAGES}/powerline"
+
+# Completion
+autoload -Uz compinit
+compinit
+
+# User functions
+autoload -Uz ~/.dotfiles/zfunc/*(:t)
+
+# Perlbrew
 PERLBREW="${HOME}/perl5/perlbrew/etc/bashrc"
-[[ -f "${PERLBREW}" ]] && source "${PERLBREW}"
+[ -f "${PERLBREW}" ] && source "${PERLBREW}"
 
-# oh-my-zsh
+# Oh My Zsh
 ZSH="${HOME}/.oh-my-zsh"
 
 if [ -d "${ZSH}" ]; then
@@ -82,11 +87,11 @@ if [ -d "${ZSH}" ]; then
     source "${ZSH}/oh-my-zsh.sh"
 fi
 
-# groovy
-GROOVY_DIR="/usr/local/opt/groovy/libexec"
-[[ -d "${GROOVY_DIR}" ]] && export GROOVY_HOME="${GROOVY_DIR}"
+# Groovy
+GROOVY_DIRECTORY="/usr/local/opt/groovy/libexec"
+[ -d "${GROOVY_DIRECTORY}" ] && export GROOVY_HOME="${GROOVY_DIRECTORY}"
 
-# osx commmand forks
+# use GNU commands on OS X if they exist
 type gdircolors &> /dev/null && DIRCOLORS_COMMAND='gdircolors' || DIRCOLORS_COMMAND="dircolors"
 type gls &> /dev/null && LS_COMMAND='gls' || LS_COMMAND="ls"
 
@@ -106,9 +111,9 @@ else
 fi
 
 ADITION_CONF="${HOME}/.adition.conf"
-[[ -f "${ADITION_CONF}" ]] && . "${ADITION_CONF}"
+[ -f "${ADITION_CONF}" ] && . "${ADITION_CONF}"
 
-# zsh settings
+# Zsh settings
 CASE_SENSITIVE="true"
 HISTFILE=~/.zsh_history
 SAVEHIST=1000
@@ -123,13 +128,13 @@ bindkey '^r' history-incremental-search-backward
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
-# dircolors, powerline
+# dircolors, Powerline
 case "${TERM}" in
     xterm* | screen*)
         eval $(${DIRCOLORS_COMMAND} "${DOTFILES}/dircolors")
 
         if type powerline &> /dev/null; then
-            POWERLINE_ZSH="${POWERLINE_DIR}/bindings/zsh/powerline.zsh"
+            POWERLINE_ZSH="${POWERLINE_DIRECTORY}/bindings/zsh/powerline.zsh"
             [ -f "${POWERLINE_ZSH}" ] && . "${POWERLINE_ZSH}"
         fi
         ;;
@@ -141,7 +146,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # lunchy
 #LUNCHY_DIRECTORY=$(dirname `gem which lunchy`)/../extras
 #LUNCHY_ZSH="${LUNCHY_DIRECTORY}/lunchy-completion.zsh"
-#[[ -f "${LUNCHY_ZSH}" ]] && . "${LUNCHY_ZSH}"
+#[ -f "${LUNCHY_ZSH}" ] && . "${LUNCHY_ZSH}"
 
 if [ "${OS}" = "Linux" ]; then
     if [ ! "$(pgrep kwalletd5)" = "" ]; then
