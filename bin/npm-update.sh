@@ -20,5 +20,5 @@ if [ ! "${1}" = "--yes" ]; then
     fi
 fi
 
-npm install -g npm
+npm install npm@latest -g
 npm up -g
