@@ -13,8 +13,13 @@ if [ "${OS}" = "Darwin" ]; then
     gem-update.sh "${1}"
     osx-update.sh "${1}"
     cabal-update.sh
-    cd "${HOME}/Code" || exit 1
-    repo-update.rb -d 2
 elif [ "${OS}" = "Linux" ]; then
     debian-update.sh "${1}"
+fi
+
+CODE_DIRECTORY="${HOME}/Code"
+
+if [ -d "${CODE_DIRECTORY}" ]; then
+    cd "${CODE_DIRECTORY}" || exit 1
+    repo-update.rb -d 2
 fi

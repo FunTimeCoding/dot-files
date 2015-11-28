@@ -11,6 +11,6 @@ diskutil list
 TARGET="disk2"
 echo "Select target. Example: ${TARGET}"
 read -r TARGET
-diskutil unmountDisk /dev/${TARGET}
-sudo dd if=linux.img of=/dev/r${TARGET} bs=1m
-diskutil eject /dev/${TARGET}
+diskutil unmountDisk "/dev/${TARGET}"
+sudo dd if=linux.img of="/dev/r${TARGET}" bs=1m
+diskutil eject "/dev/${TARGET}"

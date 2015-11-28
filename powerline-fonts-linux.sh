@@ -2,7 +2,7 @@
 
 DIR="${HOME}/Documents/powerline"
 mkdir -p "${DIR}"
-cd "${DIR}"
+cd "${DIR}" || exit 1
 URL="https://github.com/powerline/powerline/raw/develop/font"
 FONT_FILE="PowerlineSymbols.otf"
 CONFIG_FILE="10-powerline-symbols.conf"
