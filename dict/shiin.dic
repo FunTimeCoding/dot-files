@@ -1,18 +1,18 @@
-# Linux
+# Project names
 Debian
+Xdebug
 
-# Unix
+# Commands
 sudo
 realpath
-
-# OS X
+shyaml
 grealpath
+shellcheck
 
 # VirtualBox
+vbox
+vboxmanage
 poweroff
-
-# PHP
-Xdebug
 
 # acronyms
 YAML

@@ -21,6 +21,7 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'Keithbsmiley/swift.vim'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundleLazy 'docker/docker', {'rtp': 'contrib/syntax/vim/', 'autoload': {'filetypes' : ['dockerfile']}}
+NeoBundleLazy 'icinga/icinga2', {'rtp': 'tools/syntax/vim/'}
 NeoBundleLazy 'mfukar/robotframework-vim', {'autoload': {'filetypes' : ['robot']}}
 NeoBundleLazy 'pangloss/vim-javascript', {'autoload': {'filetypes' : ['javascript']}}
 NeoBundleLazy 'nginx/nginx', {'rtp': 'contrib/vim/', 'autoload': {'filetypes' : ['nginx']}}
