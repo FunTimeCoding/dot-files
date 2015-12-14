@@ -11,6 +11,8 @@ Reitzel
 fabpot
 squizlabs
 codesniffer
+xmlstarlet
+areitzel
 
 # Commands
 sudo
