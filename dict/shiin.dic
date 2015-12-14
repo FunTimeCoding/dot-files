@@ -31,6 +31,7 @@ YAML
 
 # shell
 OPTIND
+xargs
 
 # PHPMD
 ruleset
@@ -44,3 +45,13 @@ executables
 
 # normalized capitalization
 Gitlab
+
+# Python
+pyvenv
+
+# PHPUnit
+testsuite
+testsuites
+
+# PhpStorm
+idekey
