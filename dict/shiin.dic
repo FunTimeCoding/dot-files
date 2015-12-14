@@ -1,6 +1,16 @@
-# Project names
+# Names
 Debian
 Xdebug
+Symfony
+FunTimeCoding
+phpcpd
+pdepend
+phploc
+phpmd
+Reitzel
+fabpot
+squizlabs
+codesniffer
 
 # Commands
 sudo
@@ -19,3 +29,16 @@ YAML
 
 # shell
 OPTIND
+
+# PHPMD
+ruleset
+rulesets
+unusedcode
+codesize
+
+# software development
+executable
+executables
+
+# normalized capitalization
+Gitlab
