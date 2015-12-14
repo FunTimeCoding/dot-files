@@ -47,7 +47,7 @@ done
 export PATH
 export MANPATH="${MANPATH}:/usr/local/man"
 
-OS=$(uname)
+OPERATING_SYSTEM=$(uname)
 
 if type python3 &> /dev/null; then
     SITE_PACKAGES=$(python3 -m site --user-site)
@@ -80,7 +80,7 @@ if [ -d "${ZSH}" ]; then
     export DISABLE_AUTO_TITLE=true
     export DISABLE_UPDATE_PROMPT=true
 
-    if [ "${OS}" = "Darwin" ]; then
+    if [ "${OPERATING_SYSTEM}" = "Darwin" ]; then
         plugins=(git svn zsh-syntax-highlighting osx brew)
     else
         plugins=(git svn zsh-syntax-highlighting)
@@ -107,9 +107,9 @@ if type grc &> /dev/null; then
         . ${GRC_CONF}
     fi
 
-    alias gs='git status | grcat conf.gitstatus'
+    alias gs="git status | grcat conf.gitstatus"
 else
-    alias gs='git status'
+    alias gs="git status"
 fi
 
 ADITION_CONF="${HOME}/.adition.conf"
@@ -117,18 +117,25 @@ ADITION_CONF="${HOME}/.adition.conf"
 
 # Zsh settings
 CASE_SENSITIVE="true"
-HISTFILE=~/.zsh_history
 SAVEHIST=1000
 HISTSIZE=1000
 setopt incappendhistory
 setopt histignoredups
-setopt INTERACTIVE_COMMENTS # enable # comments in commands
+setopt INTERACTIVE_COMMENTS # allow pound character comments in commands
 setopt nobeep
-unsetopt NOMATCH # disable "zsh: no matches found" errors caused by **
+unsetopt NOMATCH # disable 'zsh: no matches found' errors caused by **
 bindkey -v # vi-mode
-bindkey '^r' history-incremental-search-backward
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
+
+if type hh &> /dev/null; then
+    export HISTFILE="~/.zsh_history"
+    export HH_CONFIG=hicolor # get more colors
+    bindkey -s "\C-r" "\eihh\n" # bind hh to Ctrl-r (for Vi mode check doc)
+else
+    HISTFILE="~/.zsh_history"
+    bindkey '^r' history-incremental-search-backward
+fi
 
 # dircolors, Powerline
 case "${TERM}" in
@@ -150,7 +157,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 #LUNCHY_ZSH="${LUNCHY_DIRECTORY}/lunchy-completion.zsh"
 #[ -f "${LUNCHY_ZSH}" ] && . "${LUNCHY_ZSH}"
 
-if [ "${OS}" = "Linux" ]; then
+if [ "${OPERATING_SYSTEM}" = "Linux" ]; then
     if [ ! "$(pgrep kwalletd5)" = "" ]; then
         if [ "$(ssh-add -l)" = "The agent has no identities." ]; then
             ssh-add < /dev/null
@@ -159,4 +166,4 @@ if [ "${OS}" = "Linux" ]; then
 fi
 
 #LOAD_END=$(perl -MTime::HiRes -e 'print int(1000 * Time::HiRes::gettimeofday),"\n"')
-#echo "Load: $(expr $LOAD_END - $LOAD_START)ms"
+#echo "Loading time: $(expr $LOAD_END - $LOAD_START)ms"

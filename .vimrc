@@ -20,6 +20,7 @@ NeoBundle 'Glench/Vim-Jinja2-Syntax'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'Keithbsmiley/swift.vim'
 NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'tpope/vim-unimpaired'
 NeoBundleLazy 'docker/docker', {'rtp': 'contrib/syntax/vim/', 'autoload': {'filetypes' : ['dockerfile']}}
 NeoBundleLazy 'icinga/icinga2', {'rtp': 'tools/syntax/vim/'}
 NeoBundleLazy 'mfukar/robotframework-vim', {'autoload': {'filetypes' : ['robot']}}
