@@ -13,6 +13,7 @@ squizlabs
 codesniffer
 xmlstarlet
 areitzel
+github
 
 # Commands
 sudo
@@ -32,12 +33,15 @@ YAML
 # shell
 OPTIND
 xargs
+mkdir
 
-# PHPMD
+# PHP
 ruleset
 rulesets
 unusedcode
 codesize
+testsuite
+testsuites
 
 # software development
 executable
@@ -48,10 +52,24 @@ Gitlab
 
 # Python
 pyvenv
-
-# PHPUnit
-testsuite
-testsuites
+PYTHONHOME
+pycache
+pytest
+pylint
+pyyaml
+addopts
+junitxml
+coveragerc
+htmlcov
+venv
+stdscr
+getkey
 
 # PhpStorm
 idekey
+
+# Vim
+dosini
+
+# Licenses
+NONINFRINGEMENT
