@@ -21,6 +21,7 @@ realpath
 shyaml
 grealpath
 shellcheck
+gfind
 
 # VirtualBox
 vbox
