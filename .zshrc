@@ -129,14 +129,14 @@ bindkey -v # vi-mode
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
-if type hh &> /dev/null; then
-    export HISTFILE=~/.zsh_history
-    export HH_CONFIG=hicolor # get more colors
-    bindkey -s "\C-r" "\eihh\n" # bind hh to Ctrl-r (for Vi mode check doc)
-else
-    HISTFILE=~/.zsh_history
-    bindkey '^r' history-incremental-search-backward
-fi
+#if type hh &> /dev/null; then
+#    export HISTFILE=~/.zsh_history
+#    export HH_CONFIG=hicolor # get more colors
+#    bindkey -s "\C-r" "\eihh\n" # bind hh to Ctrl-r (for Vi mode check doc)
+#else
+HISTFILE=~/.zsh_history
+bindkey '^r' history-incremental-search-backward
+#fi
 
 # dircolors, Powerline
 case "${TERM}" in
