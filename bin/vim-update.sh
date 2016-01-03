@@ -1,3 +1,3 @@
 #!/bin/sh -e
 
-vim -c "set t_ti= t_te=" +NeoBundleUpdate +q
+vim --cmd "set t_ti= t_te=" +NeoBundleUpdate +q
