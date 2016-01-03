@@ -1,12 +1,12 @@
 #!/bin/sh -e
 
-JAR_DIR="$HOME/.local/jar"
+JAR_DIRECTORY="$HOME/.local/jar"
 
-if [ ! -d "${JAR_DIR}" ]; then
-    mkdir -p "${JAR_DIR}"
+if [ ! -d "${JAR_DIRECTORY}" ]; then
+    mkdir -p "${JAR_DIRECTORY}"
 fi
 
-FILE="${JAR_DIR}/plantuml.jar"
+FILE="${JAR_DIRECTORY}/plantuml.jar"
 
 if [ ! -f "${FILE}" ]; then
     wget http://downloads.sourceforge.net/project/plantuml/plantuml.jar -O "${FILE}"

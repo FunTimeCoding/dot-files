@@ -21,7 +21,7 @@ if [ ! "${1}" = "--yes" ]; then
 
     echo "${OUTPUT}" | while read -r FILE; do
         if [ ! -e "${FILE}" ]; then
-            ls -l "$FILE"
+            ls -l "${FILE}"
         fi
     done
 
@@ -35,6 +35,6 @@ fi
 
 echo "${OUTPUT}" | while read -r FILE; do
     if [ ! -e "${FILE}" ]; then
-        rm "$FILE"
+        rm "${FILE}"
     fi
 done
