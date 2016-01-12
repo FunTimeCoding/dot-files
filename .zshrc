@@ -28,6 +28,7 @@ PATHS=(
 "/usr/local/opt/ruby-2.2.3/bin"
 "/usr/local/opt/lua-5.3.2/bin"
 "/usr/local/opt/neovim/bin"
+"/usr/local/opt/tmux-2.1/bin"
 "${HOME}/.gem/ruby/2.2.0/bin"
 )
 
