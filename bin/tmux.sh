@@ -4,19 +4,20 @@ if [ ! "${TMUX}" = "" ]; then
     exit 0
 fi
 
+TMUX_COMMAND="tmux -2"
+
 has_session()
 {
-    tmux has-session -t "${1}" 2>/dev/null
+    ${TMUX_COMMAND} has-session -t "${1}" 2>/dev/null
 }
 
-TMUX_COMMAND="tmux -2"
 DEFAULT_NAME="1"
 
 if ! has_session "${DEFAULT_NAME}"; then
     ${TMUX_COMMAND} new-session -s "${DEFAULT_NAME}" -d
 fi
 
-OPTIONS=$(tmux list-sessions -F "#S" | tr '\n' ' ')
+OPTIONS=$(${TMUX_COMMAND} list-sessions -F "#S" | tr '\n' ' ')
 OPTIONS="${OPTIONS} quad new"
 echo "Select session from: ${OPTIONS}"
 read -r OPTION

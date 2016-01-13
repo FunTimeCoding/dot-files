@@ -68,9 +68,16 @@ compinit
 # User functions
 autoload -Uz ~/.dotfiles/zfunc/*(:t)
 
+if [ "$COLORTERM" = "gnome-terminal" ]; then
+    export TERM="xterm-256color"
+fi
+
 # Perlbrew
 PERLBREW="${HOME}/perl5/perlbrew/etc/bashrc"
-[ -f "${PERLBREW}" ] && source "${PERLBREW}"
+
+if [ -f "${PERLBREW}" ]; then
+    . "${PERLBREW}"
+fi
 
 # Oh My Zsh
 ZSH="${HOME}/.oh-my-zsh"
@@ -94,11 +101,23 @@ fi
 
 # Groovy
 GROOVY_DIRECTORY="/usr/local/opt/groovy/libexec"
-[ -d "${GROOVY_DIRECTORY}" ] && export GROOVY_HOME="${GROOVY_DIRECTORY}"
 
-# use GNU commands on OS X if they exist
-type gdircolors &> /dev/null && DIRCOLORS_COMMAND='gdircolors' || DIRCOLORS_COMMAND="dircolors"
-type gls &> /dev/null && LS_COMMAND='gls' || LS_COMMAND="ls"
+if [ -d "${GROOVY_DIRECTORY}" ]; then
+    export GROOVY_HOME="${GROOVY_DIRECTORY}"
+fi
+
+# Use GNU commands on OS X if they exist.
+if type gdircolors &> /dev/null; then
+    DIRCOLORS_COMMAND='gdircolors'
+else
+    DIRCOLORS_COMMAND="dircolors"
+fi
+
+if type gls &> /dev/null; then
+    LS_COMMAND='gls'
+else
+    LS_COMMAND="ls"
+fi
 
 # aliases
 . "${HOME}/.aliases"
@@ -115,10 +134,14 @@ else
     alias gs="git status"
 fi
 
+# Load local config which is private.
 ADITION_CONF="${HOME}/.adition.conf"
-[ -f "${ADITION_CONF}" ] && . "${ADITION_CONF}"
 
-# Zsh settings
+if [ -f "${ADITION_CONF}" ]; then
+    . "${ADITION_CONF}"
+fi
+
+# Zsh
 CASE_SENSITIVE="true"
 SAVEHIST=1000
 HISTSIZE=1000
@@ -147,19 +170,26 @@ case "${TERM}" in
 
         if type powerline &> /dev/null; then
             POWERLINE_ZSH="${POWERLINE_DIRECTORY}/bindings/zsh/powerline.zsh"
-            [ -f "${POWERLINE_ZSH}" ] && . "${POWERLINE_ZSH}"
+
+            if [ -f "${POWERLINE_ZSH}" ]; then
+                . "${POWERLINE_ZSH}"
+            fi
         fi
         ;;
 esac
 
-# reapply dircolors for tab completion
+# Re-apply dircolors for tab completion.
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-# lunchy
+# Lunchy
 #LUNCHY_DIRECTORY=$(dirname `gem which lunchy`)/../extras
 #LUNCHY_ZSH="${LUNCHY_DIRECTORY}/lunchy-completion.zsh"
-#[ -f "${LUNCHY_ZSH}" ] && . "${LUNCHY_ZSH}"
+#
+#if [ -f "${LUNCHY_ZSH}" ]; then
+#    . "${LUNCHY_ZSH}"
+#fi
 
+# Add keys to ssh-agent on KDE 5.
 if [ "${OPERATING_SYSTEM}" = "Linux" ]; then
     if [ ! "$(pgrep kwalletd5)" = "" ]; then
         if [ "$(ssh-add -l)" = "The agent has no identities." ]; then
