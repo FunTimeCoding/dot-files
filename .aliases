@@ -1,15 +1,17 @@
-alias bashrc='vim ~/.bashrc'
-alias ls="${LS_COMMAND} -F --color"
+alias v='\vim'
+alias vim='nvim'
+alias bashrc='nvim ~/.bashrc'
+alias vimrc='nvim ~/.vimrc'
+alias zshrc='nvim ~/.zshrc'
 alias l="ls"
+alias ls="${LS_COMMAND} -F --color"
 alias ll="${LS_COMMAND} -lh --color"
 alias la="${LS_COMMAND} -Alh --color"
-alias vimrc='vim ~/.vimrc'
 alias less='less -Q'
 alias svn_log='svn log -r HEAD:1 -v -l 3 | less'
 alias svn_up_dry='svn merge --dry-run -r BASE:HEAD .'
 alias svn_diff='svn diff | view -'
 alias svn_diff_branch='svn diff -r $(svn log --stop-on-copy | grep -o "^r\d*" | tail -1):HEAD | view -'
-alias zshrc='vim ~/.zshrc'
 alias tmux='tmux -2'
 alias saidar='saidar -c'
 alias crontab="VIM_CRONTAB=true crontab"
@@ -26,7 +28,6 @@ alias gd='git diff'
 alias gdc='git diff --cached'
 alias gc='git commit -v'
 alias g='git'
-alias v='vim'
 alias egrep='egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 unalias gst > /dev/null 2>&1
 
