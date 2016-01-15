@@ -93,7 +93,11 @@ if [ -d "${ZSH}" ]; then
     if [ "${OPERATING_SYSTEM}" = "Darwin" ]; then
         plugins=(git svn zsh-syntax-highlighting osx brew)
     else
-        plugins=(git svn zsh-syntax-highlighting)
+        if [ -f "/etc/arch-release" ]; then
+            plugins=(git)
+        else
+            plugins=(git svn zsh-syntax-highlighting)
+        fi
     fi
 
     source "${ZSH}/oh-my-zsh.sh"
@@ -193,6 +197,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 if [ "${OPERATING_SYSTEM}" = "Linux" ]; then
     if [ ! "$(pgrep kwalletd5)" = "" ]; then
         if [ "$(ssh-add -l)" = "The agent has no identities." ]; then
+            export SSH_ASKPASS="/usr/bin/ksshaskpass"
             ssh-add < /dev/null
         fi
     fi
