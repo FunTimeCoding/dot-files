@@ -14,7 +14,11 @@ if [ "${OPERATING_SYSTEM}" = "Darwin" ]; then
     osx-update.sh "${1}"
     cabal-update.sh
 elif [ "${OPERATING_SYSTEM}" = "Linux" ]; then
-    debian-update.sh "${1}"
+    if [ -f "/etc/arch-release" ]; then
+        arch-update.sh "${1}"
+    elif [ -f "/etc/debian_version" ]; then
+        debian-update.sh "${1}"
+    fi
 fi
 
 CODE_DIRECTORY="${HOME}/Code"
