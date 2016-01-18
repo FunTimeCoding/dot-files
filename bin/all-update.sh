@@ -25,5 +25,5 @@ CODE_DIRECTORY="${HOME}/Code"
 
 if [ -d "${CODE_DIRECTORY}" ]; then
     cd "${CODE_DIRECTORY}" || exit 1
-    repo-update.rb -d 2
+    update-code-repositories.rb -d 2
 fi

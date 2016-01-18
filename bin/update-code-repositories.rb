@@ -2,7 +2,7 @@
 
 require 'optparse'
 
-class GitUpdater
+class CodeRepositoryUpdater
     @dryRun = false
     @depth = 1
     @verbose = false
@@ -168,5 +168,5 @@ class GitUpdater
     end
 end
 
-git_updater = GitUpdater.new
+git_updater = CodeRepositoryUpdater.new
 git_updater.main
