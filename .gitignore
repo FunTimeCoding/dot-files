@@ -5,3 +5,4 @@
 .ssh/config
 .ssh/id_*
 .ssh/vagrant*
+.newsbeuter/history.*
