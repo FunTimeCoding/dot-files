@@ -27,6 +27,8 @@ gfind
 vbox
 vboxmanage
 poweroff
+autostart
+autostartdbpath
 
 # acronyms
 YAML
