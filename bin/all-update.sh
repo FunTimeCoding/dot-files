@@ -4,11 +4,8 @@ echo "Run all updates."
 OPERATING_SYSTEM=$(uname)
 vim-update.sh
 
-if [ ! -f "/etc/arch-release" ]; then
-    pip2-update.sh "${1}"
-    pip3-update.sh "${1}"
-fi
-
+pip2-update.sh "${1}"
+pip3-update.sh "${1}"
 #atom-update.sh "${1}" # No plugins used, no update needed.
 
 if [ "${OPERATING_SYSTEM}" = "Darwin" ]; then

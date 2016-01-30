@@ -25,7 +25,7 @@ PATHS=(
 "${HOME}/Library/Android/sdk/platform-tools"
 "${DOTFILES}/bin"
 "/usr/local/opt/python-2.7.10/bin"
-"/usr/local/opt/python-3.5.0/bin"
+"/usr/local/opt/python-3.5.1/bin"
 "/usr/local/opt/ruby-2.2.3/bin"
 "/usr/local/opt/lua-5.3.2/bin"
 "/usr/local/opt/neovim/bin"
