@@ -3,13 +3,17 @@
 echo "Run all updates."
 OPERATING_SYSTEM=$(uname)
 vim-update.sh
-pip2-update.sh "${1}"
-pip3-update.sh "${1}"
+
+if [ ! -f "/etc/arch-release" ]; then
+    pip2-update.sh "${1}"
+    pip3-update.sh "${1}"
+fi
+
 #atom-update.sh "${1}" # No plugins used, no update needed.
 
 if [ "${OPERATING_SYSTEM}" = "Darwin" ]; then
     brew-update.sh "${1}"
-    #npm-update.sh "${1}" # NPM has an issue when updating from a script instead of an interactive shell.
+    #npm-update.sh "${1}" # NPM has an issue when updating from a script instead of an interactive shell. It keeps updating the same versions or something.
     gem-update.sh "${1}"
     osx-update.sh "${1}"
     cabal-update.sh
