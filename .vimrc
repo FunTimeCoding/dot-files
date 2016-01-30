@@ -9,7 +9,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " bundles list
 NeoBundle 'tpope/vim-sensible'
 NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'airblade/vim-gitgutter'
@@ -17,15 +17,15 @@ NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'tejr/vim-nagios'
 NeoBundle 'saltstack/salt-vim'
 NeoBundle 'Glench/Vim-Jinja2-Syntax'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'Keithbsmiley/swift.vim'
-NeoBundle 'derekwyatt/vim-scala'
+"NeoBundle 'othree/html5.vim'
+"NeoBundle 'Keithbsmiley/swift.vim'
+"NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'junegunn/vader.vim'
-NeoBundleLazy 'docker/docker', {'rtp': 'contrib/syntax/vim/', 'autoload': {'filetypes' : ['dockerfile']}}
-NeoBundleLazy 'icinga/icinga2', {'rtp': 'tools/syntax/vim/'}
-NeoBundleLazy 'mfukar/robotframework-vim', {'autoload': {'filetypes' : ['robot']}}
-NeoBundleLazy 'pangloss/vim-javascript', {'autoload': {'filetypes' : ['javascript']}}
+"NeoBundleLazy 'docker/docker', {'rtp': 'contrib/syntax/vim/', 'autoload': {'filetypes' : ['dockerfile']}}
+"NeoBundleLazy 'icinga/icinga2', {'rtp': 'tools/syntax/vim/'}
+"NeoBundleLazy 'mfukar/robotframework-vim', {'autoload': {'filetypes' : ['robot']}}
+"NeoBundleLazy 'pangloss/vim-javascript', {'autoload': {'filetypes' : ['javascript']}}
 NeoBundleLazy 'nginx/nginx', {'rtp': 'contrib/vim/', 'autoload': {'filetypes' : ['nginx']}}
 
 let s:php_plugins = ['StanAngeloff/php.vim', 'joonty/vim-phpqa', '2072/PHP-Indenting-for-VIm']
@@ -68,7 +68,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
-"set noerrorbells
+" Disable bell.
 set vb t_vb=
 
 cabbrev W w
@@ -77,12 +77,16 @@ let mapleader=","
 
 set backupdir=~/.vim/backup
 set directory=~/.vim/swap
+
+" TODO: Why is this here?
 set viminfo="NONE"
 
-if $TMUX == ''
-    set clipboard=unnamed
-endif
+" TODO: Find out if this is still required.
+"if $TMUX == ''
+"    set clipboard=unnamed
+"endif
 
+" Load all own config files.
 for fpath in split(globpath('~/.vim/settings', '*.vim'), '\n')
     exe 'source' fpath
 endfor
