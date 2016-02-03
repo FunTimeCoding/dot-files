@@ -33,7 +33,7 @@ PATHS=(
 "${HOME}/.gem/ruby/2.2.0/bin"
 )
 
-if type brew &> /dev/null; then
+if [ ! "$(command -v brew || true)" = "" ]; then
     PATHS+=(
     "$(brew --prefix homebrew/php/php53)/bin"
     "$(brew --prefix ruby)/bin"
@@ -53,11 +53,11 @@ export MANPATH="${MANPATH}:/usr/local/man"
 
 OPERATING_SYSTEM=$(uname)
 
-if type python3 &> /dev/null; then
-    SITE_PACKAGES=$(python3 -m site --user-site)
-else
+if [ "$(command -v python3 || true)" = "" ]; then
     # Fallback for systems without python in /usr/local/opt/python-3.5.0.
     SITE_PACKAGES=$(python -m site --user-site)
+else
+    SITE_PACKAGES=$(python3 -m site --user-site)
 fi
 
 export POWERLINE_DIRECTORY="${SITE_PACKAGES}/powerline"
@@ -84,7 +84,7 @@ fi
 ZSH="${HOME}/.oh-my-zsh"
 
 if [ -d "${ZSH}" ]; then
-    if ! type powerline &> /dev/null; then
+    if [ "$(command -v powerline || true)" = "" ]; then
         export ZSH_THEME="steeef"
     fi
 
@@ -111,14 +111,14 @@ if [ -d "${GROOVY_DIRECTORY}" ]; then
     export GROOVY_HOME="${GROOVY_DIRECTORY}"
 fi
 
-# Use GNU commands on OS X if they exist.
-if type gdircolors &> /dev/null; then
-    DIRCOLORS_COMMAND='gdircolors'
-else
+# Use GNU commands on OS X, if they exist.
+if [ "$(command -v gdircolors || true)" = "" ]; then
     DIRCOLORS_COMMAND="dircolors"
+else
+    DIRCOLORS_COMMAND='gdircolors'
 fi
 
-if type gls &> /dev/null; then
+if [ ! "$(command -v gls || true)" = "" ]; then
     LS_COMMAND='gls'
 else
     LS_COMMAND="ls"
@@ -127,7 +127,7 @@ fi
 # aliases
 . "${HOME}/.aliases"
 
-if type grc &> /dev/null; then
+if [ ! "$(command -v grc || true)" = "" ]; then
     GRC_CONF="/usr/local/etc/grc.bashrc"
 
     if [ -f "${GRC_CONF}" ]; then

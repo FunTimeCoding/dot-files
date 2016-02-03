@@ -22,6 +22,7 @@ shyaml
 grealpath
 shellcheck
 gfind
+gsed
 
 # VirtualBox
 vbox
