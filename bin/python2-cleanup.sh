@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 
 for FILE in ${HOME}/.local/bin/*; do
     FIRST_LINE=$(head -n 1 "${FILE}")
@@ -14,4 +14,14 @@ for FILE in ${HOME}/.local/bin/*; do
     fi
 done
 
-rm -rf "${HOME}"/.local/lib/python2*
+OPERATING_SYSTEM=$(uname)
+
+if [ "${OPERATING_SYSTEM}" = "Linux" ]; then
+    rm -rf "${HOME}"/.local/lib/python2*
+elif [ "${OPERATING_SYSTEM}" = "Darwin" ]; then
+    rm -rf "${HOME}"/Library/Python/2*
+else
+    echo "Unsupported operating system: ${OPERATING_SYSTEM}"
+
+    exit 1
+fi

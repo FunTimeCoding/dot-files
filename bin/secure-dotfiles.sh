@@ -20,6 +20,7 @@ fi
 DOTFILES_CONFIG="${HOME}/.dotfiles.conf"
 
 if [ -f "${DOTFILES_CONFIG}" ]; then
+    # shellcheck source=/dev/null
     . "${DOTFILES_CONFIG}"
 else
     GROUP_LIST=""
