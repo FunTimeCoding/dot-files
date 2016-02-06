@@ -1,5 +1,11 @@
 #!/bin/sh -e
 
+if [ "$(command -v hxselect || true)" = "" ]; then
+    echo "Command not found: hxselect"
+
+    exit 1
+fi
+
 OUTPUT=$(wget --quiet https://www.python.org/ftp/python --output-document -)
 LIST=$(echo ${OUTPUT} | hxselect -s "\n" -c a 2>/dev/null | grep '^[0-9].*') || true
 LIST=$(echo "${LIST}" | sed -E 's/^([0-9])\.([0-9])\//\1.\2.0\//')
