@@ -14,14 +14,4 @@ for FILE in ${HOME}/.local/bin/*; do
     fi
 done
 
-OPERATING_SYSTEM=$(uname)
-
-if [ "${OPERATING_SYSTEM}" = "Linux" ]; then
-    rm -rf "${HOME}"/.local/lib/python3*
-elif [ "${OPERATING_SYSTEM}" = "Darwin" ]; then
-    rm -rf "${HOME}"/Library/Python/3*
-else
-    echo "Unsupported operating system: ${OPERATING_SYSTEM}"
-
-    exit 1
-fi
+rm -rf "${HOME}"/.local/lib/python3*

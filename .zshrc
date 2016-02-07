@@ -16,20 +16,17 @@ PATHS=(
 "/usr/sbin"
 "/usr/local/sbin"
 "${HOME}/.cabal/bin"
-"${HOME}/.rvm/bin"
 "${HOME}/.local/bin"
 "${HOME}/.composer/vendor/bin"
 "${HOME}/Code/Work/development-tools/bin"
-"${HOME}/Library/Python/2.7/bin"
-"${HOME}/Library/Python/3.5/bin"
 "${HOME}/Library/Android/sdk/platform-tools"
 "${DOTFILES}/bin"
 "${HOME}/opt/python-2.7.11/bin"
 "${HOME}/opt/python-3.5.1/bin"
-"/usr/local/opt/ruby-2.2.3/bin"
-"/usr/local/opt/lua-5.3.2/bin"
-"/usr/local/opt/neovim/bin"
-"/usr/local/opt/tmux-2.1/bin"
+"${HOME}/opt/ruby-2.2.3/bin"
+"${HOME}/opt/lua-5.3.2/bin"
+"${HOME}/opt/neovim/bin"
+"${HOME}/opt/tmux-2.1/bin"
 "${HOME}/.gem/ruby/2.2.0/bin"
 )
 
@@ -55,9 +52,8 @@ OPERATING_SYSTEM=$(uname)
 
 if [ ! "$(command -v python3 || true)" = "" ]; then
     SITE_PACKAGES=$(python3 -m site --user-site)
+    export POWERLINE_DIRECTORY="${SITE_PACKAGES}/powerline"
 fi
-
-export POWERLINE_DIRECTORY="${SITE_PACKAGES}/powerline"
 
 # Completion
 autoload -Uz compinit
