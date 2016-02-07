@@ -54,7 +54,7 @@ export MANPATH="${MANPATH}:/usr/local/man"
 OPERATING_SYSTEM=$(uname)
 
 if [ ! "$(command -v python3 || true)" = "" ]; then
-    SITE_PACKAGES=$(python3 -m site --user-site)
+    SITE_PACKAGES=$(python3 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")
 fi
 
 export POWERLINE_DIRECTORY="${SITE_PACKAGES}/powerline"
