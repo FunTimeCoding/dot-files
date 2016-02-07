@@ -1,12 +1,5 @@
 #!/bin/sh -e
 
-if [ "$(command -v pip2 || true)" = "" ]; then
-    python2 -m ensurepip --user
-    pip2 install --upgrade --user pip
-    pip2 install --upgrade --user setuptools
-    rm "${HOME}"/.local/bin/pip
-fi
-
 echo "Check for pip2 updates."
 OUTPUT=$(pip2 list --outdated 2> /dev/null | awk '{ print $1 }')
 
@@ -27,9 +20,9 @@ if [ ! "${1}" = "--yes" ]; then
     fi
 fi
 
-pip2 install --upgrade --user pip
-pip2 install --upgrade --user setuptools
+pip2 install --upgrade setuptools
+pip2 install --upgrade pip
 
 for PACKAGE in ${OUTPUT}; do
-    pip2 install --upgrade --user "${PACKAGE}"
+    pip2 install --upgrade "${PACKAGE}"
 done

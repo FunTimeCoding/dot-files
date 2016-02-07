@@ -56,12 +56,12 @@ mkdir -p "${HOME}/.config"
 ln -snf "${WORK_DIR}/powerline" "${HOME}/.config/powerline"
 
 if command -v pip3 > /dev/null 2>&1; then
-    pip3 install --upgrade --user powerline-status
+    pip3 install --upgrade powerline-status
 else
     echo "pip3 is not installed, fall back to pip2."
 
     if command -v pip2 > /dev/null 2>&1; then
-        pip2 install --upgrade --user powerline-status
+        pip2 install --upgrade powerline-status
     else
         echo "pip2 is not installed, powerline not installed."
     fi

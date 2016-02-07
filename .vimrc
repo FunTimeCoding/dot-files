@@ -21,6 +21,7 @@ NeoBundle 'Glench/Vim-Jinja2-Syntax'
 "NeoBundle 'Keithbsmiley/swift.vim'
 "NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'tpope/vim-unimpaired'
+"NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'junegunn/vader.vim'
 "NeoBundleLazy 'docker/docker', {'rtp': 'contrib/syntax/vim/', 'autoload': {'filetypes' : ['dockerfile']}}
 "NeoBundleLazy 'icinga/icinga2', {'rtp': 'tools/syntax/vim/'}
