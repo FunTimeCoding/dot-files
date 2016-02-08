@@ -41,11 +41,11 @@ for g:plugin in s:ruby_plugins
 endfor
 unlet s:ruby_plugins
 
-let s:python_plugins = ['klen/python-mode', 'nvie/vim-flake8']
-for g:plugin in s:python_plugins
-    NeoBundleLazy g:plugin, {'autoload' : { 'filetypes' : ['python'] }}
-endfor
-unlet s:python_plugins
+"let s:python_plugins = ['klen/python-mode', 'nvie/vim-flake8']
+"for g:plugin in s:python_plugins
+"    NeoBundleLazy g:plugin, {'autoload' : { 'filetypes' : ['python'] }}
+"endfor
+"unlet s:python_plugins
 
 let s:erlang_plugins = ['edkolev/erlang-motions.vim', 'jimenezrick/vimerl']
 for g:plugin in s:erlang_plugins
