@@ -25,6 +25,7 @@ PATHS=(
 "${HOME}/opt/python-3.5.1/bin"
 "${HOME}/opt/ruby-2.3.0/bin"
 "${HOME}/opt/lua-5.3.2/bin"
+"${HOME}/opt/tidy-5.1.25/bin"
 "${HOME}/opt/neovim/bin"
 "${HOME}/opt/tmux-2.1/bin"
 )
