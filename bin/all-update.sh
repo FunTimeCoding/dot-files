@@ -13,7 +13,7 @@ if [ "${OPERATING_SYSTEM}" = "Darwin" ]; then
     #npm-update.sh "${1}" # NPM has an issue when updating from a script instead of an interactive shell. It keeps updating the same versions or something.
     gem-update.sh "${1}"
     osx-update.sh "${1}"
-    cabal-update.sh
+    #cabal-update.sh # This always installs the same things over and over, even if they are already installed.
 elif [ "${OPERATING_SYSTEM}" = "Linux" ]; then
     if [ -f "/etc/arch-release" ]; then
         arch-update.sh "${1}"
