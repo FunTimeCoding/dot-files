@@ -130,9 +130,4 @@ if [ ! -f "${COMPOSER_LOCK}" ]; then
     cd "${COMPOSER_DIRECTORY}" || exit 1
     ${COMPOSER_BIN} self-update
     ${COMPOSER_BIN} install
-    FOREIGN_CODE_DIRECTORY="${HOME}/Code/Foreign"
-    mkdir -p "${FOREIGN_CODE_DIRECTORY}"
-    cd "${FOREIGN_CODE_DIRECTORY}" || exit 1
-    git clone https://github.com/phacility/libphutil.git
-    git clone https://github.com/phacility/arcanist.git
 fi
