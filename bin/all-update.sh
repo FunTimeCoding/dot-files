@@ -8,6 +8,10 @@ pip2-update.sh "${1}"
 pip3-update.sh "${1}"
 #atom-update.sh "${1}" # No plugins used, no update needed.
 
+if [ ! "$(command -v composer || true)" = "" ]; then
+    php-update.sh
+fi
+
 if [ "${OPERATING_SYSTEM}" = "Darwin" ]; then
     brew-update.sh "${1}"
     #npm-update.sh "${1}" # NPM has an issue when updating from a script instead of an interactive shell. It keeps updating the same versions or something.
