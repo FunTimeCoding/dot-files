@@ -18,6 +18,7 @@ PATHS=(
 "${HOME}/.cabal/bin"
 "${HOME}/.local/bin"
 "${HOME}/.composer/vendor/bin"
+"${HOME}/Code/Foreign/arcanist/bin"
 "${HOME}/Code/Work/development-tools/bin"
 "${HOME}/Library/Android/sdk/platform-tools"
 "${DOTFILES}/bin"

@@ -1,39 +1,8 @@
 {
     "require": {
-        "facebook/arcanist": "*",
         "fabpot/php-cs-fixer": "*",
         "phploc/phploc": "*",
         "squizlabs/php_codesniffer": "*",
         "phpmd/phpmd": "*"
-    },
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "facebook/arcanist", 
-                "version": "1.0.0",
-                "source": {
-                    "url": "https://github.com/facebook/arcanist.git",
-                    "type": "git",
-                    "reference": "origin/master"
-                },
-                "bin": ["bin/arc"],
-                "require": {
-                    "facebook/libphutil": "*"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "facebook/libphutil",
-                "version": "1.0.0",
-                "source": {
-                    "url": "https://github.com/facebook/libphutil.git", 
-                    "type": "git",
-                    "reference": "origin/master"
-                }
-            }
-        }
-    ]
+    }
 }
