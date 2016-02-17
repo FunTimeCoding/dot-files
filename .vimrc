@@ -87,6 +87,8 @@ set viminfo="NONE"
 "    set clipboard=unnamed
 "endif
 
+set mouse=
+
 " Load all own config files.
 for fpath in split(globpath('~/.vim/settings', '*.vim'), '\n')
     exe 'source' fpath
