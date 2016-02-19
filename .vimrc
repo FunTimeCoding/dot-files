@@ -88,6 +88,7 @@ set viminfo="NONE"
 "endif
 
 set mouse=
+set nofoldenable
 
 " Load all own config files.
 for fpath in split(globpath('~/.vim/settings', '*.vim'), '\n')
