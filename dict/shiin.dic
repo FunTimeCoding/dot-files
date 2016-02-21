@@ -80,3 +80,15 @@ NONINFRINGEMENT
 
 # Ruby
 roodi
+
+# LDAP
+slapcat
+slapd
+ldif
+ldapsearch
+SASL
+ldapi
+ldapwhoami
+ldapadd
+ldapmodify
+ldapdelete
