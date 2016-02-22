@@ -46,6 +46,7 @@ unusedcode
 codesize
 testsuite
 testsuites
+dirname
 
 # software development
 executable

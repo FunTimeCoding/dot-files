@@ -31,6 +31,8 @@ PATHS=(
 "${HOME}/opt/neovim/bin"
 "${HOME}/opt/tmux-2.1/bin"
 "${HOME}/opt/thrift-0.9.3/bin"
+"${HOME}/opt/maven-3.3.9/bin"
+"${HOME}/opt/jdk8/bin"
 )
 
 if [ ! "$(command -v brew || true)" = "" ]; then
