@@ -30,6 +30,7 @@ PATHS=(
 "${HOME}/opt/tidy-5.1.25/bin"
 "${HOME}/opt/neovim/bin"
 "${HOME}/opt/tmux-2.1/bin"
+"${HOME}/opt/thrift-0.9.3/bin"
 )
 
 if [ ! "$(command -v brew || true)" = "" ]; then
