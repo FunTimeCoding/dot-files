@@ -7,6 +7,9 @@ vim-update.sh
 pip2-update.sh "${1}"
 pip3-update.sh "${1}"
 #atom-update.sh "${1}" # No plugins used, no update needed.
+#npm-update.sh "${1}" # NPM has an issue when updating from a script instead of an interactive shell. It keeps updating the same versions or something.
+gem-update.sh "${1}"
+#cabal-update.sh # This always installs the same things over and over, even if they are already installed.
 
 # Unstable
 #if [ ! "$(command -v composer || true)" = "" ]; then
@@ -15,10 +18,7 @@ pip3-update.sh "${1}"
 
 if [ "${OPERATING_SYSTEM}" = "Darwin" ]; then
     brew-update.sh "${1}"
-    #npm-update.sh "${1}" # NPM has an issue when updating from a script instead of an interactive shell. It keeps updating the same versions or something.
-    gem-update.sh "${1}"
     osx-update.sh "${1}"
-    #cabal-update.sh # This always installs the same things over and over, even if they are already installed.
 elif [ "${OPERATING_SYSTEM}" = "Linux" ]; then
     if [ -f "/etc/arch-release" ]; then
         arch-update.sh "${1}"
