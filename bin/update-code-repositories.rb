@@ -94,7 +94,9 @@ class CodeRepositoryUpdater
         if @dryRun
             puts 'Running in test mode'
         else
-            output = `git pull --rebase`
+            output = `git pull`
+            puts output
+            output = `git fetch --all`
             puts output
         end
     end

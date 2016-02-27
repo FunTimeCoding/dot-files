@@ -54,3 +54,5 @@
 	required = true
 [pull]
 	rebase = true
+[fetch]
+	prune = true
