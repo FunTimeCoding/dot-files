@@ -4,8 +4,8 @@ echo "Run all updates."
 OPERATING_SYSTEM=$(uname)
 vim-update.sh
 
-pip2-update.sh "${1}"
 pip3-update.sh "${1}"
+pip2-update.sh "${1}"
 #atom-update.sh "${1}" # No plugins used, no update needed.
 #npm-update.sh "${1}" # NPM has an issue when updating from a script instead of an interactive shell. It keeps updating the same versions or something.
 gem-update.sh "${1}"
