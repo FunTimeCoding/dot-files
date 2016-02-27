@@ -20,9 +20,9 @@ if [ ! "${1}" = "--yes" ]; then
     fi
 fi
 
-pip3 install --upgrade setuptools
-pip3 install --upgrade pip
+pip3 install --upgrade --user setuptools
+pip3 install --upgrade --user pip
 
 for PACKAGE in ${OUTPUT}; do
-    pip3 install --upgrade "${PACKAGE}"
+    pip3 install --upgrade --user "${PACKAGE}"
 done
