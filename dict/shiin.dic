@@ -69,6 +69,7 @@ htmlcov
 venv
 stdscr
 getkey
+expanduser
 
 # PhpStorm
 idekey
@@ -93,3 +94,11 @@ ldapwhoami
 ldapadd
 ldapmodify
 ldapdelete
+
+# Linux
+proc
+uptime
+printf
+
+# English
+optative
