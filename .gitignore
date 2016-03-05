@@ -1,8 +1,5 @@
 .vim/bundle
 .vim/.netrwhist
 .vim/swap
-.ssh/known_hosts
-.ssh/config
-.ssh/id_*
-.ssh/vagrant*
+.ssh
 .newsbeuter/history.*

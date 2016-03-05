@@ -137,11 +137,11 @@ else
     alias gs="git status"
 fi
 
-# Load local config which is private.
-ADITION_CONF="${HOME}/.adition.conf"
+# Load local config.
+LOCAL_CONF="${HOME}/.local.conf"
 
-if [ -f "${ADITION_CONF}" ]; then
-    . "${ADITION_CONF}"
+if [ -f "${LOCAL_CONF}" ]; then
+    . "${LOCAL_CONF}"
 fi
 
 # Zsh
