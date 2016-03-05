@@ -34,6 +34,7 @@ PATHS=(
 "${HOME}/opt/task/bin"
 "${HOME}/opt/thrift-0.9.3/bin"
 "${HOME}/opt/maven-3.3.9/bin"
+"${HOME}/opt/znc-1.6.3/bin"
 "${HOME}/opt/jdk8/bin"
 "${HOME}/opt/dogecoin/bin"
 )
