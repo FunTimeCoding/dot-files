@@ -62,7 +62,7 @@ fi
 LOCAL_BIN_DIRECTORY="${HOME}/.local/bin"
 
 if [ ! -d "${LOCAL_BIN_DIRECTORY}" ]; then
-    mkdir "${LOCAL_BIN_DIRECTORY}"
+    mkdir -p "${LOCAL_BIN_DIRECTORY}"
 fi
 
 OH_MY_ZSH_DIRECTORY="${HOME}/.oh-my-zsh"
