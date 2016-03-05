@@ -33,6 +33,7 @@ PATHS=(
 "${HOME}/opt/thrift-0.9.3/bin"
 "${HOME}/opt/maven-3.3.9/bin"
 "${HOME}/opt/jdk8/bin"
+"${HOME}/opt/dogecoin/bin"
 )
 
 if [ ! "$(command -v brew || true)" = "" ]; then
