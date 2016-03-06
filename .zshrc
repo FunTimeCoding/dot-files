@@ -30,6 +30,7 @@ PATHS=(
 "${HOME}/opt/tidy-5.1.25/bin"
 "${HOME}/opt/neovim/bin"
 "${HOME}/opt/tmux-2.1/bin"
+"${HOME}/opt/task/bin"
 "${HOME}/opt/thrift-0.9.3/bin"
 "${HOME}/opt/maven-3.3.9/bin"
 "${HOME}/opt/jdk8/bin"
