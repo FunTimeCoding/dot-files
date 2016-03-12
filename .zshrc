@@ -28,6 +28,7 @@ PATHS=(
 "${HOME}/opt/git-2.7.1/bin"
 "${HOME}/opt/lua-5.3.2/bin"
 "${HOME}/opt/tidy-5.1.25/bin"
+"${HOME}/opt/node-5.8.0/bin"
 "${HOME}/opt/neovim/bin"
 "${HOME}/opt/tmux-2.1/bin"
 "${HOME}/opt/task/bin"
