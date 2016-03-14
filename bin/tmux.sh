@@ -1,7 +1,9 @@
 #!/bin/sh -e
 
 if [ ! "${TMUX}" = "" ]; then
-    exit 0
+    echo "Already in tmux."
+
+    exit 1
 fi
 
 TMUX_COMMAND="tmux -2"
