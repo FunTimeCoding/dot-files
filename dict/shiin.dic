@@ -1,19 +1,27 @@
 # Names
-Debian
-Xdebug
-Symfony
 FunTimeCoding
-phpcpd
-pdepend
-phploc
-phpmd
 Reitzel
-fabpot
-squizlabs
-codesniffer
 xmlstarlet
 areitzel
-github
+GitHub
+sshd
+
+# Debian
+Debian
+preseed
+localechooser
+netcfg
+udeb
+noarch
+prebaseconfig
+partman
+nooverwrite
+passwd
+crypted
+tasksel
+pkgsel
+multiselect
+bootdev
 
 # Commands
 sudo
@@ -40,6 +48,15 @@ xargs
 mkdir
 
 # PHP
+Xdebug
+Symfony
+phpcpd
+pdepend
+phploc
+phpmd
+fabpot
+squizlabs
+codesniffer
 ruleset
 rulesets
 unusedcode
@@ -56,6 +73,7 @@ executables
 Gitlab
 
 # Python
+Jinja
 pyvenv
 PYTHONHOME
 pycache
