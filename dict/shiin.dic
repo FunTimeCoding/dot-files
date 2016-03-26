@@ -112,6 +112,8 @@ ldapwhoami
 ldapadd
 ldapmodify
 ldapdelete
+gecos
+inet
 
 # Linux
 proc
