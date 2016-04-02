@@ -47,11 +47,7 @@ for FILE in ${FILES}; do
 done
 
 CONFIG_DIRECTORY="${HOME}/.config"
-
-if ! [ -d "${CONFIG_DIRECTORY}" ]; then
-    mkdir "${CONFIG_DIRECTORY}"
-fi
-
+mkdir -p "${CONFIG_DIRECTORY}"
 ln -snf "${WORK_DIRECTORY}/powerline" "${HOME}/.config/powerline"
 NEOBUNDLE_PATH="${HOME}/.vim/bundle/neobundle.vim"
 
@@ -71,7 +67,7 @@ if [ ! -d "${OH_MY_ZSH_DIRECTORY}" ]; then
     git clone https://github.com/robbyrussell/oh-my-zsh "${OH_MY_ZSH_DIRECTORY}"
 fi
 
-ZSH_SYNTAX_HIGHLIGHTING="${OH_MY_ZSH_DIRECTORY}/custom/plugins/zsh-syntax-highlighting/"
+ZSH_SYNTAX_HIGHLIGHTING="${OH_MY_ZSH_DIRECTORY}/custom/plugins/zsh-syntax-highlighting"
 
 if [ ! -d "${ZSH_SYNTAX_HIGHLIGHTING}" ]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting "${ZSH_SYNTAX_HIGHLIGHTING}"
