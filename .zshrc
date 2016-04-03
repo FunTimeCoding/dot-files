@@ -8,35 +8,11 @@ export EDITOR=vim
 export LESSHISTFILE=/dev/null
 export MYSQL_HISTFILE=/dev/null
 
-PATHS="/bin
-/usr/bin
-/usr/local/bin
-/sbin
-/usr/sbin
-/usr/local/sbin
-${DOTFILES}/bin
-${HOME}/.local/bin
-${HOME}/.cabal/bin
-${HOME}/.composer/vendor/bin
-${HOME}/Code/Work/development-tools/bin
-${HOME}/Code/Foreign/arcanist/bin
-${HOME}/Library/Android/sdk/platform-tools
-${HOME}/opt/python-2.7.11/bin
-${HOME}/opt/python-3.5.1/bin
-${HOME}/opt/ruby-2.3.0/bin
-${HOME}/opt/git-2.7.1/bin
-${HOME}/opt/lua-5.3.2/bin
-${HOME}/opt/tidy-5.1.25/bin
-${HOME}/opt/node-5.9.1/bin
-${HOME}/opt/neovim/bin
-${HOME}/opt/tmux-2.1/bin
-${HOME}/opt/task/bin
-${HOME}/opt/thrift-0.9.3/bin
-${HOME}/opt/maven-3.3.9/bin
-${HOME}/opt/znc-1.6.3/bin
-${HOME}/opt/gnupg-2.1.11/bin
-${HOME}/opt/jdk8/bin
-${HOME}/opt/dogecoin/bin"
+PATHS_CONFIG="${HOME}/.paths.conf"
+
+if [ -f "${PATHS_CONFIG}" ]; then
+    . "${PATHS_CONFIG}"
+fi
 
 while read -r LINE; do
     if [ -d "${LINE}" ]; then

@@ -4,7 +4,19 @@ export LANG=en_US.UTF-8
 
 # env
 export DOTFILES="${HOME}/.dotfiles"
-export PATH="${HOME}/.local/bin:/usr/local/opt/python-3.5.0/bin:/usr/local/opt/python-2.7.10/bin:${PATH}"
+PATHS_CONFIG="${HOME}/.paths.conf"
+
+if [ -f "${PATHS_CONFIG}" ]; then
+    . "${PATHS_CONFIG}"
+fi
+
+while read -r LINE; do
+    if [ -d "${LINE}" ]; then
+        PATH="${LINE}:${PATH}"
+    fi
+done <<< "${PATHS}"
+
+export PATH
 
 # osx commmand forks
 type gdircolors &> /dev/null && DIRCOLORS_COMMAND='gdircolors' || DIRCOLORS_COMMAND="dircolors"
