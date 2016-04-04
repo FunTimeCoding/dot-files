@@ -8,18 +8,18 @@ alias ls="${LS_COMMAND} -F --color"
 alias ll="${LS_COMMAND} -lh --color"
 alias la="${LS_COMMAND} -Alh --color"
 alias less='less -Q'
-alias svn_log='svn log -r HEAD:1 -v -l 3 | less'
-alias svn_log_branch='svn log --stop-on-copy'
-alias svn_up_dry='svn merge --dry-run -r BASE:HEAD .'
-alias svn_diff='svn diff | view -'
-alias svn_diff_branch='svn diff -r $(svn log --stop-on-copy | grep -o "^r[[:digit:]]*" | tail -1):HEAD | view -'
+alias svn-log='svn log -r HEAD:1 -v -l 3 | less'
+alias svn-log-branch='svn log --stop-on-copy'
+alias svn-up-dry='svn merge --dry-run -r BASE:HEAD .'
+alias svn-diff='svn diff | view -'
+alias svn-diff-branch='svn diff -r $(svn log --stop-on-copy | grep -o "^r[[:digit:]]*" | tail -1):HEAD | view -'
 alias tmux='tmux -2'
 alias saidar='saidar -c'
 alias crontab="VIM_CRONTAB=true crontab"
 alias apt-search='apt-cache search'
 alias apt-version='dpkg -s'
 alias ccat='pygmentize -O style=monokai -f console256 -g'
-alias irssi_screen='screenify irssi'
+alias irssi-screen='screenify irssi'
 alias iotop='sudo iotop'
 alias gh='git history'
 alias gs='git status'
@@ -30,6 +30,8 @@ alias gdc='git diff --cached'
 alias gc='git commit -v'
 alias g='git'
 alias egrep='egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+alias xdebug-enable='export XDEBUG_CONFIG="remote_enable=1 remote_host=127.0.0.1 remote_port=9000"'
+alias xdebug-disable='unset XDEBUG_CONFIG'
 unalias gst > /dev/null 2>&1
 
 # vim: ft=sh
