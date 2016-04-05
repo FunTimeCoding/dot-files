@@ -7,7 +7,7 @@ export FPATH="$HOME/.dotfiles/zfunc:$FPATH"
 export EDITOR=vim
 export LESSHISTFILE=/dev/null
 export MYSQL_HISTFILE=/dev/null
-
+export LD_LIBRARY_PATH="${HOME}/lib"
 PATHS_CONFIG="${HOME}/.paths.conf"
 
 if [ -f "${PATHS_CONFIG}" ]; then
@@ -22,7 +22,6 @@ done <<< "${PATHS}"
 
 export PATH
 export MANPATH="${MANPATH}:/usr/local/man"
-
 OPERATING_SYSTEM=$(uname)
 
 if [ ! "$(command -v python3 || true)" = "" ]; then
