@@ -1,5 +1,0 @@
-if [ "${DOT_DEBUG}" = "true" ]; then
-    echo "dot debug: ${1}"
-fi
-
-# vim: ft=zsh

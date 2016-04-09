@@ -1,7 +1,6 @@
 #LOAD_START=$(perl -MTime::HiRes -e 'print int(1000 * Time::HiRes::gettimeofday),"\n"')
 
 # Environment
-export DOT_DEBUG=false
 export DOTFILES="${HOME}/.dotfiles"
 export FPATH="$HOME/.dotfiles/zfunc:$FPATH"
 export EDITOR=vim
@@ -36,8 +35,8 @@ compinit
 # User functions
 autoload -Uz ~/.dotfiles/zfunc/*(:t)
 
-if [ "$COLORTERM" = "gnome-terminal" ]; then
-    export TERM="xterm-256color"
+if [ ! "${VTE_VERSION}" = "" ]; then
+    export TERM=xterm-256color
 fi
 
 # Perlbrew
@@ -100,10 +99,6 @@ if [ ! "$(command -v grc || true)" = "" ]; then
     if [ -f "${GRC_CONF}" ]; then
         . ${GRC_CONF}
     fi
-
-    alias gs="git status | grcat conf.gitstatus"
-else
-    alias gs="git status"
 fi
 
 # Load local config.
@@ -114,26 +109,22 @@ if [ -f "${LOCAL_CONF}" ]; then
 fi
 
 # Zsh
-CASE_SENSITIVE="true"
+CASE_SENSITIVE=true
 SAVEHIST=1000
 HISTSIZE=1000
+HISTFILE=~/.zsh_history
 setopt incappendhistory
 setopt histignoredups
-setopt INTERACTIVE_COMMENTS # allow pound character comments in commands
+# allow pound character comments in commands
+setopt interactive_comments
 setopt nobeep
-unsetopt NOMATCH # disable 'zsh: no matches found' errors caused by **
-bindkey -v # vi-mode
+# disable 'zsh: no matches found' errors caused by **
+unsetopt nomatch
+# vi-mode
+bindkey -v
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
-
-#if type hh &> /dev/null; then
-#    export HISTFILE=~/.zsh_history
-#    export HH_CONFIG=hicolor # get more colors
-#    bindkey -s "\C-r" "\eihh\n" # bind hh to Ctrl-r (for Vi mode check doc)
-#else
-HISTFILE=~/.zsh_history
 bindkey '^r' history-incremental-search-backward
-#fi
 
 # dircolors, Powerline
 case "${TERM}" in
@@ -152,24 +143,6 @@ esac
 
 # Re-apply dircolors for tab completion.
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-
-# Lunchy
-#LUNCHY_DIRECTORY=$(dirname `gem which lunchy`)/../extras
-#LUNCHY_ZSH="${LUNCHY_DIRECTORY}/lunchy-completion.zsh"
-#
-#if [ -f "${LUNCHY_ZSH}" ]; then
-#    . "${LUNCHY_ZSH}"
-#fi
-
-# Add keys to ssh-agent on KDE 5.
-if [ "${OPERATING_SYSTEM}" = "Linux" ]; then
-    if [ ! "$(pgrep kwalletd5)" = "" ]; then
-        if [ "$(ssh-add -l)" = "The agent has no identities." ]; then
-            export SSH_ASKPASS="/usr/bin/ksshaskpass"
-            ssh-add < /dev/null
-        fi
-    fi
-fi
 
 #LOAD_END=$(perl -MTime::HiRes -e 'print int(1000 * Time::HiRes::gettimeofday),"\n"')
 #echo "Loading time: $(expr $LOAD_END - $LOAD_START)ms"
