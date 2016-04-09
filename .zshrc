@@ -1,5 +1,3 @@
-#LOAD_START=$(perl -MTime::HiRes -e 'print int(1000 * Time::HiRes::gettimeofday),"\n"')
-
 # Environment
 export DOTFILES="${HOME}/.dotfiles"
 export FPATH="$HOME/.dotfiles/zfunc:$FPATH"
@@ -115,12 +113,12 @@ HISTSIZE=1000
 HISTFILE=~/.zsh_history
 setopt incappendhistory
 setopt histignoredups
-# allow pound character comments in commands
+# Allow pound character comments in commands
 setopt interactive_comments
 setopt nobeep
-# disable 'zsh: no matches found' errors caused by **
+# Disable 'zsh: no matches found' errors caused by **
 unsetopt nomatch
-# vi-mode
+# Enable vi mode
 bindkey -v
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
@@ -141,8 +139,5 @@ case "${TERM}" in
         ;;
 esac
 
-# Re-apply dircolors for tab completion.
+# Reapply dircolors for tab completion.
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-
-#LOAD_END=$(perl -MTime::HiRes -e 'print int(1000 * Time::HiRes::gettimeofday),"\n"')
-#echo "Loading time: $(expr $LOAD_END - $LOAD_START)ms"
