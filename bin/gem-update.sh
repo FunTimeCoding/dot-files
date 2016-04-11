@@ -1,5 +1,11 @@
 #!/bin/sh -e
 
+if [ "$(command -v gem || true)" = "" ]; then
+    echo "Skip. Gem does not seem to be installed."
+
+    exit 0
+fi
+
 echo "Check for gem updates."
 OUTPUT=$(gem outdated)
 
