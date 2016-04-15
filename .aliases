@@ -24,9 +24,13 @@ alias crontab="VIM_CRONTAB=true crontab"
 alias apt-search='apt-cache search'
 alias apt-version='dpkg -s'
 alias ccat='pygmentize -O style=monokai -f console256 -g'
-alias irssi-screen='screenify irssi'
 alias iotop='sudo iotop'
+alias htop='sudo htop'
+alias egrep='egrep --color=auto --exclude-dir={.git,.hg,.svn}'
+alias xdebug-enable='export XDEBUG_CONFIG="remote_enable=1 remote_host=127.0.0.1 remote_port=9000"'
+alias xdebug-disable='unset XDEBUG_CONFIG'
 alias git='echo g'
+alias g='\git'
 alias gh='\git history'
 alias gb='\git branch'
 alias gbd='\git branch --delete'
@@ -38,11 +42,8 @@ alias gll='\git pull'
 alias gsh='\git push'
 alias gc='\git commit --verbose'
 alias gcam='\git commit --all --message'
-alias g='\git'
-alias egrep='egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
-alias xdebug-enable='export XDEBUG_CONFIG="remote_enable=1 remote_host=127.0.0.1 remote_port=9000"'
-alias xdebug-disable='unset XDEBUG_CONFIG'
 unalias gst > /dev/null 2>&1
+unalias gp > /dev/null 2>&1
 
 if [ ! "$(command -v grc || true)" = "" ]; then
     alias gs="\git status | grcat conf.gitstatus"
