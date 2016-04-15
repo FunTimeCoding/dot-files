@@ -6,10 +6,18 @@ if [ "$(command -v hxselect || true)" = "" ]; then
     exit 1
 fi
 
+OPERATING_SYSTEM=$(uname)
+
+if [ "${OPERATING_SYSTEM}" = "Linux" ]; then
+    SORT="sort"
+elif [ "${OPERATING_SYSTEM}" = "Darwin" ]; then
+    SORT="gsort"
+fi
+
 OUTPUT=$(wget --quiet https://www.python.org/ftp/python --output-document -)
 LIST=$(echo ${OUTPUT} | hxselect -s "\n" -c a 2>/dev/null | grep '^[0-9].*') || true
 LIST=$(echo "${LIST}" | sed -E 's/^([0-9])\.([0-9])\//\1.\2.0\//')
-LIST=$(echo "${LIST}" | sort -V)
+LIST=$(echo "${LIST}" | ${SORT} -V)
 LATEST_TWO=""
 LATEST_THREE=""
 
