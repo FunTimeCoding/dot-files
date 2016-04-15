@@ -18,7 +18,6 @@ alias svn-up-dry='svn merge --dry-run -r BASE:HEAD .'
 alias svn-diff='svn diff | view -'
 alias svn-diff-branch='svn diff -r $(svn log --stop-on-copy | grep -o "^r[[:digit:]]*" | tail -1):HEAD | view -'
 alias t='\tmux -2'
-alias tmux='echo t'
 alias saidar='saidar -c'
 alias crontab="VIM_CRONTAB=true crontab"
 alias apt-search='apt-cache search'
