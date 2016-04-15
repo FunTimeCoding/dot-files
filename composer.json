@@ -1,8 +1,0 @@
-{
-    "require": {
-        "fabpot/php-cs-fixer": "*",
-        "phploc/phploc": "*",
-        "squizlabs/php_codesniffer": "*",
-        "phpmd/phpmd": "*"
-    }
-}
