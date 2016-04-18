@@ -9,7 +9,7 @@ fi
 FILE="${JAR_DIRECTORY}/plantuml.jar"
 
 if [ ! -f "${FILE}" ]; then
-    wget http://downloads.sourceforge.net/project/plantuml/plantuml.jar -O "${FILE}"
+    wget http://downloads.sourceforge.net/project/plantuml/plantuml.jar --output-document "${FILE}"
 fi
 
 java -jar "${FILE}" -tsvg "$@"
