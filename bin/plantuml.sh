@@ -12,4 +12,4 @@ if [ ! -f "${FILE}" ]; then
     wget http://downloads.sourceforge.net/project/plantuml/plantuml.jar --output-document "${FILE}"
 fi
 
-java -jar "${FILE}" -tsvg "$@"
+java -jar "${FILE}" "$@"
