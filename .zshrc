@@ -1,4 +1,3 @@
-# Environment
 export DOTFILES="${HOME}/.dotfiles"
 export FPATH="$HOME/.dotfiles/zfunc:$FPATH"
 export EDITOR=vim
@@ -37,14 +36,12 @@ if [ ! "${VTE_VERSION}" = "" ]; then
     export TERM=xterm-256color
 fi
 
-# Perlbrew
 PERLBREW="${HOME}/perl5/perlbrew/etc/bashrc"
 
 if [ -f "${PERLBREW}" ]; then
     . "${PERLBREW}"
 fi
 
-# Oh My Zsh
 ZSH="${HOME}/.oh-my-zsh"
 
 if [ -d "${ZSH}" ]; then
@@ -54,41 +51,28 @@ if [ -d "${ZSH}" ]; then
 
     export DISABLE_AUTO_TITLE=true
     export DISABLE_UPDATE_PROMPT=true
-
-    if [ "${OPERATING_SYSTEM}" = "Darwin" ]; then
-        plugins=(git svn zsh-syntax-highlighting osx brew)
-    else
-        if [ -f "/etc/arch-release" ]; then
-            plugins=(git)
-        else
-            plugins=(git svn zsh-syntax-highlighting)
-        fi
-    fi
-
+    plugins=(git zsh-syntax-highlighting)
     source "${ZSH}/oh-my-zsh.sh"
 fi
 
-# Groovy
 GROOVY_DIRECTORY="/usr/local/opt/groovy/libexec"
 
 if [ -d "${GROOVY_DIRECTORY}" ]; then
     export GROOVY_HOME="${GROOVY_DIRECTORY}"
 fi
 
-# Use GNU commands on OS X, if they exist.
 if [ "$(command -v gdircolors || true)" = "" ]; then
-    DIRCOLORS_COMMAND="dircolors"
+    DIRCOLORS="dircolors"
 else
-    DIRCOLORS_COMMAND='gdircolors'
+    DIRCOLORS='gdircolors'
 fi
 
-if [ ! "$(command -v gls || true)" = "" ]; then
-    LS_COMMAND='gls'
+if [ "$(command -v gls || true)" = "" ]; then
+    LS=ls
 else
-    LS_COMMAND="ls"
+    LS=gls
 fi
 
-# aliases
 . "${HOME}/.aliases"
 
 if [ ! "$(command -v grc || true)" = "" ]; then
@@ -99,14 +83,12 @@ if [ ! "$(command -v grc || true)" = "" ]; then
     fi
 fi
 
-# Load local config.
 LOCAL_CONF="${HOME}/.local.conf"
 
 if [ -f "${LOCAL_CONF}" ]; then
     . "${LOCAL_CONF}"
 fi
 
-# Zsh
 CASE_SENSITIVE=true
 SAVEHIST=1000
 HISTSIZE=1000
@@ -124,10 +106,9 @@ bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 bindkey '^r' history-incremental-search-backward
 
-# dircolors, Powerline
 case "${TERM}" in
     xterm* | screen*)
-        eval $(${DIRCOLORS_COMMAND} "${DOTFILES}/dircolors")
+        eval $(${DIRCOLORS} "${DOTFILES}/dircolors")
 
         if type powerline &> /dev/null; then
             POWERLINE_ZSH="${POWERLINE_DIRECTORY}/bindings/zsh/powerline.zsh"
@@ -139,5 +120,5 @@ case "${TERM}" in
         ;;
 esac
 
-# Reapply dircolors for tab completion.
+# Reapply list colors.
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
