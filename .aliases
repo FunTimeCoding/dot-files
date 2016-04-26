@@ -43,6 +43,15 @@ alias gsh='\git push'
 alias gc='\git commit --verbose'
 alias gcam='\git commit --all --message'
 alias gf='\git fetch --prune --all'
+alias upd='sudo apt-get update'
+alias upg='sudo apt-get upgrade'
+alias ash='apt-cache show'
+alias ach='apt-cache search'
+alias rm='rm -i'
+alias df='df -h'
+alias j='jobs -l'
+alias h='history'
+alias mount='mount | column -t'
 unalias gst > /dev/null 2>&1
 unalias gp > /dev/null 2>&1
 
