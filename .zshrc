@@ -73,8 +73,6 @@ else
     LS=gls
 fi
 
-. "${HOME}/.aliases"
-
 if [ ! "$(command -v grc || true)" = "" ]; then
     GRC_CONF="/usr/local/etc/grc.bashrc"
 
@@ -119,6 +117,8 @@ case "${TERM}" in
         fi
         ;;
 esac
+
+. "${HOME}/.aliases"
 
 # Reapply list colors.
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
