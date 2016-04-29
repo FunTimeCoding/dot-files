@@ -10,6 +10,12 @@ if [ -f "${PATHS_CONFIG}" ]; then
     . "${PATHS_CONFIG}"
 fi
 
+LOCAL_CONF="${HOME}/.local.conf"
+
+if [ -f "${LOCAL_CONF}" ]; then
+    . "${LOCAL_CONF}"
+fi
+
 while read -r LINE; do
     if [ -d "${LINE}" ]; then
         PATH="${LINE}:${PATH}"
@@ -79,12 +85,6 @@ if [ ! "$(command -v grc || true)" = "" ]; then
     if [ -f "${GRC_CONF}" ]; then
         . ${GRC_CONF}
     fi
-fi
-
-LOCAL_CONF="${HOME}/.local.conf"
-
-if [ -f "${LOCAL_CONF}" ]; then
-    . "${LOCAL_CONF}"
 fi
 
 CASE_SENSITIVE=true
