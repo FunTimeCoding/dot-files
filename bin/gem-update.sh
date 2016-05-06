@@ -27,4 +27,5 @@ if [ ! "${1}" = "--yes" ]; then
 fi
 
 gem update
-gem cleanup
+# TODO: Figure out how to keep important gems for tools like veewee.
+#gem cleanup
