@@ -10,10 +10,10 @@ if [ -f "${PATHS_CONFIG}" ]; then
     . "${PATHS_CONFIG}"
 fi
 
-LOCAL_CONF="${HOME}/.local.conf"
+LOCAL_CONFIG="${HOME}/.local.conf"
 
-if [ -f "${LOCAL_CONF}" ]; then
-    . "${LOCAL_CONF}"
+if [ -f "${LOCAL_CONFIG}" ]; then
+    . "${LOCAL_CONFIG}"
 fi
 
 while read -r LINE; do
@@ -57,20 +57,32 @@ if [ -d "${ZSH}" ]; then
 
     export DISABLE_AUTO_TITLE=true
     export DISABLE_UPDATE_PROMPT=true
-    plugins=(git zsh-syntax-highlighting)
+
+    if [ -f /etc/debian_version ]; then
+        VERSION=$(cut -c 1-1 < /etc/debian_version)
+
+        if [ "${VERSION}" = 6 ]; then
+            plugins=(git)
+        else
+            plugins=(git zsh-syntax-highlighting)
+        fi
+    else
+        plugins=(git zsh-syntax-highlighting)
+    fi
+
     source "${ZSH}/oh-my-zsh.sh"
 fi
 
-GROOVY_DIRECTORY="/usr/local/opt/groovy/libexec"
+GROOVY_DIRECTORY=/usr/local/opt/groovy/libexec
 
 if [ -d "${GROOVY_DIRECTORY}" ]; then
     export GROOVY_HOME="${GROOVY_DIRECTORY}"
 fi
 
 if [ "$(command -v gdircolors || true)" = "" ]; then
-    DIRCOLORS="dircolors"
+    DIRCOLORS=dircolors
 else
-    DIRCOLORS='gdircolors'
+    DIRCOLORS=gdircolors
 fi
 
 if [ "$(command -v gls || true)" = "" ]; then
@@ -80,10 +92,10 @@ else
 fi
 
 if [ ! "$(command -v grc || true)" = "" ]; then
-    GRC_CONF="/usr/local/etc/grc.bashrc"
+    GRC_CONFIG=/usr/local/etc/grc.bashrc
 
-    if [ -f "${GRC_CONF}" ]; then
-        . ${GRC_CONF}
+    if [ -f "${GRC_CONFIG}" ]; then
+        . ${GRC_CONFIG}
     fi
 fi
 
