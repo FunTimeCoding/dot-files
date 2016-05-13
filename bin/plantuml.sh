@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-JAR_DIRECTORY="$HOME/.local/jar"
+JAR_DIRECTORY="${HOME}/.local/jar"
 
 if [ ! -d "${JAR_DIRECTORY}" ]; then
     mkdir -p "${JAR_DIRECTORY}"
