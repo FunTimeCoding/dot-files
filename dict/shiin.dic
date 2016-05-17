@@ -45,11 +45,16 @@ gfind
 gsed
 
 # VirtualBox
+VirtualBox
 vbox
 vboxmanage
+modifyvm
+nictype
+nattftpfile
 poweroff
 autostart
 autostartdbpath
+TFTP
 
 # acronyms
 YAML
