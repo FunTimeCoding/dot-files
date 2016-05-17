@@ -10,6 +10,14 @@ Ansible
 # Debian
 Debian
 preseed
+preseeding
+preseeded
+debootstrap
+partitioner
+nousb
+preconfiguration
+autoconfig
+netmask
 localechooser
 netcfg
 udeb
@@ -23,6 +31,9 @@ tasksel
 pkgsel
 multiselect
 bootdev
+netinst
+cdimage
+debconf
 
 # Commands
 sudo
@@ -77,6 +88,7 @@ Gitlab
 Jinja
 pyvenv
 PYTHONHOME
+PYTHONPATH
 pycache
 pytest
 pylint
@@ -120,6 +132,35 @@ inet
 proc
 uptime
 printf
+mkpasswd
+stdin
+unmount
+mountpoint
+initrd
+initramfs
+ecdsa
+mailname
+dhcp
+bootloader
+xfce
+openssh
+inittab
+cdrom
+chroot
+chsh
+ipaddress
+SATA
+nameservers
+zoneinfo
+devfs
+multiraid
+sparecount
+sparedevices
+devcount
+multiarch
+bootable
+fstype
+raidtype
 
 # English
 optative
