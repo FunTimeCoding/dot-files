@@ -54,6 +54,7 @@ nattftpfile
 poweroff
 autostart
 autostartdbpath
+ostypes
 TFTP
 
 # acronyms
