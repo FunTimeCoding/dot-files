@@ -1,11 +1,10 @@
 # Names
 FunTimeCoding
 Reitzel
-xmlstarlet
 areitzel
 GitHub
-sshd
 Ansible
+shiin
 
 # Debian
 Debian
@@ -107,6 +106,7 @@ venv
 stdscr
 getkey
 expanduser
+capfd
 
 # PhpStorm
 idekey
@@ -167,6 +167,9 @@ multiarch
 bootable
 fstype
 raidtype
+wget
+xmlstarlet
+sshd
 
 # English
 optative
