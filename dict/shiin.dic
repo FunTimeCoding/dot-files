@@ -107,6 +107,7 @@ stdscr
 getkey
 expanduser
 capfd
+urwid
 
 # PhpStorm
 idekey
