@@ -176,6 +176,8 @@ wget
 xmlstarlet
 sshd
 syslinux
+cpio
+newc
 
 # English
 optative
