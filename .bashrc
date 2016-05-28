@@ -19,8 +19,8 @@ done <<< "${PATHS}"
 export PATH
 
 # osx commmand forks
-type gdircolors &> /dev/null && DIRCOLORS_COMMAND='gdircolors' || DIRCOLORS_COMMAND="dircolors"
-type gls &> /dev/null && LS_COMMAND='gls' || LS_COMMAND="ls"
+type gdircolors &> /dev/null && DIRCOLORS='gdircolors' || DIRCOLORS="dircolors"
+type gls &> /dev/null && LS='gls' || LS="ls"
 
 # aliases
 . "${HOME}/.aliases"
@@ -28,7 +28,7 @@ type gls &> /dev/null && LS_COMMAND='gls' || LS_COMMAND="ls"
 # dircolors
 case "${TERM}" in
     xterm* | screen*)
-        eval $(${DIRCOLORS_COMMAND} "${DOTFILES}/dircolors")
+        eval $(${DIRCOLORS} "${DOTFILES}/dircolors")
         ;;
 esac
 

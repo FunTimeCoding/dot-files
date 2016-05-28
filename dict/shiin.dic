@@ -33,6 +33,7 @@ bootdev
 netinst
 cdimage
 debconf
+netboot
 
 # Commands
 sudo
@@ -55,6 +56,9 @@ autostart
 autostartdbpath
 ostypes
 TFTP
+hostonly
+showvminfo
+machinereadable
 
 # acronyms
 YAML
@@ -171,6 +175,7 @@ raidtype
 wget
 xmlstarlet
 sshd
+syslinux
 
 # English
 optative
