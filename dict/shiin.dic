@@ -112,6 +112,9 @@ getkey
 expanduser
 capfd
 urwid
+pyenchant
+mistune
+reparser
 
 # PhpStorm
 idekey
