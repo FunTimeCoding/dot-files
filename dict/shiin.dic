@@ -5,6 +5,7 @@ areitzel
 GitHub
 Ansible
 shiin
+SemVer
 
 # Debian
 Debian
@@ -113,8 +114,6 @@ expanduser
 capfd
 urwid
 pyenchant
-mistune
-reparser
 
 # PhpStorm
 idekey
@@ -144,6 +143,7 @@ inet
 
 # Linux
 proc
+diff
 uptime
 printf
 mkpasswd
@@ -184,3 +184,4 @@ newc
 
 # English
 optative
+versioning
