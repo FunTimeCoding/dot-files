@@ -1,5 +1,4 @@
 #!/bin/sh -e
-# Print help: -help
 
 JAR_DIRECTORY="${HOME}/.local/jar"
 
@@ -7,10 +6,10 @@ if [ ! -d "${JAR_DIRECTORY}" ]; then
     mkdir -p "${JAR_DIRECTORY}"
 fi
 
-FILE="${JAR_DIRECTORY}/plantuml.jar"
+FILE="${JAR_DIRECTORY}/jabref.jar"
 
 if [ ! -f "${FILE}" ]; then
-    wget http://downloads.sourceforge.net/project/plantuml/plantuml.jar --output-document "${FILE}"
+    wget https://github.com/JabRef/jabref/releases/download/v3.4/JabRef-3.4.jar --output-document "${FILE}"
 fi
 
 java -jar "${FILE}" "$@"
