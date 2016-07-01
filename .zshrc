@@ -48,6 +48,12 @@ if [ -f "${PERLBREW}" ]; then
     . "${PERLBREW}"
 fi
 
+PHPBREW="${HOME}/.phpbrew/bashrc"
+
+if [ -f "${PHPBREW}" ]; then
+    . /Users/shiin/.phpbrew/bashrc
+fi
+
 ZSH="${HOME}/.oh-my-zsh"
 
 if [ -d "${ZSH}" ]; then
@@ -70,7 +76,7 @@ if [ -d "${ZSH}" ]; then
         plugins=(git zsh-syntax-highlighting)
     fi
 
-    source "${ZSH}/oh-my-zsh.sh"
+    . "${ZSH}/oh-my-zsh.sh"
 fi
 
 GROOVY_DIRECTORY=/usr/local/opt/groovy/libexec
