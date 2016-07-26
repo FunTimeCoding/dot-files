@@ -6,7 +6,7 @@ if [ "$(command -v hxselect || true)" = "" ]; then
     exit 1
 fi
 
-OUTPUT=$(wget --quiet https://cache.ruby-lang.org/pub/ruby --output-document - | gunzip)
+OUTPUT=$(wget --quiet https://cache.ruby-lang.org/pub/ruby --output-document -)
 LIST=$(echo ${OUTPUT} | hxselect -s "\n" -c a 2>/dev/null | grep '^ruby-[0-9].*') || true
 LATEST=""
 

@@ -8,10 +8,10 @@ fi
 
 OPERATING_SYSTEM=$(uname)
 
-if [ "${OPERATING_SYSTEM}" = "Linux" ]; then
-    SORT="sort"
-elif [ "${OPERATING_SYSTEM}" = "Darwin" ]; then
-    SORT="gsort"
+if [ "${OPERATING_SYSTEM}" = Darwin ]; then
+    SORT=gsort
+else
+    SORT=sort
 fi
 
 OUTPUT=$(wget --quiet https://www.python.org/ftp/python --output-document -)
