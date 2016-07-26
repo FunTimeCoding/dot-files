@@ -51,7 +51,7 @@ fi
 PHPBREW="${HOME}/.phpbrew/bashrc"
 
 if [ -f "${PHPBREW}" ]; then
-    . /Users/shiin/.phpbrew/bashrc
+    . "${PHPBREW}"
 fi
 
 ZSH="${HOME}/.oh-my-zsh"
