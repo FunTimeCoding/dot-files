@@ -13,6 +13,7 @@ alias ll="${LS} -lh --color"
 alias la="${LS} -Alh --color"
 alias less='less -Q'
 alias s='\svn'
+alias si='\svn info'
 alias svn='echo s'
 alias sup='\svn up'
 alias sc='\svn commit'
@@ -71,5 +72,3 @@ if [ ! "$(command -v grc || true)" = "" ]; then
 else
     alias gs="\git status"
 fi
-
-# vim: ft=sh

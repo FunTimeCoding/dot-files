@@ -136,7 +136,7 @@ case "${TERM}" in
         ;;
 esac
 
-. "${HOME}/.aliases"
+. "${HOME}/.aliases.sh"
 
 # Reapply list colors.
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"

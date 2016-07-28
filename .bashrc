@@ -20,7 +20,7 @@ export PATH
 type gdircolors &> /dev/null && DIRCOLORS='gdircolors' || DIRCOLORS="dircolors"
 type gls &> /dev/null && LS='gls' || LS="ls"
 
-. "${HOME}/.aliases"
+. "${HOME}/.aliases.sh"
 
 PHPBREW="${HOME}/.phpbrew/bashrc"
 
