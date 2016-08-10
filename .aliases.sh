@@ -49,7 +49,7 @@ alias gdc='\git diff --cached'
 alias gdcf='\git diff --cached --color | diff-so-fancy'
 alias ga='\git add'
 alias gaa='\git add --all'
-alias gll='\git pull'
+alias gp='\git pull'
 alias gsh='\git push'
 alias gshu='\git push -u'
 alias gc='\git commit --verbose'
@@ -65,7 +65,6 @@ alias j='jobs -l'
 alias h='history'
 alias mount='mount | column -t'
 unalias gst > /dev/null 2>&1
-unalias gp > /dev/null 2>&1
 
 if [ ! "$(command -v grc || true)" = "" ]; then
     alias gs="\git status | grcat conf.gitstatus"
