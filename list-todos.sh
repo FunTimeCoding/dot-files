@@ -2,10 +2,10 @@
 
 OPERATING_SYSTEM=$(uname)
 
-if [ "${OPERATING_SYSTEM}" = "Linux" ]; then
-    FIND="find"
+if [ "${OPERATING_SYSTEM}" = Linux ]; then
+    FIND=find
 else
-    FIND="gfind"
+    FIND=gfind
 fi
 
 # shellcheck disable=SC2016
