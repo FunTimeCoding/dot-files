@@ -7,6 +7,6 @@ while IFS= read -r -d '' file; do
     files+=("$file")
 done < <(grep --null -ril "$@")
 
-vim "${files[@]}"
+nvim "${files[@]}"
 
 # vim: ft=zsh
