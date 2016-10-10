@@ -14,7 +14,6 @@ alias la="${LS} -Alh --color"
 alias less='less -Q'
 alias s='\svn'
 alias si='\svn info'
-alias svn='echo s'
 alias sup='\svn up'
 alias sc='\svn commit'
 alias scm='\svn commit -m'
