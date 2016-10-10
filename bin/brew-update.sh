@@ -10,17 +10,17 @@ if [ "${OUTPUT}" = "" ]; then
     exit 0
 fi
 
-if [ ! "${1}" = "--yes" ]; then
+if [ ! "${1}" = --yes ]; then
     echo "Available updates:"
     echo "${OUTPUT}"
     echo "Update? [y/n]"
     read -r READ
 
-    if [ ! "${READ}" = "y" ]; then
+    if [ ! "${READ}" = y ]; then
         exit 0
     fi
 fi
 
-brew upgrade --all
+brew upgrade
 brew cleanup -s
 brew cask cleanup

@@ -2,7 +2,7 @@
 
 ALWAYS_YES="${1}"
 
-if [ ! "${ALWAYS_YES}" = "--yes" ] && [ ! "${ALWAYS_YES}" = "" ]; then
+if [ ! "${ALWAYS_YES}" = --yes ] && [ ! "${ALWAYS_YES}" = "" ]; then
     echo "Usage: ${0} [--yes]"
 
     exit 1
@@ -19,13 +19,13 @@ gem-update.sh "${ALWAYS_YES}"
 #php-update.sh # Unstable
 OPERATING_SYSTEM=$(uname)
 
-if [ "${OPERATING_SYSTEM}" = "Darwin" ]; then
+if [ "${OPERATING_SYSTEM}" = Darwin ]; then
     brew-update.sh "${ALWAYS_YES}"
     osx-update.sh "${ALWAYS_YES}"
-elif [ "${OPERATING_SYSTEM}" = "Linux" ]; then
-    if [ -f "/etc/arch-release" ]; then
+else
+    if [ -f /etc/arch-release ]; then
         arch-update.sh "${ALWAYS_YES}"
-    elif [ -f "/etc/debian_version" ]; then
+    elif [ -f /etc/debian_version ]; then
         debian-update.sh "${ALWAYS_YES}"
     fi
 fi

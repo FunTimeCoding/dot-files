@@ -8,14 +8,14 @@ GREP=$(echo "${OUTPUT}" | grep 'The following packages will be upgraded:') || GR
 if [ "${GREP}" = "" ]; then
     echo "Nothing to update (apt-get upgrade)."
 else
-    if [ ! "${1}" = "--yes" ]; then
+    if [ ! "${1}" = --yes ]; then
         echo "Available updates:"
         echo "${OUTPUT}"
         HOST_NAME=$(hostname)
         echo "Update ${HOST_NAME}? [y/n]"
         read -r READ
 
-        if [ ! "${READ}" = "y" ]; then
+        if [ ! "${READ}" = y ]; then
             exit 0
         fi
     fi
@@ -33,14 +33,14 @@ GREP=$(echo "${OUTPUT}" | grep 'The following packages will be upgraded:') || GR
 if [ "${GREP}" = "" ]; then
     echo "Nothing to update (apt-get dist-upgrade)."
 else
-    if [ ! "${1}" = "--yes" ]; then
+    if [ ! "${1}" = --yes ]; then
         echo "Available updates:"
         echo "${OUTPUT}"
         HOST_NAME=$(hostname)
         echo "Update ${HOST_NAME}? [y/n]"
         read -r READ
 
-        if [ ! "${READ}" = "y" ]; then
+        if [ ! "${READ}" = y ]; then
             exit 0
         fi
 
