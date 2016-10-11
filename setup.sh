@@ -3,7 +3,6 @@
 DIRECTORY=$(dirname "${0}")
 SCRIPT_DIRECTORY=$(cd "${DIRECTORY}" || exit 1; pwd)
 WORK_DIRECTORY="${HOME}/.dotfiles"
-NON_INTERACTIVE=false
 
 if [ ! "${WORK_DIRECTORY}" = "${SCRIPT_DIRECTORY}" ]; then
     echo "Dotfiles directory must be ${WORK_DIRECTORY}."
@@ -11,33 +10,13 @@ if [ ! "${WORK_DIRECTORY}" = "${SCRIPT_DIRECTORY}" ]; then
     exit 1
 fi
 
-if [ "${1}" = "--non-interactive" ]; then
-    NON_INTERACTIVE=true
-fi
-
 SSH_DIRECTORY="${HOME}/.ssh"
 
 if [ -d "${SSH_DIRECTORY}" ]; then
-    if [ "${NON_INTERACTIVE}" = true ]; then
-        READ="y"
-    else
-        echo "Directory ${SSH_DIRECTORY} already exists. Replace it? (y/N) This will rm -rf ${SSH_DIRECTORY}."
-        read -r READ
-    fi
-
-    case ${READ} in
-        y)
-            rm -rf "${SSH_DIRECTORY}"
-            ;;
-        *)
-            echo "User abort."
-
-            exit 0
-            ;;
-    esac
+    rm -rf "${SSH_DIRECTORY}"
 fi
 
-FILES=$(find "${SCRIPT_DIRECTORY}" -maxdepth 1 -name '.*' -not -path '*.git' -and -not -path "${WORK_DIRECTORY}" | awk -F/ '{print $NF}')
+FILES=$(find "${SCRIPT_DIRECTORY}" -maxdepth 1 -name '.*' -not -path '*.git' -and -not -path "${WORK_DIRECTORY}" | awk -F / '{ print $NF }')
 
 for FILE in ${FILES}; do
     ln -snf "${WORK_DIRECTORY}/${FILE}" "${HOME}/${FILE}"

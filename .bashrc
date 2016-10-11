@@ -3,7 +3,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 export DOTFILES="${HOME}/.dotfiles"
-PATHS_CONFIG="${HOME}/.paths.conf"
+PATHS_CONFIG="${HOME}/.paths.sh"
 
 if [ -f "${PATHS_CONFIG}" ]; then
     . "${PATHS_CONFIG}"

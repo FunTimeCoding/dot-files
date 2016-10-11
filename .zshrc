@@ -4,7 +4,7 @@ export EDITOR=vim
 export LESSHISTFILE=/dev/null
 export MYSQL_HISTFILE=/dev/null
 export LD_LIBRARY_PATH="${HOME}/lib"
-PATHS_CONFIG="${HOME}/.paths.conf"
+PATHS_CONFIG="${HOME}/.paths.sh"
 
 if [ -f "${PATHS_CONFIG}" ]; then
     . "${PATHS_CONFIG}"
@@ -16,9 +16,15 @@ if [ -f "${LOCAL_CONFIG}" ]; then
     . "${LOCAL_CONFIG}"
 fi
 
+unset PATH
+
 while read -r LINE; do
     if [ -d "${LINE}" ]; then
-        PATH="${LINE}:${PATH}"
+        if [ "${PATH}" = "" ]; then
+            PATH="${LINE}"
+        else
+            PATH="${LINE}:${PATH}"
+        fi
     fi
 done <<< "${PATHS}"
 
@@ -48,11 +54,11 @@ if [ -f "${PERLBREW}" ]; then
     . "${PERLBREW}"
 fi
 
-PHPBREW="${HOME}/.phpbrew/bashrc"
-
-if [ -f "${PHPBREW}" ]; then
-    . "${PHPBREW}"
-fi
+#PHPBREW="${HOME}/.phpbrew/bashrc"
+#
+#if [ -f "${PHPBREW}" ]; then
+#    . "${PHPBREW}"
+#fi
 
 ZSH="${HOME}/.oh-my-zsh"
 

@@ -1,10 +1,10 @@
 DOTFILES="${HOME}/.dotfiles"
-PATHS="/bin
-/usr/bin
-/usr/local/bin
-/sbin
+PATHS="/sbin
 /usr/sbin
 /usr/local/sbin
+/bin
+/usr/bin
+/usr/local/bin
 ${DOTFILES}/bin
 ${HOME}/.local/bin
 ${HOME}/.cabal/bin
@@ -39,5 +39,3 @@ ${HOME}/opt/dogecoin/bin
 ${HOME}/Library/Android/sdk/platform-tools
 /Library/TeX/texbin"
 export PATHS
-
-# vim: ft=sh
