@@ -54,11 +54,11 @@ if [ -f "${PERLBREW}" ]; then
     . "${PERLBREW}"
 fi
 
-#PHPBREW="${HOME}/.phpbrew/bashrc"
-#
-#if [ -f "${PHPBREW}" ]; then
-#    . "${PHPBREW}"
-#fi
+PHPBREW="${HOME}/.phpbrew/bashrc"
+
+if [ -f "${PHPBREW}" ]; then
+    . "${PHPBREW}"
+fi
 
 ZSH="${HOME}/.oh-my-zsh"
 
