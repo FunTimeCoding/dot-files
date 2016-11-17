@@ -25,7 +25,7 @@ type gls &> /dev/null && LS='gls' || LS="ls"
 PHPBREW="${HOME}/.phpbrew/bashrc"
 
 if [ -f "${PHPBREW}" ]; then
-    . /Users/shiin/.phpbrew/bashrc
+    . "${PHPBREW}"
 fi
 
 case "${TERM}" in
