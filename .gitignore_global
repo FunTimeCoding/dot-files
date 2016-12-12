@@ -1,6 +1,4 @@
 .DS_Store
 .idea
-.ropeproject
 vendor
-atlassian-ide-plugin.xml
 *.iml
