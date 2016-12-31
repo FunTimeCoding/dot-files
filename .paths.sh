@@ -8,7 +8,7 @@ PATHS="/sbin
 ${DOTFILES}/bin
 ${HOME}/.local/bin
 ${HOME}/.cabal/bin
-${HOME}/.gem/ruby/2.3.0/bin
+${HOME}/.gem/ruby/2.4.0/bin
 ${HOME}/.composer/vendor/bin
 ${HOME}/.stack/snapshots/x86_64-linux/lts-5.17/7.10.3/bin
 ${HOME}/.stack/programs/x86_64-linux/ghc-7.10.3/bin
@@ -16,7 +16,7 @@ ${HOME}/Code/Work/development-tools/bin
 ${HOME}/Code/Foreign/arcanist/bin
 ${HOME}/opt/python-2.7.11/bin
 ${HOME}/opt/python-3.5.1/bin
-${HOME}/opt/ruby-2.3.0/bin
+${HOME}/opt/ruby-2.4.0/bin
 ${HOME}/opt/git-2.7.1/bin
 ${HOME}/opt/multitail-6.4.2/bin
 ${HOME}/opt/lua-5.3.2/bin
