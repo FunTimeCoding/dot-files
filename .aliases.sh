@@ -54,9 +54,10 @@ alias mount='mount | column -t'
 unalias gst > /dev/null 2>&1
 
 # Copied from Oh-My-Zsh for Bash.
-alias gcam='git commit -a -m'
+alias gcam='git commit --all --message'
 alias gp='git push'
 alias gd='git diff'
+alias gaa='git add --all'
 
 if [ ! "$(command -v grc || true)" = "" ]; then
     alias gs="\git status | grcat conf.gitstatus"
