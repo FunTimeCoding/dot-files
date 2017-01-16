@@ -53,6 +53,10 @@ alias h='history'
 alias mount='mount | column -t'
 unalias gst > /dev/null 2>&1
 
+# Copied from Oh-My-Zsh for Bash.
+alias gcam='git commit -a -m'
+alias gp='git push'
+
 if [ ! "$(command -v grc || true)" = "" ]; then
     alias gs="\git status | grcat conf.gitstatus"
 else
