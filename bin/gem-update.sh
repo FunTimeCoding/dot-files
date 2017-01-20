@@ -18,7 +18,7 @@ fi
 if [ ! "${1}" = --yes ]; then
     echo "Available updates:"
     echo "${OUTPUT}"
-    echo "Update? [y/n]"
+    echo "Update? [y/N]"
     read -r READ
 
     if [ ! "${READ}" = y ]; then
