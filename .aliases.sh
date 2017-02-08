@@ -59,6 +59,7 @@ alias gcam='git commit --all --message'
 alias gp='git push'
 alias gd='git diff'
 alias gaa='git add --all'
+alias gl='git pull'
 
 if [ ! "$(command -v grc || true)" = "" ]; then
     alias gs="\git status | grcat conf.gitstatus"
