@@ -109,13 +109,13 @@ else
     LS=gls
 fi
 
-if [ ! "$(command -v grc || true)" = "" ]; then
-    GRC_CONFIG=/usr/local/etc/grc.bashrc
-
-    if [ -f "${GRC_CONFIG}" ]; then
-        . ${GRC_CONFIG}
-    fi
-fi
+#if [ ! "$(command -v grc || true)" = "" ]; then
+#    GRC_CONFIG=/usr/local/etc/grc.bashrc
+#
+#    if [ -f "${GRC_CONFIG}" ]; then
+#        . ${GRC_CONFIG}
+#    fi
+#fi
 
 CASE_SENSITIVE=true
 SAVEHIST=1000
