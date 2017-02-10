@@ -5,15 +5,6 @@ PATHS="/sbin
 /bin
 /usr/bin
 /usr/local/bin
-${DOTFILES}/bin
-${HOME}/.local/bin
-${HOME}/.cabal/bin
-${HOME}/.gem/ruby/2.4.0/bin
-${HOME}/.composer/vendor/bin
-${HOME}/.stack/snapshots/x86_64-linux/lts-5.17/7.10.3/bin
-${HOME}/.stack/programs/x86_64-linux/ghc-7.10.3/bin
-${HOME}/Code/Work/development-tools/bin
-${HOME}/Code/Foreign/arcanist/bin
 ${HOME}/opt/python-2.7.11/bin
 ${HOME}/opt/python-3.5.1/bin
 ${HOME}/opt/ruby-2.4.0/bin
@@ -33,9 +24,19 @@ ${HOME}/opt/task/bin
 ${HOME}/opt/thrift-0.9.3/bin
 ${HOME}/opt/maven-3.3.9/bin
 ${HOME}/opt/znc-1.6.3/bin
-${HOME}/opt/gnupg-2.1.11/bin
+${HOME}/opt/gnupg-2.1.18/bin
 ${HOME}/opt/jdk8/bin
 ${HOME}/opt/dogecoin/bin
 ${HOME}/Library/Android/sdk/platform-tools
-/Library/TeX/texbin"
+/Library/TeX/texbin
+${HOME}/.gem/ruby/2.4.0/bin
+${HOME}/.local/bin
+${HOME}/.rvm/bin
+${HOME}/.cabal/bin
+${HOME}/.composer/vendor/bin
+${HOME}/.stack/snapshots/x86_64-linux/lts-5.17/7.10.3/bin
+${HOME}/.stack/programs/x86_64-linux/ghc-7.10.3/bin
+${HOME}/Code/Work/development-tools/bin
+${HOME}/Code/Foreign/arcanist/bin
+${DOTFILES}/bin"
 export PATHS
