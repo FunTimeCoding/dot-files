@@ -91,6 +91,12 @@ if [ -d "${GROOVY_DIRECTORY}" ]; then
     export GROOVY_HOME="${GROOVY_DIRECTORY}"
 fi
 
+RVM_CONFIG="$HOME/.rvm/scripts/rvm"
+
+if [ -f "${RVM_CONFIG}" ]; then
+    source "${RVM_CONFIG}"
+fi
+
 if [ "$(command -v gdircolors || true)" = "" ]; then
     DIRCOLORS=dircolors
 else
