@@ -1,7 +1,7 @@
-if has('vim_starting')
-    set nocompatible
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
+if &compatible
+	set nocompatible
 endif
+set runtimepath+=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'vim-airline/vim-airline'
@@ -46,21 +46,21 @@ call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
 set number
-syntax enable
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set vb t_vb=
+"syntax enable
+"set tabstop=4
+"set shiftwidth=4
+"set softtabstop=4
+"set expandtab
+"set vb t_vb=
 cabbrev W w
 cabbrev Q q
-let mapleader=','
+"let mapleader=','
 set backupdir=~/.vim/backup
 set directory=~/.vim/swap
-set viminfo="NONE"
-set mouse=
-set nofoldenable
+"set viminfo="NONE"
+"set mouse=
+"set nofoldenable
 
 for fpath in split(globpath('~/.vim/settings', '*.vim'), '\n')
-    exe 'source' fpath
+	exe 'source' fpath
 endfor
