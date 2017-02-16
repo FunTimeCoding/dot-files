@@ -1,5 +1,5 @@
 if &compatible
-	set nocompatible
+  set nocompatible
 endif
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/bundle/'))
@@ -46,11 +46,6 @@ call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
 set number
-"syntax enable
-"set tabstop=4
-"set shiftwidth=4
-"set softtabstop=4
-"set expandtab
 "set vb t_vb=
 cabbrev W w
 cabbrev Q q
@@ -62,5 +57,5 @@ set directory=~/.vim/swap
 "set nofoldenable
 
 for fpath in split(globpath('~/.vim/settings', '*.vim'), '\n')
-	exe 'source' fpath
+  exe 'source' fpath
 endfor
