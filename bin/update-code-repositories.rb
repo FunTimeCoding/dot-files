@@ -96,8 +96,12 @@ class CodeRepositoryUpdater
         else
             output = `git pull`
             puts output
-            output = `git fetch --all`
+            output = `git fetch --all --prune`
             puts output
+            #output = `git gc`
+            #puts output
+            #output = `git gc --aggressive`
+            #puts output
         end
     end
 
