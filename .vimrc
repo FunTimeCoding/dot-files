@@ -1,12 +1,12 @@
-if &compatible
-  set nocompatible
-endif
-set runtimepath+=~/.vim/bundle/neobundle.vim/
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'airblade/vim-gitgutter'
+"if &compatible
+set nocompatible
+"endif
+"set runtimepath+=~/.vim/bundle/neobundle.vim/
+"call neobundle#begin(expand('~/.vim/bundle/'))
+"NeoBundleFetch 'Shougo/neobundle.vim'
+"NeoBundle 'vim-airline/vim-airline'
+"NeoBundle 'tomtom/tcomment_vim'
+"NeoBundle 'airblade/vim-gitgutter'
 "NeoBundle 'scrooloose/syntastic'
 "NeoBundle 'chase/vim-ansible-yaml'
 "NeoBundle 'othree/html5.vim'
@@ -42,9 +42,9 @@ NeoBundle 'airblade/vim-gitgutter'
 
 "unlet g:plugin
 
-call neobundle#end()
+"call neobundle#end()
 filetype plugin indent on
-NeoBundleCheck
+"NeoBundleCheck
 set number
 "set vb t_vb=
 cabbrev W w
@@ -55,6 +55,7 @@ set directory=~/.vim/swap
 "set viminfo="NONE"
 "set mouse=
 "set nofoldenable
+set statusline+=%F\ %y
 
 for fpath in split(globpath('~/.vim/settings', '*.vim'), '\n')
   exe 'source' fpath

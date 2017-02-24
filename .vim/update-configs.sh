@@ -116,3 +116,13 @@ else
 fi
 
 cp "${JINJA_DIRECTORY}/ext/Vim/jinja.vim" "${HOME}/.vim/syntax"
+COMMENTARY_DIRECTORY="${TEMPORARY_DIRECTORY}/vim-commentary"
+
+if [ ! -d "${COMMENTARY_DIRECTORY}" ]; then
+    git clone https://github.com/tpope/vim-commentary "${COMMENTARY_DIRECTORY}"
+else
+    cd "${COMMENTARY_DIRECTORY}"
+    git pull
+fi
+
+cp "${COMMENTARY_DIRECTORY}/plugin/commentary.vim" "${HOME}/.vim/plugin"
