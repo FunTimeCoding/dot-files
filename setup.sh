@@ -36,15 +36,6 @@ if [ ! -L "${NEOVIM_CONFIG_SYMLINK}" ]; then
     ln -s "${WORK_DIRECTORY}/.vim" "${NEOVIM_CONFIG_SYMLINK}"
 fi
 
-NEOBUNDLE_DIRECTORY="${HOME}/.vim/bundle/neobundle.vim"
-
-if [ -d "${NEOBUNDLE_DIRECTORY}" ]; then
-    cd "${NEOBUNDLE_DIRECTORY}"
-    git pull
-else
-    git clone https://github.com/Shougo/neobundle.vim "${NEOBUNDLE_DIRECTORY}"
-fi
-
 OH_MY_ZSH_DIRECTORY="${HOME}/.oh-my-zsh"
 
 if [ -d "${OH_MY_ZSH_DIRECTORY}" ]; then
