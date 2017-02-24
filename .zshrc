@@ -10,7 +10,7 @@ if [ -f "${PATHS_CONFIG}" ]; then
     . "${PATHS_CONFIG}"
 fi
 
-LOCAL_CONFIG="${HOME}/.local.conf"
+LOCAL_CONFIG="${HOME}/.local.sh"
 
 if [ -f "${LOCAL_CONFIG}" ]; then
     . "${LOCAL_CONFIG}"
