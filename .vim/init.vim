@@ -1,4 +1,3 @@
-set nocompatible
 filetype plugin indent on
 set number
 set statusline+=%F\ %y
