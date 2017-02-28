@@ -1,6 +1,7 @@
 filetype plugin indent on
 set number
 set statusline+=%F\ %y
+set mouse=
 cabbrev W w
 cabbrev Q q
 
