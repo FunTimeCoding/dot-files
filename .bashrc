@@ -1,7 +1,6 @@
 # xquartz needs LC_ALL and LANG
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
-export DOTFILES="${HOME}/.dotfiles"
 
 if [ -f "${HOME}/.paths.sh" ]; then
     . "${HOME}/.paths.sh"

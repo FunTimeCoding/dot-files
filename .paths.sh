@@ -1,4 +1,3 @@
-DOTFILES="${HOME}/.dotfiles"
 PATHS="/sbin
 /usr/sbin
 /usr/local/sbin
@@ -38,5 +37,5 @@ ${HOME}/.stack/snapshots/x86_64-linux/lts-5.17/7.10.3/bin
 ${HOME}/.stack/programs/x86_64-linux/ghc-7.10.3/bin
 ${HOME}/Code/Work/development-tools/bin
 ${HOME}/Code/Foreign/arcanist/bin
-${DOTFILES}/bin"
+${HOME}/src/dotfiles/bin"
 export PATHS
