@@ -8,9 +8,13 @@ alias bashrc='echo brc'
 alias vimrc='echo vc'
 alias zshrc='echo zc'
 alias l="ls"
-alias ls="${LS} -F --color"
-alias ll="${LS} -lh --color"
-alias la="${LS} -Alh --color"
+
+if [ "${GNU_LS_FOUND}" = true ]; then
+    alias ls="${LS} -F --color"
+    alias ll="${LS} -lh --color"
+    alias la="${LS} -Alh --color"
+fi
+
 alias less='less -Q'
 alias s='\svn'
 alias si='\svn info'

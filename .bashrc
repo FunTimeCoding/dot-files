@@ -1,12 +1,10 @@
-# xquartz fix
+# xquartz needs LC_ALL and LANG
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
-
 export DOTFILES="${HOME}/.dotfiles"
-PATHS_CONFIG="${HOME}/.paths.sh"
 
-if [ -f "${PATHS_CONFIG}" ]; then
-    . "${PATHS_CONFIG}"
+if [ -f "${HOME}/.paths.sh" ]; then
+    . "${HOME}/.paths.sh"
 fi
 
 while read -r LINE; do
@@ -16,23 +14,35 @@ while read -r LINE; do
 done <<< "${PATHS}"
 
 export PATH
+SYSTEM=$(uname)
+LS=ls
+GNU_LS_FOUND=false
 
-type gdircolors &> /dev/null && DIRCOLORS='gdircolors' || DIRCOLORS="dircolors"
-type gls &> /dev/null && LS='gls' || LS="ls"
+if [ "${SYSTEM}" = Darwin ]; then
+    DIRCOLORS=gdircolors
+
+    if [ ! "$(command -v gls || true)" = "" ]; then
+        LS=gls
+        GNU_LS_FOUND=true
+    fi
+else
+    DIRCOLORS=dircolors
+    GNU_LS_FOUND=true
+fi
 
 . "${HOME}/.aliases.sh"
 
-PHPBREW="${HOME}/.phpbrew/bashrc"
-
-if [ -f "${PHPBREW}" ]; then
-    . "${PHPBREW}"
+if [ -f "${HOME}/.phpbrew/bashrc" ]; then
+    . "${HOME}/.phpbrew/bashrc"
 fi
 
 case "${TERM}" in
     xterm* | screen*)
-        eval $(${DIRCOLORS} "${DOTFILES}/dircolors")
+        if [ ! "$(command -v ${DIRCOLORS} || true)" = "" ]; then
+            eval $(${DIRCOLORS} "${HOME}/src/dotfiles/dircolors")
+        fi
         ;;
 esac
 
-# The following string is to prevent modifications by the provisioning system.
+# The following line is to prevent modifications by the provisioning system.
 # protected
