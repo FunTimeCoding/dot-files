@@ -10,6 +10,6 @@ if $VIM_CRONTAB == "true"
   set nobackup
   set nowritebackup
 else
-  set backupdir=~/.vim/backup
-  set directory=~/.vim/swap
+  set backupdir=~/.config/nvim/backup
+  set directory=~/.config/nvim/swap
 endif

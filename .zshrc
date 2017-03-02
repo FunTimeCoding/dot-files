@@ -1,19 +1,23 @@
-export DOTFILES="${HOME}/.dotfiles"
-export FPATH="$HOME/.dotfiles/zfunc:$FPATH"
+if [ -d "${HOME}/src/dotfiles" ]; then
+    export FPATH="${HOME}/src/dotfiles/zfunc:${FPATH}"
+elif [ -d "${HOME}/.dotfiles" ]; then
+    export FPATH="${HOME}/.dotfiles/zfunc:${FPATH}"
+fi
+
 export EDITOR=vim
 export LESSHISTFILE=/dev/null
 export MYSQL_HISTFILE=/dev/null
 export LD_LIBRARY_PATH="${HOME}/lib"
 PATHS_CONFIG="${HOME}/.paths.sh"
 
-if [ -f "${PATHS_CONFIG}" ]; then
-    . "${PATHS_CONFIG}"
+if [ -f "${HOME}/.paths.sh" ]; then
+    . "${HOME}/.paths.sh"
 fi
 
 LOCAL_CONFIG="${HOME}/.local.sh"
 
-if [ -f "${LOCAL_CONFIG}" ]; then
-    . "${LOCAL_CONFIG}"
+if [ -f "${HOME}/.local.sh" ]; then
+    . "${HOME}/.local.sh"
 fi
 
 unset PATH
@@ -30,7 +34,6 @@ done <<< "${PATHS}"
 
 export PATH
 export MANPATH="${MANPATH}:/usr/local/man"
-OPERATING_SYSTEM=$(uname)
 
 if [ ! "$(command -v python3 || true)" = "" ]; then
     SITE_PACKAGES=$(python3 -m site --user-site)
@@ -42,22 +45,22 @@ autoload -Uz compinit
 compinit
 
 # User functions
-autoload -Uz ~/.dotfiles/zfunc/*(:t)
+if [ -d "${HOME}/src/dotfiles" ]; then
+    autoload -Uz ~/src/dotfiles/zfunc/*(:t)
+elif [ -d "${HOME}/.dotfiles" ]; then
+    autoload -Uz ~/.dotfiles/zfunc/*(:t)
+fi
 
 if [ ! "${VTE_VERSION}" = "" ]; then
     export TERM=xterm-256color
 fi
 
-PERLBREW="${HOME}/perl5/perlbrew/etc/bashrc"
-
-if [ -f "${PERLBREW}" ]; then
-    . "${PERLBREW}"
+if [ -f "${HOME}/perl5/perlbrew/etc/bashrc" ]; then
+    . "${HOME}/perl5/perlbrew/etc/bashrc"
 fi
 
-PHPBREW="${HOME}/.phpbrew/bashrc"
-
-if [ -f "${PHPBREW}" ]; then
-    . "${PHPBREW}"
+if [ -f "${HOME}/.phpbrew/bashrc" ]; then
+    . "${HOME}/.phpbrew/bashrc"
 fi
 
 ZSH="${HOME}/.oh-my-zsh"
@@ -85,16 +88,12 @@ if [ -d "${ZSH}" ]; then
     . "${ZSH}/oh-my-zsh.sh"
 fi
 
-GROOVY_DIRECTORY=/usr/local/opt/groovy/libexec
-
-if [ -d "${GROOVY_DIRECTORY}" ]; then
-    export GROOVY_HOME="${GROOVY_DIRECTORY}"
+if [ -d /usr/local/opt/groovy/libexec ]; then
+    export GROOVY_HOME=/usr/local/opt/groovy/libexec
 fi
 
-RVM_CONFIG="$HOME/.rvm/scripts/rvm"
-
-if [ -f "${RVM_CONFIG}" ]; then
-    source "${RVM_CONFIG}"
+if [ -f "$HOME/.rvm/scripts/rvm" ]; then
+    source "$HOME/.rvm/scripts/rvm"
 fi
 
 if [ "$(command -v gdircolors || true)" = "" ]; then
@@ -110,10 +109,8 @@ else
 fi
 
 #if [ ! "$(command -v grc || true)" = "" ]; then
-#    GRC_CONFIG=/usr/local/etc/grc.bashrc
-#
-#    if [ -f "${GRC_CONFIG}" ]; then
-#        . ${GRC_CONFIG}
+#    if [ -f /usr/local/etc/grc.bashrc ]; then
+#        . /usr/local/etc/grc.bashrc
 #    fi
 #fi
 
@@ -136,7 +133,11 @@ bindkey '^r' history-incremental-search-backward
 
 case "${TERM}" in
     xterm* | screen*)
-        eval $(${DIRCOLORS} "${DOTFILES}/dircolors")
+        if [ -d "${HOME}/src/dotfiles" ]; then
+            eval $(${DIRCOLORS} "${HOME}/src/dotfiles/dircolors")
+        elif [ -d "${HOME}/.dotfiles" ]; then
+            eval $(${DIRCOLORS} "${HOME}/.dotfiles/dircolors")
+        fi
 
         if type powerline &> /dev/null; then
             POWERLINE_ZSH="${POWERLINE_DIRECTORY}/bindings/zsh/powerline.zsh"

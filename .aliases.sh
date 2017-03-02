@@ -1,7 +1,7 @@
 alias v='\nvim'
 alias vim='echo "v"'
 alias nvim='echo "v"'
-alias vc='\nvim ~/.vim/init.vim'
+alias vc='\nvim ~/.config/nvim/init.vim'
 alias zc='\nvim ~/.zshrc'
 alias brc='\nvim ~/.bashrc'
 alias bashrc='echo brc'
