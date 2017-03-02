@@ -16,18 +16,6 @@ if [ "${GNU_LS_FOUND}" = true ]; then
 fi
 
 alias less='less -Q'
-alias s='\svn'
-alias si='\svn info'
-alias sup='\svn up'
-alias sc='\svn commit'
-alias scm='\svn commit -m'
-alias sst='\svn st'
-alias sd='\svn diff'
-alias svn-log='\svn log -r HEAD:1 -v -l 3 | less'
-alias svn-log-branch='\svn log --stop-on-copy'
-alias svn-up-dry='\svn merge --dry-run -r BASE:HEAD .'
-alias svn-diff='\svn diff | view -'
-alias svn-diff-branch='\svn diff -r $(\svn log --stop-on-copy | grep -o "^r[[:digit:]]*" | tail -1):HEAD | view -'
 alias t='\tmux -2'
 alias saidar='saidar -c'
 alias crontab="VIM_CRONTAB=true crontab"
