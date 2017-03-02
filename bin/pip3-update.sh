@@ -1,17 +1,14 @@
 #!/bin/sh -e
 
-echo "Check for pip3 updates."
-OUTPUT=$(pip3 list --outdated 2> /dev/null | awk '{ print $1 }')
+PACKAGES=$(pip3 list --outdated --format legacy 2> /dev/null | awk '{ print $1 }')
 
-if [ "${OUTPUT}" = "" ]; then
-    echo "Nothing to update."
-
+if [ "${PACKAGES}" = "" ]; then
     exit 0
 fi
 
 if [ ! "${1}" = --yes ]; then
     echo "Available updates:"
-    echo "${OUTPUT}"
+    echo "${PACKAGES}"
     echo "Update? [y/N]"
     read -r READ
 
@@ -20,9 +17,8 @@ if [ ! "${1}" = --yes ]; then
     fi
 fi
 
-pip3 install --upgrade --user setuptools
-pip3 install --upgrade --user pip
+pip3 install --upgrade pip setuptools
 
-for PACKAGE in ${OUTPUT}; do
-    pip3 install --upgrade --user "${PACKAGE}"
+for PACKAGE in ${PACKAGES}; do
+    pip3 install --upgrade "${PACKAGE}"
 done
