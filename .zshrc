@@ -96,16 +96,20 @@ if [ -f "$HOME/.rvm/scripts/rvm" ]; then
     source "$HOME/.rvm/scripts/rvm"
 fi
 
-if [ "$(command -v gdircolors || true)" = "" ]; then
-    DIRCOLORS=dircolors
-else
-    DIRCOLORS=gdircolors
-fi
+SYSTEM=$(uname)
+LS=ls
+GNU_LS_FOUND=false
 
-if [ "$(command -v gls || true)" = "" ]; then
-    LS=ls
+if [ "${SYSTEM}" = Darwin ]; then
+    DIRCOLORS=gdircolors
+
+    if [ ! "$(command -v gls || true)" = "" ]; then
+        LS=gls
+        GNU_LS_FOUND=true
+    fi
 else
-    LS=gls
+    DIRCOLORS=dircolors
+    GNU_LS_FOUND=true
 fi
 
 #if [ ! "$(command -v grc || true)" = "" ]; then
@@ -133,10 +137,12 @@ bindkey '^r' history-incremental-search-backward
 
 case "${TERM}" in
     xterm* | screen*)
-        if [ -d "${HOME}/src/dotfiles" ]; then
-            eval $(${DIRCOLORS} "${HOME}/src/dotfiles/dircolors")
-        elif [ -d "${HOME}/.dotfiles" ]; then
-            eval $(${DIRCOLORS} "${HOME}/.dotfiles/dircolors")
+        if [ ! "$(command -v ${DIRCOLORS} || true)" = "" ]; then
+            if [ -d "${HOME}/src/dotfiles" ]; then
+                eval $(${DIRCOLORS} "${HOME}/src/dotfiles/dircolors")
+            elif [ -d "${HOME}/.dotfiles" ]; then
+                eval $(${DIRCOLORS} "${HOME}/.dotfiles/dircolors")
+            fi
         fi
 
         if type powerline &> /dev/null; then
@@ -149,6 +155,7 @@ case "${TERM}" in
         ;;
 esac
 
+# Must be after DIRCOLORS and LS are sorted out.
 . "${HOME}/.aliases.sh"
 
 # Reapply list colors.
