@@ -34,9 +34,15 @@ done <<< "${PATHS}"
 
 export PATH
 export MANPATH="${MANPATH}:/usr/local/man"
+SYSTEM=$(uname)
 
 if [ ! "$(command -v python3 || true)" = "" ]; then
-    SITE_PACKAGES=$(python3 -m site --user-site)
+    if [ "${SYSTEM}" = Darwin ]; then
+        SITE_PACKAGES=/usr/local/lib/python3.6/site-packages
+    else
+        SITE_PACKAGES=$(python3 -m site --user-site)
+    fi
+
     export POWERLINE_DIRECTORY="${SITE_PACKAGES}/powerline"
 fi
 
@@ -67,7 +73,7 @@ ZSH="${HOME}/.oh-my-zsh"
 
 if [ -d "${ZSH}" ]; then
     if [ "$(command -v powerline || true)" = "" ]; then
-        export ZSH_THEME="steeef"
+        export ZSH_THEME=steeef
     fi
 
     export DISABLE_AUTO_TITLE=true
@@ -96,7 +102,6 @@ if [ -f "$HOME/.rvm/scripts/rvm" ]; then
     source "$HOME/.rvm/scripts/rvm"
 fi
 
-SYSTEM=$(uname)
 LS=ls
 GNU_LS_FOUND=false
 
@@ -148,7 +153,7 @@ case "${TERM}" in
         if type powerline &> /dev/null; then
             POWERLINE_ZSH="${POWERLINE_DIRECTORY}/bindings/zsh/powerline.zsh"
 
-            if [ -f "${POWERLINE_ZSH}" ]; then
+            if [ -f "${POWERLINE_ZSH}" ] && [ ! "${TERM_PROGRAM}" = Apple_Terminal ]; then
                 . "${POWERLINE_ZSH}"
             fi
         fi
