@@ -127,6 +127,7 @@ CASE_SENSITIVE=true
 SAVEHIST=1000
 HISTSIZE=1000
 HISTFILE=~/.zsh_history
+KEYTIMEOUT=1
 setopt incappendhistory
 setopt histignoredups
 # Allow pound character comments in commands
