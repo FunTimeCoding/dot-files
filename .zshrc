@@ -139,6 +139,8 @@ unsetopt nomatch
 bindkey -v
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
+bindkey '^[^[[C' forward-word
+bindkey '^[^[[D' backward-word
 bindkey '^r' history-incremental-search-backward
 
 case "${TERM}" in
