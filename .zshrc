@@ -142,6 +142,7 @@ bindkey '^e' end-of-line
 bindkey '^[^[[C' forward-word
 bindkey '^[^[[D' backward-word
 bindkey '^r' history-incremental-search-backward
+bindkey '^w' backward-kill-word
 
 case "${TERM}" in
     xterm* | screen*)
