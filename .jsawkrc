@@ -1,1 +1,7 @@
-export JS=/usr/bin/js24
+SYSTEM=$(uname)
+
+if [ "${SYSTEM}" = Linux ]; then
+    export JS=/usr/bin/js24
+fi
+
+# vim: ft=sh
