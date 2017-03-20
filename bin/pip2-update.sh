@@ -6,15 +6,13 @@ if [ "${PACKAGES}" = "" ]; then
     exit 0
 fi
 
-if [ ! "${1}" = --yes ]; then
-    echo "Available updates:"
-    echo "${PACKAGES}"
-    echo "Update? [y/N]"
-    read -r READ
+echo "Available updates:"
+echo "${PACKAGES}"
+echo "Update? [y/N]"
+read -r READ
 
-    if [ ! "${READ}" = y ]; then
-        exit 0
-    fi
+if [ ! "${READ}" = y ]; then
+    exit 0
 fi
 
 pip2 install --upgrade pip setuptools

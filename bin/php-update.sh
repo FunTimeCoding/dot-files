@@ -1,9 +1,9 @@
 #!/bin/sh -e
 
 if [ "$(command -v composer || true)" = "" ]; then
-    echo "Skip. Composer does not seem to be installed."
+    echo "Command not found: composer"
 
-    exit 0
+    exit 1
 fi
 
 composer selfupdate

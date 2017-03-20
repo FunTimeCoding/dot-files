@@ -1,38 +1,25 @@
 #!/bin/sh -e
 
-ALWAYS_YES="${1}"
-
-if [ ! "${ALWAYS_YES}" = --yes ] && [ ! "${ALWAYS_YES}" = "" ]; then
-    echo "Usage: ${0} [--yes]"
-
-    exit 1
-fi
-
-echo "Run all updates."
-nvim-update.sh
-pip3-update.sh "${ALWAYS_YES}"
-pip2-update.sh "${ALWAYS_YES}"
-#atom-update.sh "${ALWAYS_YES}" # No plugins used, no update needed.
-#npm-update.sh "${ALWAYS_YES}" # NPM has an issue when updating from a script instead of an interactive shell. It keeps updating the same versions or something.
-gem-update.sh "${ALWAYS_YES}"
+#nvim-update.sh # No plugin manager used.
+pip3-update.sh
+pip2-update.sh
+#atom-update.sh # No plugins used.
+#npm-update.sh # NPM has an issue when updating from a script instead of an interactive shell. It keeps updating the same versions or something.
+gem-update.sh
 #cabal-update.sh # This always installs the same things over and over, even if they are already installed.
 #php-update.sh # Unstable
-OPERATING_SYSTEM=$(uname)
+SYSTEM=$(uname)
 
-if [ "${OPERATING_SYSTEM}" = Darwin ]; then
-    brew-update.sh "${ALWAYS_YES}"
-    osx-update.sh "${ALWAYS_YES}"
+if [ "${SYSTEM}" = Darwin ]; then
+    brew-update.sh
+    macos-update.sh
 else
     if [ -f /etc/arch-release ]; then
-        arch-update.sh "${ALWAYS_YES}"
+        arch-update.sh
     elif [ -f /etc/debian_version ]; then
-        debian-update.sh "${ALWAYS_YES}"
+        debian-update.sh
     fi
 fi
 
-CODE_DIRECTORY="${HOME}/Code"
-
-if [ -d "${CODE_DIRECTORY}" ]; then
-    cd "${CODE_DIRECTORY}" || exit 1
-    update-code-repositories.rb -d 2
-fi
+cd "${HOME}/src/ansible"
+bin/run-playbook.sh playbooks/repositories.yaml
