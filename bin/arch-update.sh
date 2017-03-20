@@ -2,7 +2,6 @@
 
 sudo pacman -Syu
 yaourt -Syua
-
 ORPHANS=$(pacman -Qtdq) || true
 
 if [ ! "${ORPHANS}" = "" ]; then

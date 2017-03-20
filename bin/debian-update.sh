@@ -2,7 +2,7 @@
 
 sudo apt-get --quiet 2 update
 OUTPUT=$(sudo apt-get --simulate upgrade)
-GREP=$(echo "${OUTPUT}" | grep 'The following packages will be upgraded:') || GREP=''
+GREP=$(echo "${OUTPUT}" | grep 'The following packages will be upgraded:') || GREP=""
 
 if [ ! "${GREP}" = "" ]; then
     echo "Available updates (apt-get update):"
