@@ -52,7 +52,7 @@ if [ ! "${EMPTY_FILES}" = "" ]; then
 fi
 
 # shellcheck disable=SC2016
-TO_DOS=$(${FIND} . -regextype posix-extended -type f -and ! -regex '^.*/(\.git|\.vim|\.idea)/.*$' -exec sh -c 'grep -Hrn TODO "${1}" | grep -v "${2}"' '_' '{}' '${0}' \;)
+TO_DOS=$(${FIND} . -regextype posix-extended -type f -and ! -regex '^.*/(\.git|\.idea)/.*$' -exec sh -c 'grep -Hrn TODO "${1}" | grep -v "${2}"' '_' '{}' '${0}' \;)
 
 if [ ! "${TO_DOS}" = "" ]; then
     CONCERN_FOUND=true
@@ -67,7 +67,7 @@ if [ ! "${TO_DOS}" = "" ]; then
 fi
 
 # shellcheck disable=SC2016
-SHELLCHECK_IGNORES=$(${FIND} . -regextype posix-extended -type f -and ! -regex '^.*/(\.git|\.vim|\.idea)/.*$' -exec sh -c 'grep -Hrn "# shellcheck" "${1}" | grep -v "${2}"' '_' '{}' '${0}' \;)
+SHELLCHECK_IGNORES=$(${FIND} . -regextype posix-extended -type f -and ! -regex '^.*/(\.git|\.idea)/.*$' -exec sh -c 'grep -Hrn "# shellcheck" "${1}" | grep -v "${2}"' '_' '{}' '${0}' \;)
 
 if [ ! "${SHELLCHECK_IGNORES}" = "" ]; then
     CONCERN_FOUND=true
@@ -83,6 +83,7 @@ fi
 
 if [ "${CONCERN_FOUND}" = true ]; then
     echo
-    echo "Concerns found."
+    echo "Concern(s) found."
+
     exit 2
 fi
