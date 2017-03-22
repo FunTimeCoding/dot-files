@@ -6,7 +6,7 @@ if [ "${PACKAGES}" = "" ]; then
     exit 0
 fi
 
-echo "Available updates:"
+echo "pip2 updates:"
 echo "${PACKAGES}"
 echo "Update? [y/N]"
 read -r READ

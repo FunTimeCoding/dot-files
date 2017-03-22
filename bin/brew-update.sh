@@ -7,7 +7,7 @@ if [ "${OUTPUT}" = "" ]; then
     exit 0
 fi
 
-echo "Available updates:"
+echo "brew updates:"
 echo "${OUTPUT}"
 echo "Update? [y/N]"
 read -r READ
