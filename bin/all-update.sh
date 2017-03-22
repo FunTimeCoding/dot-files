@@ -12,6 +12,7 @@ SYSTEM=$(uname)
 
 if [ "${SYSTEM}" = Darwin ]; then
     brew-update.sh
+    mas-update.sh
     macos-update.sh
 else
     if [ -f /etc/arch-release ]; then
