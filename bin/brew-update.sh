@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-brew update
+brew update > /dev/null
 OUTPUT=$(brew outdated)
 
 if [ "${OUTPUT}" = "" ]; then
