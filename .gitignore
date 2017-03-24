@@ -1,6 +1,2 @@
-.vim/bundle
-.vim/.netrwhist
-.vim/.init.vim-rplugin~
-.vim/swap
 .ssh
 .newsbeuter/history.*
