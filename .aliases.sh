@@ -46,6 +46,7 @@ alias mount='mount | column -t'
 unalias gst > /dev/null 2>&1
 alias va='vagrant'
 alias vs='vagrant status'
+alias vgs='vagrant global-status'
 alias vu='vagrant up'
 alias vh='vagrant halt'
 alias vd='vagrant destroy'
