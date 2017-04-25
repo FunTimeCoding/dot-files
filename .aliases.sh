@@ -51,6 +51,12 @@ alias vu='vagrant up'
 alias vh='vagrant halt'
 alias vd='vagrant destroy'
 alias vdf='vagrant destroy --force'
+alias sch='sudo salt-call state.highstate'
+alias schm='sudo salt-call --state-output=mixed state.highstate'
+alias schvf='sudo salt-call --state-verbose=False state.highstate'
+alias scht='sudo salt-call state.highstate test=True'
+alias schmt='sudo salt-call --state-output=mixed state.highstate test=True'
+alias schvft='sudo salt-call --state-verbose=False state.highstate test=True'
 
 # Copied from Oh-My-Zsh for Bash.
 alias gcam='git commit --all --message'
@@ -59,6 +65,7 @@ alias gd='git diff'
 alias gaa='git add --all'
 alias gl='git pull'
 alias gb='git branch'
+alias grv='git remote -v'
 
 if [ ! "$(command -v grc || true)" = "" ]; then
     alias gs="\git status | grcat conf.gitstatus"
