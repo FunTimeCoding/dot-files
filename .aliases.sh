@@ -65,7 +65,10 @@ alias gd='git diff'
 alias gaa='git add --all'
 alias gl='git pull'
 alias gb='git branch'
-alias grv='git remote -v'
+alias gba='git branch --all'
+alias grv='git remote --verbose'
+alias gf='git fetch'
+alias gfa='git fetch --all --prune'
 
 if [ ! "$(command -v grc || true)" = "" ]; then
     alias gs="\git status | grcat conf.gitstatus"
