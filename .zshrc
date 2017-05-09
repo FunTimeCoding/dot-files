@@ -1,13 +1,13 @@
 if [ -d "${HOME}/src/dotfiles" ]; then
-    export FPATH="${HOME}/src/dotfiles/zfunc:${FPATH}"
+    FPATH="${HOME}/src/dotfiles/zfunc:${FPATH}"
 elif [ -d "${HOME}/.dotfiles" ]; then
-    export FPATH="${HOME}/.dotfiles/zfunc:${FPATH}"
+    FPATH="${HOME}/.dotfiles/zfunc:${FPATH}"
 fi
 
-export EDITOR=vim
-export LESSHISTFILE=/dev/null
-export MYSQL_HISTFILE=/dev/null
-export LD_LIBRARY_PATH="${HOME}/lib"
+EDITOR=vim
+LESSHISTFILE=/dev/null
+MYSQL_HISTFILE=/dev/null
+LD_LIBRARY_PATH="${HOME}/lib"
 PATHS_CONFIG="${HOME}/.paths.sh"
 
 if [ -f "${HOME}/.paths.sh" ]; then
@@ -32,18 +32,21 @@ while read -r LINE; do
     fi
 done <<< "${PATHS}"
 
-export PATH
-export MANPATH="${MANPATH}:/usr/local/man"
+MANPATH="${MANPATH}:/usr/local/man"
 SYSTEM=$(uname)
 
 if [ ! "$(command -v python3 || true)" = "" ]; then
     if [ "${SYSTEM}" = Darwin ]; then
         SITE_PACKAGES=/usr/local/lib/python3.6/site-packages
-    else
-        SITE_PACKAGES=$(python3 -m site --user-site)
+    elif [ ! "$(command -v lsb_release || true)" = "" ]; then
+        CODENAME=$(lsb_release --codename --short)
+
+        if [ "${CODENAME}" = trusty ]; then
+            SITE_PACKAGES="${HOME}/opt/python-3.5.1/lib/python3.5/site-packages"
+        fi
     fi
 
-    export POWERLINE_DIRECTORY="${SITE_PACKAGES}/powerline"
+    POWERLINE_DIRECTORY="${SITE_PACKAGES}/powerline"
 fi
 
 # Completion
@@ -58,7 +61,7 @@ elif [ -d "${HOME}/.dotfiles" ]; then
 fi
 
 if [ ! "${VTE_VERSION}" = "" ]; then
-    export TERM=xterm-256color
+    TERM=xterm-256color
 fi
 
 if [ -f "${HOME}/perl5/perlbrew/etc/bashrc" ]; then
@@ -73,11 +76,11 @@ ZSH="${HOME}/.oh-my-zsh"
 
 if [ -d "${ZSH}" ]; then
     if [ "$(command -v powerline || true)" = "" ]; then
-        export ZSH_THEME=steeef
+        ZSH_THEME=steeef
     fi
 
-    export DISABLE_AUTO_TITLE=true
-    export DISABLE_UPDATE_PROMPT=true
+    DISABLE_AUTO_TITLE=true
+    DISABLE_UPDATE_PROMPT=true
 
     if [ -f /etc/debian_version ]; then
         VERSION=$(cut -c 1-1 < /etc/debian_version)
@@ -95,7 +98,7 @@ if [ -d "${ZSH}" ]; then
 fi
 
 if [ -d /usr/local/opt/groovy/libexec ]; then
-    export GROOVY_HOME=/usr/local/opt/groovy/libexec
+    GROOVY_HOME=/usr/local/opt/groovy/libexec
 fi
 
 if [ -f "$HOME/.rvm/scripts/rvm" ]; then
