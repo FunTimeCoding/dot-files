@@ -43,6 +43,8 @@ if [ ! "$(command -v python3 || true)" = "" ]; then
 
         if [ "${CODENAME}" = trusty ]; then
             SITE_PACKAGES="${HOME}/opt/python-3.5.1/lib/python3.5/site-packages"
+        elif [ "${CODENAME}" = jessie ]; then
+            SITE_PACKAGES="${HOME}/.local/lib/python3.5/site-packages"
         fi
     fi
 
