@@ -48,7 +48,10 @@ if [ ! "$(command -v python3 || true)" = "" ]; then
         fi
     fi
 
+
     POWERLINE_DIRECTORY="${SITE_PACKAGES}/powerline"
+    # for tmux
+    export POWERLINE_DIRECTORY
 fi
 
 # Completion
