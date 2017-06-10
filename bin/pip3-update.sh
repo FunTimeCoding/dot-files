@@ -15,8 +15,6 @@ if [ ! "${READ}" = y ]; then
     exit 0
 fi
 
-pip3 install --upgrade pip setuptools
-
 for PACKAGE in ${PACKAGES}; do
     pip3 install --upgrade "${PACKAGE}"
 done
