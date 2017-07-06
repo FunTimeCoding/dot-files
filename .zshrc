@@ -42,7 +42,7 @@ if [ ! "$(command -v python3 || true)" = "" ]; then
         CODENAME=$(lsb_release --codename --short)
 
         if [ "${CODENAME}" = trusty ]; then
-            SITE_PACKAGES="${HOME}/opt/python-3.5.1/lib/python3.5/site-packages"
+            SITE_PACKAGES=/usr/local/lib/python3.4/dist-packages
         elif [ "${CODENAME}" = jessie ]; then
             if [ -d "${HOME}/opt/python-3.5.1" ]; then
                 SITE_PACKAGES="${HOME}/.local/lib/python3.5/site-packages"
