@@ -46,3 +46,4 @@ cp "${JINJA_DIRECTORY}/ext/Vim/jinja.vim" "${HOME}/.config/nvim/syntax"
 
 COMMENTARY_DIRECTORY="${HOME}/src/vim-commentary"
 cp "${COMMENTARY_DIRECTORY}/plugin/commentary.vim" "${HOME}/.config/nvim/plugin"
+cp "${COMMENTARY_DIRECTORY}/doc/commentary.txt" "${HOME}/.config/nvim/doc"
