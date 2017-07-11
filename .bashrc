@@ -38,7 +38,7 @@ fi
 case "${TERM}" in
     xterm* | screen*)
         if [ ! "$(command -v ${DIRCOLORS} || true)" = "" ]; then
-            eval $(${DIRCOLORS} "${HOME}/src/dotfiles/dircolors")
+            eval $(${DIRCOLORS} "${HOME}/src/dot-files/dircolors")
         fi
         ;;
 esac

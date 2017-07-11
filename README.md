@@ -1,4 +1,3 @@
 # Dotfiles
 
-These are my dotfiles. I kept the dot prefix so that its easier to determine
-their file type.
+This repository contains dot files I use.
