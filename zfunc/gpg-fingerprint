@@ -1,5 +1,5 @@
 # Show the fingerprint of a GPG key.
 
-gpg --dry-run --import "${1}"
+gpg --verbose --dry-run --import "${1}"
 
 # vim: ft=zsh
