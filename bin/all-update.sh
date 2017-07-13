@@ -11,7 +11,7 @@ if [ "${SYSTEM}" = Darwin ]; then
     mas-update.sh
     macos-update.sh
 elif [ -f /etc/debian_version ]; then
-    debian-update.sh
+    "${HOME}/src/debian-tools/bin/update.sh"
 elif [ -f /etc/arch-release ]; then
     arch-update.sh
 fi
