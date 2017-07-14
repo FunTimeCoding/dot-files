@@ -17,11 +17,11 @@ if [ ! "${READ}" = "y" ]; then
     exit 0
 fi
 
-DOTFILES_CONFIG="${HOME}/.dotfiles.conf"
+DOT_FILES_CONFIG="${HOME}/.dot-files.conf"
 
-if [ -f "${DOTFILES_CONFIG}" ]; then
+if [ -f "${DOT_FILES_CONFIG}" ]; then
     # shellcheck source=/dev/null
-    . "${DOTFILES_CONFIG}"
+    . "${DOT_FILES_CONFIG}"
 else
     GROUP_LIST=""
     READ_ONLY_LIST=""

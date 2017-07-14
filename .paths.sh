@@ -37,6 +37,6 @@ ${HOME}/.stack/snapshots/x86_64-linux/lts-5.17/7.10.3/bin
 ${HOME}/.stack/programs/x86_64-linux/ghc-7.10.3/bin
 ${HOME}/Code/Work/development-tools/bin
 ${HOME}/Code/Foreign/arcanist/bin
-${HOME}/src/dotfiles/bin
+${HOME}/src/dot-files/bin
 ${HOME}/src/arcanist/bin"
 export PATHS

@@ -1,18 +1,18 @@
-FROM debian:wheezy
+FROM debian:stretch
 MAINTAINER Alexander Reitzel <funtimecoding@gmail.com>
 
 RUN apt-get update
 RUN apt-get upgrade -yq
 RUN apt-get install -yq zsh git vim curl tmux openssh-server python-pip php5-cli
 RUN useradd -m -g sudo -s /bin/zsh areitzel
-RUN echo "test\ntest" | passwd areitzel
+RUN echo "example\nexample" | passwd areitzel
 
 USER areitzel
 WORKDIR /home/areitzel
-RUN git clone git://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
-RUN git clone git://github.com/FunTimeCoding/dotfiles.git .dotfiles
-RUN git clone https://www.github.com/lokaltog/powerline.git .local/powerline
-RUN ./.dotfiles/setup.sh
+RUN mkdir src
+RUN git clone git://github.com/robbyrussell/oh-my-zsh.git src/oh-my-zsh
+RUN git clone git://github.com/FunTimeCoding/dot-files.git src/dot-files
+RUN ./src/dot-files/setup.sh
 
 USER root
 RUN mkdir /var/run/sshd
