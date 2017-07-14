@@ -1,7 +1,7 @@
-if [ -d "${HOME}/src/dotfiles" ]; then
-    FPATH="${HOME}/src/dotfiles/zfunc:${FPATH}"
-elif [ -d "${HOME}/.dotfiles" ]; then
-    FPATH="${HOME}/.dotfiles/zfunc:${FPATH}"
+if [ -d "${HOME}/src/dot-files" ]; then
+    FPATH="${HOME}/src/dot-files/zfunc:${FPATH}"
+elif [ -d "${HOME}/.dot-files" ]; then
+    FPATH="${HOME}/.dot-files/zfunc:${FPATH}"
 fi
 
 EDITOR=vim
@@ -63,10 +63,10 @@ autoload -Uz compinit
 compinit
 
 # User functions
-if [ -d "${HOME}/src/dotfiles" ]; then
-    autoload -Uz ~/src/dotfiles/zfunc/*(:t)
-elif [ -d "${HOME}/.dotfiles" ]; then
-    autoload -Uz ~/.dotfiles/zfunc/*(:t)
+if [ -d "${HOME}/src/dot-files" ]; then
+    autoload -Uz ~/src/dot-files/zfunc/*(:t)
+elif [ -d "${HOME}/.dot-files" ]; then
+    autoload -Uz ~/.dot-files/zfunc/*(:t)
 fi
 
 if [ ! "${VTE_VERSION}" = "" ]; then
@@ -159,10 +159,10 @@ bindkey '^w' backward-kill-word
 case "${TERM}" in
     xterm* | screen*)
         if [ ! "$(command -v ${DIRCOLORS} || true)" = "" ]; then
-            if [ -d "${HOME}/src/dotfiles" ]; then
-                eval $(${DIRCOLORS} "${HOME}/src/dotfiles/dircolors")
-            elif [ -d "${HOME}/.dotfiles" ]; then
-                eval $(${DIRCOLORS} "${HOME}/.dotfiles/dircolors")
+            if [ -d "${HOME}/src/dot-files" ]; then
+                eval $(${DIRCOLORS} "${HOME}/src/dot-files/dircolors")
+            elif [ -d "${HOME}/.dot-files" ]; then
+                eval $(${DIRCOLORS} "${HOME}/.dot-files/dircolors")
             fi
         fi
 
