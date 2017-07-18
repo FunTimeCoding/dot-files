@@ -37,23 +37,23 @@ SYSTEM=$(uname)
 
 if [ ! "$(command -v python3 || true)" = "" ]; then
     if [ "${SYSTEM}" = Darwin ]; then
-        SITE_PACKAGES=/usr/local/lib/python3.6/site-packages
+        POWERLINE_DIRECTORY=/usr/local/lib/python3.6/site-packages/powerline
     elif [ ! "$(command -v lsb_release || true)" = "" ]; then
         CODENAME=$(lsb_release --codename --short)
 
         if [ "${CODENAME}" = trusty ]; then
-            SITE_PACKAGES=/usr/local/lib/python3.4/dist-packages
+            POWERLINE_DIRECTORY=/usr/local/lib/python3.4/dist-packages/powerline
         elif [ "${CODENAME}" = jessie ]; then
             if [ -d "${HOME}/opt/python-3.5.1" ]; then
-                SITE_PACKAGES="${HOME}/.local/lib/python3.5/site-packages"
+                POWERLINE_DIRECTORY="${HOME}/.local/lib/python3.5/site-packages/powerline"
             else
-                SITE_PACKAGES=/usr/local/lib/python3.4/dist-packages
+                POWERLINE_DIRECTORY=/usr/local/lib/python3.4/dist-packages/powerline
             fi
+        elif [ "${CODENAME}" = stretch ]; then
+            POWERLINE_DIRECTORY=/usr/share/powerline
         fi
     fi
 
-
-    POWERLINE_DIRECTORY="${SITE_PACKAGES}/powerline"
     # for tmux
     export POWERLINE_DIRECTORY
 fi
