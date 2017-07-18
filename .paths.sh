@@ -38,5 +38,6 @@ ${HOME}/.stack/programs/x86_64-linux/ghc-7.10.3/bin
 ${HOME}/Code/Work/development-tools/bin
 ${HOME}/Code/Foreign/arcanist/bin
 ${HOME}/src/dot-files/bin
+${HOME}/bin
 ${HOME}/src/arcanist/bin"
 export PATHS
