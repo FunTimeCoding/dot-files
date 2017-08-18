@@ -28,6 +28,7 @@ ${HOME}/opt/jdk8/bin
 ${HOME}/opt/dogecoin/bin
 ${HOME}/Library/Android/sdk/platform-tools
 /Library/TeX/texbin
+${HOME}/.gem/ruby/2.3.0/bin
 ${HOME}/.gem/ruby/2.4.0/bin
 ${HOME}/.local/bin
 ${HOME}/.rvm/bin
