@@ -1,11 +1,5 @@
 #!/bin/sh -e
 
-if [ "$(command -v php || true)" = "" ]; then
-    echo "Command not found: php"
-
-    exit 1
-fi
-
 BIN_DIRECTORY="${HOME}/.local/bin"
 COMPOSER_BIN="${BIN_DIRECTORY}/composer"
 

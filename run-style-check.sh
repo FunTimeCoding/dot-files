@@ -1,11 +1,5 @@
 #!/bin/sh -e
 
-if [ "$(command -v shellcheck || true)" = "" ]; then
-    echo "Command not found: shellcheck"
-
-    exit 1
-fi
-
 CONCERN_FOUND=false
 CONTINUOUS_INTEGRATION_MODE=false
 

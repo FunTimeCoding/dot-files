@@ -1,11 +1,5 @@
 #!/bin/sh -e
 
-if [ "$(command -v gem || true)" = "" ]; then
-    echo "Command not found: gem"
-
-    exit 1
-fi
-
 OUTPUT=$(gem outdated)
 
 if [ "${OUTPUT}" = "" ]; then
@@ -22,5 +16,5 @@ if [ ! "${READ}" = y ]; then
 fi
 
 gem update
-# TODO: Figure out how to keep important gems for tools like veewee.
+# TODO: Keep important gems for projects like veewee.
 #gem cleanup
