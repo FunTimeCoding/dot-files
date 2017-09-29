@@ -1,23 +1,27 @@
 [user]
-    name = Alexander Reitzel
-    email = funtimecoding@gmail.com
+	name = Alexander Reitzel
+	email = funtimecoding@gmail.com
 [core]
-    excludesfile = ~/.gitignore_global
-    editor = vim
-    quotepath = false
-    pager = less -Q
+	excludesfile = ~/.gitignore_global
+	editor = vim
+	quotepath = false
+	pager = less -Q
 [color]
-    status = auto
-    branch = auto
-    ui = true
+	status = auto
+	branch = auto
+	ui = true
 [alias]
-    history = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	history = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 [advice]
-    pushNonFastForward = false
-    statusHints = false
+	pushNonFastForward = false
+	statusHints = false
 [push]
-    default = current
+	default = current
 [pull]
-    rebase = true
+	rebase = true
+	ff = true
 [fetch]
-    prune = true
+	prune = true
+[merge]
+	commit = false
+	ff = false
