@@ -1,13 +1,14 @@
 alias v='\nvim'
-alias vim='echo "v"'
-alias nvim='echo "v"'
+alias vim='echo v'
+alias nvim='echo v'
 alias vc='\nvim ~/.config/nvim/init.vim'
 alias zc='\nvim ~/.zshrc'
 alias brc='\nvim ~/.bashrc'
 alias bashrc='echo brc'
 alias vimrc='echo vc'
 alias zshrc='echo zc'
-alias l="ls"
+alias sf='php symfony'
+alias l=ls
 
 if [ "${GNU_LS_FOUND}" = true ]; then
     alias ls="${LS} -F --color"
@@ -27,7 +28,7 @@ alias grep='grep --color=auto --exclude-dir=.git'
 alias egrep='egrep --color=auto --exclude-dir=.git'
 alias xdebug-enable='export XDEBUG_CONFIG="remote_enable=1 remote_host=127.0.0.1 remote_port=9000"'
 alias xdebug-disable='unset XDEBUG_CONFIG'
-alias g='git'
+alias g=git
 alias gh='git history'
 alias gbv='git branch -vv'
 alias gbd='git branch --delete'
@@ -41,10 +42,10 @@ alias ach='apt-cache search'
 alias rm='rm -i'
 alias df='df -h'
 alias j='jobs -l'
-alias h='history'
+alias h=history
 alias mount='mount | column -t'
 unalias gst > /dev/null 2>&1
-alias va='vagrant'
+alias va=vagrant
 alias vs='vagrant status'
 alias vss='vagrant ssh'
 alias vgs='vagrant global-status'
