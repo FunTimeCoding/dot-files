@@ -6,7 +6,7 @@ PATHS="/sbin
 /usr/local/bin
 ${HOME}/opt/python-2.7.11/bin
 ${HOME}/opt/python-3.5.1/bin
-${HOME}/opt/ruby-2.4.0/bin
+${HOME}/opt/ruby-2.5.0/bin
 ${HOME}/opt/git-2.11.0/bin
 ${HOME}/opt/multitail-6.4.2/bin
 ${HOME}/opt/lua-5.3.2/bin
