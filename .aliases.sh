@@ -72,6 +72,8 @@ alias gba='git branch --all'
 alias grv='git remote --verbose'
 alias gf='git fetch'
 alias gfa='git fetch --all --prune'
+alias gco='git checkout'
+alias gc='git commit'
 
 if [ ! "$(command -v grc || true)" = "" ]; then
     alias gs="\git status | grcat conf.gitstatus"
