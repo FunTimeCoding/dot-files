@@ -17,4 +17,4 @@ elif [ -f /etc/arch-release ]; then
 fi
 
 cd "${HOME}/src/ansible"
-bin/play.sh playbook/repositories.yaml
+bin/play.sh --tags repository playbook/repositories.yaml
