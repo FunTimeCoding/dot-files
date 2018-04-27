@@ -3,13 +3,13 @@
 SYSTEM=$(uname)
 
 if [ "${SYSTEM}" = Darwin ]; then
-    brew-update.sh
-    brew-cask-update.sh
-    mas-update.sh
-    macos-update.sh
-    pip3-update.sh
-    pip2-update.sh
-    gem-update.sh
+    "${HOME}/src/brew-tools/bin/brew-update.sh"
+    "${HOME}/src/brew-tools/bin/brew-cask-update.sh"
+    "${HOME}/src/macos-tools/bin/mas-update.sh"
+    "${HOME}/src/macos-tools/bin/macos-update.sh"
+    "${HOME}/src/python-tools/bin/pip3-update.sh"
+    "${HOME}/src/python-tools/bin/pip2-update.sh"
+    "${HOME}/src/ruby-tools/bin/gem-update.sh"
 elif [ -f /etc/debian_version ]; then
     "${HOME}/src/debian-tools/bin/update.sh"
 elif [ -f /etc/arch-release ]; then
