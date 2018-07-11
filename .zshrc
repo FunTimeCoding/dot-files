@@ -9,6 +9,7 @@ LESSHISTFILE=/dev/null
 MYSQL_HISTFILE=/dev/null
 LD_LIBRARY_PATH="${HOME}/lib"
 PATHS_CONFIG="${HOME}/.paths.sh"
+GOPATH="${HOME}/go"
 
 if [ -f "${HOME}/.paths.sh" ]; then
     . "${HOME}/.paths.sh"
