@@ -3,8 +3,8 @@
 SYSTEM=$(uname)
 
 if [ "${SYSTEM}" = Darwin ]; then
-    "${HOME}/src/brew-tools/bin/brew-update.sh"
-    "${HOME}/src/brew-tools/bin/brew-cask-update.sh"
+    "${HOME}/src/macos-tools/bin/brew-update.sh"
+    "${HOME}/src/macos-tools/bin/brew-cask-update.sh"
     "${HOME}/src/macos-tools/bin/mas-update.sh"
     "${HOME}/src/macos-tools/bin/macos-update.sh"
     "${HOME}/src/python-tools/bin/pip3-update.sh"
