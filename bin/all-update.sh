@@ -15,6 +15,3 @@ elif [ -f /etc/debian_version ]; then
 elif [ -f /etc/arch-release ]; then
     arch-update.sh
 fi
-
-cd "${HOME}/src/ansible"
-bin/play.sh --tags repository playbook/development.yaml
