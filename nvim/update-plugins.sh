@@ -74,3 +74,8 @@ cp "${TERRAFORM_DIRECTORY}/after/ftplugin/terraform.vim" "${HOME}/.config/nvim/a
 PACKER_DIRECTORY="${HOME}/src/vim-packer"
 cp "${PACKER_DIRECTORY}/plugin/packer.vim" "${HOME}/.config/nvim/plugin"
 cp "${PACKER_DIRECTORY}/doc/packer.txt" "${HOME}/.config/nvim/doc"
+
+JENKINS_DIRECTORY="${HOME}/src/vim-jenkins"
+cp "${JENKINS_DIRECTORY}/ftdetect/Jenkinsfile.vim" "${HOME}/.config/nvim/ftdetect"
+cp "${JENKINS_DIRECTORY}/indent/Jenkinsfile.vim" "${HOME}/.config/nvim/indent"
+cp "${JENKINS_DIRECTORY}/syntax/Jenkinsfile.vim" "${HOME}/.config/nvim/syntax"
