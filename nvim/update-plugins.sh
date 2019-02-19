@@ -75,7 +75,13 @@ PACKER_DIRECTORY="${HOME}/src/vim-packer"
 cp "${PACKER_DIRECTORY}/plugin/packer.vim" "${HOME}/.config/nvim/plugin"
 cp "${PACKER_DIRECTORY}/doc/packer.txt" "${HOME}/.config/nvim/doc"
 
-JENKINS_DIRECTORY="${HOME}/src/vim-jenkins"
-cp "${JENKINS_DIRECTORY}/ftdetect/Jenkinsfile.vim" "${HOME}/.config/nvim/ftdetect"
-cp "${JENKINS_DIRECTORY}/indent/Jenkinsfile.vim" "${HOME}/.config/nvim/indent"
-cp "${JENKINS_DIRECTORY}/syntax/Jenkinsfile.vim" "${HOME}/.config/nvim/syntax"
+#GROOVY_DIRECTORY="${HOME}/src/vim-groovy"
+#cp "${GROOVY_DIRECTORY}/indent/groovy.vim" "${HOME}/.config/nvim/indent"
+
+#JENKINS_DIRECTORY="${HOME}/src/vim-jenkinsfile"
+#cp "${JENKINS_DIRECTORY}/ftdetect/Jenkinsfile.vim" "${HOME}/.config/nvim/ftdetect"
+#cp "${JENKINS_DIRECTORY}/indent/Jenkinsfile.vim" "${HOME}/.config/nvim/indent"
+#cp "${JENKINS_DIRECTORY}/syntax/Jenkinsfile.vim" "${HOME}/.config/nvim/syntax"
+
+#JENKINS_DIRECTORY="${HOME}/src/vim-jenkinsfile"
+#cp "${JENKINS_DIRECTORY}/ftdetect/jenkinsfile.vim" "${HOME}/.config/nvim/ftdetect"
