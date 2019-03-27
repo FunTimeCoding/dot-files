@@ -79,6 +79,8 @@ if [ -f "${HOME}/perl5/perlbrew/etc/bashrc" ]; then
 fi
 
 if [ -f "${HOME}/.phpbrew/bashrc" ]; then
+    # TODO: This does not appear to work in zsh.
+    #PHPBREW_RC_ENABLE=1
     . "${HOME}/.phpbrew/bashrc"
 fi
 
