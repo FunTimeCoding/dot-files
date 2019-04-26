@@ -10,6 +10,7 @@ MYSQL_HISTFILE=/dev/null
 LD_LIBRARY_PATH="${HOME}/lib"
 PATHS_CONFIG="${HOME}/.paths.sh"
 GOPATH="${HOME}/go"
+export ROBO_ROOT="${HOME}/src/robocode"
 
 if [ -f "${HOME}/.paths.sh" ]; then
     . "${HOME}/.paths.sh"

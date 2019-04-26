@@ -37,5 +37,6 @@ ${HOME}/.stack/snapshots/x86_64-linux/lts-5.17/7.10.3/bin
 ${HOME}/.stack/programs/x86_64-linux/ghc-7.10.3/bin
 ${HOME}/src/dot-files/bin
 ${HOME}/bin
-${HOME}/src/arcanist/bin"
+${HOME}/src/arcanist/bin
+${ROBO_ROOT}"
 export PATHS
