@@ -5,6 +5,7 @@ PATHS="/sbin
 /usr/bin
 /usr/local/bin
 /usr/local/opt/python@2/libexec/bin
+/usr/local/opt/ruby/bin
 ${HOME}/opt/python-2.7.11/bin
 ${HOME}/opt/python-3.5.1/bin
 ${HOME}/opt/ruby-2.5.0/bin
