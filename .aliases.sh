@@ -86,3 +86,6 @@ if [ ! "$(command -v grc || true)" = "" ]; then
 else
     alias gs="\git status"
 fi
+
+alias xdon='phpbrew ext enable xdebug'
+alias xdoff='phpbrew ext disable xdebug'
