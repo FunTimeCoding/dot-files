@@ -11,6 +11,7 @@ LD_LIBRARY_PATH="${HOME}/lib"
 PATHS_CONFIG="${HOME}/.paths.sh"
 GOPATH="${HOME}/go"
 export ROBO_ROOT="${HOME}/src/robocode"
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 if [ -f "${HOME}/.paths.sh" ]; then
     . "${HOME}/.paths.sh"
