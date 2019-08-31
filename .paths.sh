@@ -21,7 +21,7 @@ ${HOME}/opt/phantomjs-2.1.1/bin
 ${HOME}/opt/nss/bin
 ${HOME}/opt/zsh-5.2/bin
 ${HOME}/opt/task/bin
-${HOME}/opt/thrift-0.9.3/bin
+${HOME}/opt/thrift-0.12.0/bin
 ${HOME}/opt/maven-3.3.9/bin
 ${HOME}/opt/znc-1.6.3/bin
 ${HOME}/opt/gnupg-2.1.18/bin
