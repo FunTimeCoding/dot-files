@@ -44,15 +44,7 @@ if [ ! "$(command -v python3 || true)" = "" ]; then
     elif [ ! "$(command -v lsb_release || true)" = "" ]; then
         CODENAME=$(lsb_release --codename --short)
 
-        if [ "${CODENAME}" = trusty ]; then
-            POWERLINE_DIRECTORY=/usr/local/lib/python3.4/dist-packages/powerline
-        elif [ "${CODENAME}" = jessie ]; then
-            if [ -d "${HOME}/opt/python-3.5.1" ]; then
-                POWERLINE_DIRECTORY="${HOME}/.local/lib/python3.5/site-packages/powerline"
-            else
-                POWERLINE_DIRECTORY=/usr/local/lib/python3.4/dist-packages/powerline
-            fi
-        elif [ "${CODENAME}" = stretch ]; then
+        if [ "${CODENAME}" = stretch ] || [ "${CODENAME}" = buster ]; then
             POWERLINE_DIRECTORY=/usr/share/powerline
         fi
     fi
