@@ -178,3 +178,5 @@ esac
 
 # Reapply list colors.
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+eval "$(pipenv --completion)"
