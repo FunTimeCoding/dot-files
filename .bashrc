@@ -1,8 +1,7 @@
-# xquartz needs LC_ALL and LANG
-export LC_ALL=en_US.UTF-8  
-export LANG=en_US.UTF-8
+#!/bin/bash
 
 if [ -f "${HOME}/.paths.sh" ]; then
+    # shellcheck source=.paths.sh
     . "${HOME}/.paths.sh"
 fi
 
@@ -13,35 +12,38 @@ while read -r LINE; do
 done <<< "${PATHS}"
 
 export PATH
+export PATHS
 SYSTEM=$(uname)
-LS=ls
+LS='ls'
 GNU_LS_FOUND=false
 
 if [ "${SYSTEM}" = Darwin ]; then
-    DIRCOLORS=gdircolors
+    DIRCOLORS='gdircolors'
 
     if [ ! "$(command -v gls || true)" = "" ]; then
-        LS=gls
+        LS='gls'
         GNU_LS_FOUND=true
     fi
 else
-    DIRCOLORS=dircolors
+    DIRCOLORS='dircolors'
     GNU_LS_FOUND=true
 fi
 
+export LS
+export GNU_LS_FOUND
+
+# shellcheck source=.aliases.sh
 . "${HOME}/.aliases.sh"
 
 if [ -f "${HOME}/.phpbrew/bashrc" ]; then
+    # shellcheck source=/dev/null
     . "${HOME}/.phpbrew/bashrc"
 fi
 
 case "${TERM}" in
     xterm* | screen*)
         if [ ! "$(command -v ${DIRCOLORS} || true)" = "" ]; then
-            eval $(${DIRCOLORS} "${HOME}/src/dot-files/dircolors")
+            eval "$(${DIRCOLORS} "${HOME}/src/dot-files/dircolors")"
         fi
         ;;
 esac
-
-# The following line is to prevent modifications by the provisioning system.
-# protected
