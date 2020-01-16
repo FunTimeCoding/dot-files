@@ -34,6 +34,7 @@ ${HOME}/.gem/ruby/2.5.0/bin
 ${HOME}/.local/bin
 ${HOME}/.rvm/bin
 ${HOME}/.cabal/bin
+${HOME}/go/bin
 ${HOME}/.composer/vendor/bin
 ${HOME}/.stack/snapshots/x86_64-linux/lts-5.17/7.10.3/bin
 ${HOME}/.stack/programs/x86_64-linux/ghc-7.10.3/bin
