@@ -27,6 +27,7 @@ ${HOME}/opt/znc-1.6.3/bin
 ${HOME}/opt/gnupg-2.1.18/bin
 ${HOME}/opt/jdk8/bin
 ${HOME}/opt/dogecoin/bin
+${HOME}/opt/kcov/bin
 ${HOME}/Library/Android/sdk/platform-tools
 /Library/TeX/texbin
 ${HOME}/.gem/ruby/2.3.0/bin
