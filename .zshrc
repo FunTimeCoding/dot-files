@@ -186,3 +186,7 @@ fi
 if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
     . /usr/share/doc/fzf/examples/key-bindings.zsh
 fi
+
+if [ -d "${HOME}/venv" ]; then
+    . venv/bin/activate
+fi
