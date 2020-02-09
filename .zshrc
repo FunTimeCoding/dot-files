@@ -94,7 +94,11 @@ if [ -d "${ZSH}" ]; then
         if [ "${VERSION}" = 6 ]; then
             plugins=(git)
         else
-            plugins=(git zsh-syntax-highlighting fzf)
+            if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
+                plugins=(git zsh-syntax-highlighting fzf)
+            else
+                plugins=(git zsh-syntax-highlighting)
+            fi
         fi
     else
         plugins=(git zsh-syntax-highlighting)
