@@ -47,3 +47,7 @@ case "${TERM}" in
         fi
         ;;
 esac
+
+if [ -f "${HOME}/.fzf.bash" ]; then
+    . "${HOME}/.fzf.bash"
+fi

@@ -194,3 +194,7 @@ fi
 if [ -d "${HOME}/venv" ]; then
     . "${HOME}/venv/bin/activate"
 fi
+
+if [ -f "${HOME}/.fzf.zsh" ]; then
+    . "${HOME}/.fzf.zsh"
+fi
