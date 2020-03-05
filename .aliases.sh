@@ -90,3 +90,5 @@ fi
 
 alias xdon='phpbrew ext enable xdebug'
 alias xdoff='phpbrew ext disable xdebug'
+
+alias k='kubectl'
