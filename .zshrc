@@ -198,3 +198,6 @@ fi
 if [ -f "${HOME}/.fzf.zsh" ]; then
     . "${HOME}/.fzf.zsh"
 fi
+
+source <(kubectl completion zsh)
+complete -F __start_kubectl k
