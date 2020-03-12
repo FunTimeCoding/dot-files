@@ -143,6 +143,8 @@ HISTFILE=~/.zsh_history
 KEYTIMEOUT=1
 setopt incappendhistory
 setopt histignoredups
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_EXPIRE_DUPS_FIRST
 # Allow pound character comments in commands
 setopt interactive_comments
 setopt nobeep
