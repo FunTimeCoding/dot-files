@@ -94,11 +94,7 @@ if [ -d "${ZSH}" ]; then
         if [ "${VERSION}" = 6 ]; then
             plugins=(git)
         else
-            if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
-                plugins=(git zsh-syntax-highlighting fzf)
-            else
-                plugins=(git zsh-syntax-highlighting)
-            fi
+            plugins=(git zsh-syntax-highlighting)
         fi
     else
         plugins=(git zsh-syntax-highlighting)
@@ -187,10 +183,6 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 if [ ! "$(command -v pipenv || true)" = "" ]; then
     eval "$(pipenv --completion)"
-fi
-
-if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
-    . /usr/share/doc/fzf/examples/key-bindings.zsh
 fi
 
 if [ -d "${HOME}/venv" ]; then
