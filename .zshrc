@@ -78,6 +78,8 @@ if [ -f "${HOME}/.phpbrew/bashrc" ]; then
     . "${HOME}/.phpbrew/bashrc"
 fi
 
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
 ZSH="${HOME}/.oh-my-zsh"
 
 if [ -d "${ZSH}" ]; then
@@ -94,10 +96,10 @@ if [ -d "${ZSH}" ]; then
         if [ "${VERSION}" = 6 ]; then
             plugins=(git)
         else
-            plugins=(git zsh-syntax-highlighting)
+            plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
         fi
     else
-        plugins=(git zsh-syntax-highlighting)
+        plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
     fi
 
     . "${ZSH}/oh-my-zsh.sh"
@@ -193,11 +195,6 @@ if [ -f "${HOME}/.fzf.zsh" ]; then
     . "${HOME}/.fzf.zsh"
 fi
 
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
-if [ -f "${HOME}/src/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
-    . "${HOME}/src/zsh-autosuggestions/zsh-autosuggestions.zsh"
-fi
 
 if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
     . /usr/share/doc/fzf/examples/key-bindings.zsh
