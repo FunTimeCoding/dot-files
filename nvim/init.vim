@@ -15,3 +15,5 @@ else
   set backupdir=~/.config/nvim/backup
   set directory=~/.config/nvim/swap
 endif
+
+source /usr/share/doc/fzf/examples/fzf.vim
