@@ -18,6 +18,10 @@ if [ ! -d "${HOME}/src/zsh-syntax-highlighting" ]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting "${HOME}/src/zsh-syntax-highlighting"
 fi
 
+if [ ! -d "${HOME}/src/zsh-autosuggestions" ]; then
+    git clone https://github.com/zsh-users/zsh-autosuggestions "${HOME}/src/zsh-autosuggestions"
+fi
+
 mkdir -p "${HOME}/.config"
 ln -snf "${PWD}/powerline" "${HOME}/.config/powerline"
 ln -snf "${PWD}/nvim" "${HOME}/.config/nvim"

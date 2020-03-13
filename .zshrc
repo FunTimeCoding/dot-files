@@ -193,5 +193,11 @@ if [ -f "${HOME}/.fzf.zsh" ]; then
     . "${HOME}/.fzf.zsh"
 fi
 
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+if [ -f "${HOME}/src/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+    . "${HOME}/src/zsh-autosuggestions/zsh-autosuggestions.zsh"
+fi
+
 source <(kubectl completion zsh)
 complete -F __start_kubectl k
