@@ -62,6 +62,9 @@
         "powerline.segments.common.env.virtualenv": {
             "before": "🐍"
         },
+        "python_utility.powerline.vagrant.status": {
+            "before": "🖥"
+        },
         "powerline.segments.common.wthr.weather": {
             "args": {
                 "icons": {

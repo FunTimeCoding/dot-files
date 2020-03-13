@@ -157,6 +157,10 @@ bindkey '^[^[[D' backward-word
 bindkey '^r' history-incremental-search-backward
 bindkey '^w' backward-kill-word
 
+if [ -d "${HOME}/venv" ]; then
+    . "${HOME}/venv/bin/activate"
+fi
+
 case "${TERM}" in
     xterm* | screen*)
         if [ ! "$(command -v ${DIRCOLORS} || true)" = "" ]; then
@@ -171,7 +175,12 @@ case "${TERM}" in
             POWERLINE_ZSH="${POWERLINE_DIRECTORY}/bindings/zsh/powerline.zsh"
 
             if [ -f "${POWERLINE_ZSH}" ] && [ ! "${TERM_PROGRAM}" = Apple_Terminal ]; then
-                . "${POWERLINE_ZSH}"
+
+                if [ -f "${HOME}/venv/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh" ]; then
+                    . "${HOME}/venv/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh"
+                else
+                    . "${POWERLINE_ZSH}"
+                fi
             fi
         fi
         ;;
@@ -187,14 +196,9 @@ if [ ! "$(command -v pipenv || true)" = "" ]; then
     eval "$(pipenv --completion)"
 fi
 
-if [ -d "${HOME}/venv" ]; then
-    . "${HOME}/venv/bin/activate"
-fi
-
 if [ -f "${HOME}/.fzf.zsh" ]; then
     . "${HOME}/.fzf.zsh"
 fi
-
 
 if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
     . /usr/share/doc/fzf/examples/key-bindings.zsh
