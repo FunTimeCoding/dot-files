@@ -199,5 +199,9 @@ if [ -f "${HOME}/src/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
     . "${HOME}/src/zsh-autosuggestions/zsh-autosuggestions.zsh"
 fi
 
+if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
+    . /usr/share/doc/fzf/examples/key-bindings.zsh
+fi
+
 source <(kubectl completion zsh)
 complete -F __start_kubectl k
