@@ -204,5 +204,7 @@ if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
     . /usr/share/doc/fzf/examples/key-bindings.zsh
 fi
 
-source <(kubectl completion zsh)
-complete -F __start_kubectl k
+if [ ! "$(command -v kubectl || true)" = "" ]; then
+    source <(kubectl completion zsh)
+    complete -F __start_kubectl k
+fi
