@@ -51,3 +51,7 @@ esac
 if [ -f "${HOME}/.fzf.bash" ]; then
     . "${HOME}/.fzf.bash"
 fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/shiin/.sdkman"
+[[ -s "/home/shiin/.sdkman/bin/sdkman-init.sh" ]] && source "/home/shiin/.sdkman/bin/sdkman-init.sh"

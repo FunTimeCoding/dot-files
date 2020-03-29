@@ -208,3 +208,6 @@ if [ ! "$(command -v kubectl || true)" = "" ]; then
     source <(kubectl completion zsh)
     complete -F __start_kubectl k
 fi
+
+export SDKMAN_DIR="/home/shiin/.sdkman"
+[[ -s "/home/shiin/.sdkman/bin/sdkman-init.sh" ]] && source "/home/shiin/.sdkman/bin/sdkman-init.sh"
