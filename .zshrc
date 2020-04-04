@@ -186,9 +186,6 @@ case "${TERM}" in
         ;;
 esac
 
-# Must be after DIRCOLORS and LS are sorted out.
-. "${HOME}/.aliases.sh"
-
 # Reapply list colors.
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
@@ -211,3 +208,6 @@ fi
 
 export SDKMAN_DIR="/home/shiin/.sdkman"
 [[ -s "/home/shiin/.sdkman/bin/sdkman-init.sh" ]] && source "/home/shiin/.sdkman/bin/sdkman-init.sh"
+
+# Must be after DIRCOLORS and LS are sorted out. And after kubectl.
+. "${HOME}/.aliases.sh"
