@@ -94,3 +94,7 @@ alias xdoff='phpbrew ext disable xdebug'
 alias k='kubectl'
 
 alias mcc='./mvnw clean install sonar:sonar'
+
+alias dp='docker ps'
+alias dl='docker ps --format "{{.Names}}"'
+alias dpa='docker ps -a'
