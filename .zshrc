@@ -27,7 +27,7 @@ unset PATH
 
 while read -r LINE; do
     if [ -d "${LINE}" ]; then
-        if [ "${PATH}" = "" ]; then
+        if [ "${PATH}" = '' ]; then
             PATH="${LINE}"
         else
             PATH="${LINE}:${PATH}"
@@ -38,10 +38,10 @@ done <<< "${PATHS}"
 MANPATH="${MANPATH}:/usr/local/man"
 SYSTEM=$(uname)
 
-if [ ! "$(command -v python3 || true)" = "" ]; then
+if [ ! "$(command -v python3 || true)" = '' ]; then
     if [ "${SYSTEM}" = Darwin ]; then
         POWERLINE_DIRECTORY=/usr/local/lib/python3.6/site-packages/powerline
-    elif [ ! "$(command -v lsb_release || true)" = "" ]; then
+    elif [ ! "$(command -v lsb_release || true)" = '' ]; then
         CODENAME=$(lsb_release --codename --short)
 
         if [ "${CODENAME}" = stretch ] || [ "${CODENAME}" = buster ]; then
@@ -64,7 +64,7 @@ elif [ -d "${HOME}/.dot-files" ]; then
     autoload -Uz ~/.dot-files/zfunc/*(:t)
 fi
 
-if [ ! "${VTE_VERSION}" = "" ]; then
+if [ ! "${VTE_VERSION}" = '' ]; then
     TERM=xterm-256color
 fi
 
@@ -83,7 +83,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH="${HOME}/.oh-my-zsh"
 
 if [ -d "${ZSH}" ]; then
-    if [ "$(command -v powerline || true)" = "" ]; then
+    if [ "$(command -v powerline || true)" = '' ]; then
         ZSH_THEME=steeef
     fi
 
@@ -119,7 +119,7 @@ GNU_LS_FOUND=false
 if [ "${SYSTEM}" = Darwin ]; then
     DIRCOLORS=gdircolors
 
-    if [ ! "$(command -v gls || true)" = "" ]; then
+    if [ ! "$(command -v gls || true)" = '' ]; then
         LS=gls
         GNU_LS_FOUND=true
     fi
@@ -128,7 +128,7 @@ else
     GNU_LS_FOUND=true
 fi
 
-#if [ ! "$(command -v grc || true)" = "" ]; then
+#if [ ! "$(command -v grc || true)" = '' ]; then
 #    if [ -f /usr/local/etc/grc.bashrc ]; then
 #        . /usr/local/etc/grc.bashrc
 #    fi
@@ -163,7 +163,7 @@ fi
 
 case "${TERM}" in
     xterm* | screen*)
-        if [ ! "$(command -v ${DIRCOLORS} || true)" = "" ]; then
+        if [ ! "$(command -v ${DIRCOLORS} || true)" = '' ]; then
             if [ -d "${HOME}/src/dot-files" ]; then
                 eval $(${DIRCOLORS} "${HOME}/src/dot-files/dircolors")
             elif [ -d "${HOME}/.dot-files" ]; then
@@ -189,7 +189,7 @@ esac
 # Reapply list colors.
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-if [ ! "$(command -v pipenv || true)" = "" ]; then
+if [ ! "$(command -v pipenv || true)" = '' ]; then
     eval "$(pipenv --completion)"
 fi
 
@@ -201,9 +201,13 @@ if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
     . /usr/share/doc/fzf/examples/key-bindings.zsh
 fi
 
-if [ ! "$(command -v kubectl || true)" = "" ]; then
+if [ ! "$(command -v kubectl || true)" = '' ]; then
     source <(kubectl completion zsh)
     complete -F __start_kubectl k
+fi
+
+if [ ! "$(command -v kompose || true)" = '' ]; then
+    source <(kompose completion zsh)
 fi
 
 export SDKMAN_DIR="/home/shiin/.sdkman"
