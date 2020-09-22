@@ -9,7 +9,7 @@ LESSHISTFILE=/dev/null
 MYSQL_HISTFILE=/dev/null
 LD_LIBRARY_PATH="${HOME}/lib"
 PATHS_CONFIG="${HOME}/.paths.sh"
-GOPATH="${HOME}/go"
+export GOPATH="${HOME}/go"
 export ROBO_ROOT="${HOME}/src/robocode"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
@@ -212,6 +212,8 @@ fi
 
 export SDKMAN_DIR="/home/shiin/.sdkman"
 [[ -s "/home/shiin/.sdkman/bin/sdkman-init.sh" ]] && source "/home/shiin/.sdkman/bin/sdkman-init.sh"
+
+export GEM_HOME="${HOME}/.gem"
 
 # Must be after DIRCOLORS and LS are sorted out. And after kubectl.
 . "${HOME}/.aliases.sh"
