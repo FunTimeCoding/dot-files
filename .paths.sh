@@ -10,7 +10,7 @@ PATHS="${HOME}/.gem/bin
 ${HOME}/.local/bin
 ${HOME}/.rvm/bin
 ${HOME}/.cabal/bin
-${HOME}/go/go1.14.2/bin
+${HOME}/go/go1.18.4/bin
 ${HOME}/go/bin
 ${HOME}/.composer/vendor/bin
 ${HOME}/src/dot-files/bin
